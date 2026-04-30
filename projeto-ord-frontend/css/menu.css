@@ -1,0 +1,55 @@
+.menu-lateral {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1vw;
+  padding-left: 1.5vw;
+  background-color: #e56c1b;
+  color: white;
+  gap: 1vw;
+  width: 20vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.menu-lateral > img {
+  width: 10vw;
+}
+
+.menu-lateral a {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+
+.menu-lateral a:hover {
+    color: rgb(205, 200, 200);
+}
+
+.menu-lateral .icone-streak-vida img {
+  border-radius: 100%;
+  width: 8vw;
+}
+
+.menu-lateral nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  padding-left: 0;
+
+}
+.menu-lateral nav ul li {
+  list-style: none;
+  font-family: "Madimi One", sans-serif;
+}
+
+.menu-lateral .inferior-menu {
+    position: absolute;
+    bottom: 4vw;
+}
+
+.menu-lateral .inferior-menu #settings {
+display: flex;
+gap: 0.5vw;
+}
