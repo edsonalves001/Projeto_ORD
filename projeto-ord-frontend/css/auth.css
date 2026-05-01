@@ -1,0 +1,257 @@
+/* ========== BASE (tudo igual nas duas pages) ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e56c1b;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2vw;
+}
+
+a,
+p,
+input {
+  font-size: 1.15rem;
+  font-family: "Mada", sans-serif;
+}
+
+a {
+  color: #00eeff;
+}
+
+header {
+  margin-bottom: 2vw;
+}
+
+body header {
+  padding-block: 0.5vw;
+  padding-inline: 1.5vw;
+  border-bottom: 1vw solid #d45113;
+  margin-bottom: 4vw;
+  background-color: #e98543;
+}
+
+main img {
+  width: 10vw;
+}
+
+/* ========== CARD (unificado pros dois) ========== */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 70%;
+  align-self: center;
+  gap: 8vw;
+  padding-block: 2vw;
+  box-sizing: border-box;
+  background-color: #e98543;
+  border-radius: 20px;
+}
+
+.card img {
+  object-fit: cover;
+  object-position: center;
+  width: 40%;
+  border-radius: 20px;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  color: white;
+}
+
+.card form h1 {
+  font-family: "Madimi One", sans-serif;
+  color: white;
+  font-size: 2.75rem;
+}
+
+.card form input[type="text"] {
+  background-color: #edc8af;
+  border: none;
+  padding: 0.5vw;
+  border-radius: 5px;
+}
+
+.card form input::placeholder {
+  color: white;
+}
+
+.card form input[type="submit"] {
+  background-color: #428bb8;
+  color: white;
+  width: 10vw;
+  padding: 0.5vw;
+  border: none;
+  border-radius: 10px;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.card form input[type="submit"]:hover {
+  background-color: #4eb0ff;
+}
+
+footer {
+  display: none;
+}
+
+/* RESPONSIVIDADE:  (tipo desktop first, pois agora que começo a tratar pra mobile. O contrário seria mobile first*/
+
+/* GOLIAS */
+@media (max-width: 1366px) {
+
+  a,
+  p,
+  input {
+    font-size: 1.45rem;
+  }
+  body header {
+    border-bottom: 2vw solid #d45113;
+  }
+
+  header img {
+    width: 15vw;
+  }
+
+  .card {
+    width: 85%;
+  }
+
+
+}
+
+/* TABLET */
+
+@media (max-width: 1022px) {
+  body header {
+    border-bottom: 2vw solid #d45113;
+  }
+
+  body header img {
+    width: 20vw;
+  }
+
+  main {
+    height: 85vh;
+    justify-content: center;
+  }
+
+  .card {
+    padding-inline: 1.5vw;
+    width: 85%;
+    height: 45vh;
+  }
+
+  .card form h1 {
+    font-size: 1.75rem;
+  }
+
+  a,
+  p,
+  input {
+    font-size: 1.2rem;
+  }
+
+  .card form input[type="submit"] {
+    width: 15vw;
+    height: 5vw;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    padding: 0.5vw;
+    background-color: #d45113;
+    color: white;
+    font-family: "Mada", sans-serif;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+  a,
+  p,
+  input {
+    font-size: 1rem;
+  }
+
+  .card form h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .card {
+    padding-inline: 6vw;
+    width: 95%;
+    height: 46vh;
+  }
+
+  .card form input[type="text"] {
+    padding: 0.75vw;
+    width: 42vw;
+  }
+}
+
+/* CELULAR PEQUENO */
+@media (max-width: 480px) {
+  a,
+  p,
+  input {
+    font-size: 0.8rem;
+  }
+  .card {
+    width: 95%;
+    height: 42vh;
+  }
+
+  .card form {
+    gap: 3vw;
+    align-items: center;
+  }
+
+  .card form h1 {
+    font-size: 1.3rem;
+  }
+
+  .card form input[type="text"] {
+    width: 35vw;
+  }
+
+  .card form input[type="submit"] {
+    width: 20vw;
+    height: 7vw;
+  }
+}
+
+/* MDS....*/
+@media (max-width: 320px) {
+  .card {
+    height: 52vh;
+  }
+
+  .card form h1 {
+    font-size: 0.95rem;
+  }
+
+  .card form input[type="text"] {
+    width: 45vw;
+  }
+
+  a,
+  p,
+  input {
+    font-size: 0.7rem;
+  }
+}
