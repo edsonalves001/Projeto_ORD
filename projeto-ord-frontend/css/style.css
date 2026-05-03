@@ -1,0 +1,298 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: #ffeadc;
+}
+
+header {
+  background-color: #e56c1b;
+  border-bottom: 1vw solid #d45113;
+  padding-block: 0.5vw;
+  padding-inline: 1.5vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: #e56c1b;
+  font-family: "Madimi One", sans-serif;
+  font-size: 3rem;
+}
+
+li,
+p, h3, button {
+  font-size: 1.15rem;
+  font-family: "Mada", sans-serif;
+}
+
+main .hero-section {
+  background-image: url(../assets/background-landing.png);
+  width: 100vw;
+  height: 150vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+main .hero-section .bordao-botoes {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main .hero-section h1 {
+  font-family: "Madimi One", sans-serif;
+  color: white;
+  font-size: 5rem;
+}
+
+main .hero-section .botoes {
+  display: flex;
+  gap: 2vw;
+}
+
+main .hero-section .botoes button {
+  font-size: 2rem;
+  border-radius: 20px;
+  width: 20vw;
+  height: 3vw;
+  font-family: "Madimi One", sans-serif;
+  color: white;
+  box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+main .hero-section .botoes #login {
+  background-color: #327600;
+  border: none;
+}
+
+main .hero-section .botoes #criar {
+  background-color: #e56c1b;
+  border: none;
+}
+
+main .problemas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vw;
+}
+
+main .problemas .card-problema {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+main .problemas .card-problema .problema {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .problemas .card-problema .problema .img-problema {
+  background-color: #d45113;
+  padding: 0.5vw;
+  border-radius: 100%;
+  width: 7vw;
+  height: 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main > .solucao {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 5vw;
+}
+
+main .solucao .listagem-solucoes .solucoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-top: 4vw;
+}
+
+main .solucao .listagem-solucoes .solucoes .solucao-superior {
+  padding: 3vw;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+main .solucao .listagem-solucoes .solucoes .solucao-superior img {
+  width: 4vw;
+}
+
+main .solucao .listagem-solucoes .solucoes .solucao-inferior img {
+  width: 4vw;
+}
+
+main .solucao .listagem-solucoes .solucoes .solucao-inferior {
+  padding: 3vw;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+main .funcionalidades {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .funcionalidades .cards-funcionalidades {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-block: 2vw;
+}
+
+main .funcionalidades .cards-funcionalidades .funcionalidade {
+    background-color: #F5E6D3;
+    border-radius: 5px;
+    padding: 1vw;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .funcionalidades .cards-funcionalidades .funcionalidade img {
+    width: 5vw;
+}
+
+main .planos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 5vw;
+}
+
+main .planos .plano {
+    background-color: #393836;
+    padding: 2vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    box-sizing: border-box;
+}
+
+main .planos .plano .card-plano {
+    background-color: #E56C1B;
+    color: white;
+    width: 20vw;
+    padding: .5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding-block: 1vw;
+}
+
+main .planos .plano .card-plano hr {
+    width: 15vw;
+}
+main .planos .plano .card-plano .beneficio-plano {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+main .planos .plano .card-plano .beneficio-plano img {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+main .planos .plano .card-plano #title{
+font-size: 1.5rem;
+}
+
+main .planos .plano .card-plano #valor {
+    font-size: 3rem;
+    margin: 0;
+}
+
+main .planos .plano .card-plano button {
+    color: #E56C1B;
+    background-color: white;
+    width: 10vw;
+    height: 2vw;
+    border-radius: 15px;
+    border: none;
+}
+
+footer {
+    background-color: #D45113;
+    padding-block: 2vw;
+    padding-inline: 4vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+footer .footer-superior {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+}
+
+footer .footer-superior .superior-esquerdo {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .footer-superior .superior-esquerdo > img {
+    width: 10vw;
+}
+footer .footer-superior .superior-esquerdo .redes-sociais {
+    display: flex;
+    gap: 1vw;
+}
+
+footer .footer-superior .superior-esquerdo .redes-sociais img {
+    width: 2vw;
+    padding: 0.5vw;
+    border: 2px solid white;
+    border-radius: 100%;
+}
+
+footer .footer-superior .superior-direito {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4vw;
+}
+
+footer .footer-superior .superior-direito ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+footer .footer-superior .superior-direito ul #title {
+    font-weight: bolder;
+    font-size: 1.25rem;
+    margin-bottom: 1vw;
+}
+
+footer .footer-inferior {
+    margin-top: 2vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .footer-inferior ul {
+    list-style: none;
+    display: flex;
+    gap: 2vw;
+}
