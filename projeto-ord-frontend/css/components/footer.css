@@ -1,0 +1,9 @@
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 0.5vw;
+  background-color: #D45113;
+  color: white;
+  font-family: "Mada", sans-serif;
+  z-index: 1000;
+}

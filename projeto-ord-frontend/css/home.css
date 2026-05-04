@@ -18,49 +18,4 @@ main {
   padding: 2vw;
 }
 
-main header {
-  position: fixed;
-  left: 25vw;
-  top: 1vw;
-  display: flex;
-  gap: 2vw;
-}
 
-main header .conteudo-pro {
-  font-weight: bolder;
-  padding-inline: 0.35vw;
-  border-radius: 10px;
-  border: 4px solid yellow;
-}
-
-main header .conteudo-pro p {
-  font-size: 1.35rem;
-  font-family: "Madimi One", sans-serif;
-}
-
-main header .score {
-  display: flex;
-  gap: 0.5vw;
-  align-items: center;
-}
-main header .score img {
-  width: 3vw;
-}
-
-main header .score p {
-  font-size: 1.35rem;
-  font-family: "Madimi One", sans-serif;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  padding: 0.5vw;
-  background-color: #D45113;
-  color: white;
-  font-family: "Mada", sans-serif;
-  z-index: 1000;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}

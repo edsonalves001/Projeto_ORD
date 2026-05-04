@@ -28,7 +28,7 @@ p, h3, button {
 
 main .hero-section {
   background-image: url(../assets/background-landing.png);
-  width: 100vw;
+  width: 100%;
   height: 150vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,6 +61,12 @@ main .hero-section .botoes button {
   font-family: "Madimi One", sans-serif;
   color: white;
   box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+main .hero-section .botoes button:hover {
+  transform: scale(1.05);
 }
 
 main .hero-section .botoes #login {
@@ -68,9 +74,17 @@ main .hero-section .botoes #login {
   border: none;
 }
 
+main .hero-section .botoes #login:hover {
+  background-color: #255503;
+}
+
 main .hero-section .botoes #criar {
   background-color: #e56c1b;
   border: none;
+}
+
+main .hero-section .botoes #criar:hover {
+background-color: #f25107;
 }
 
 main .problemas {
@@ -172,7 +186,7 @@ main .planos {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 5vw;
+    margin-bottom: 30vw;
 }
 
 main .planos .plano {
@@ -237,6 +251,19 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 2vw;
+    position: relative;
+    margin-top: 5vw;
+}
+
+footer .footer-wave {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -26vw; /*isso aqui salvou vidas.*/
+}
+
+footer .footer-wave img {
+  width: 100%;
 }
 
 footer .footer-superior {
@@ -263,7 +290,14 @@ footer .footer-superior .superior-esquerdo .redes-sociais img {
     padding: 0.5vw;
     border: 2px solid white;
     border-radius: 100%;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
 }
+
+footer .footer-superior .superior-esquerdo .redes-sociais img:hover {
+  transform: scale(1.1);
+}
+
 
 footer .footer-superior .superior-direito {
     display: grid;
@@ -296,3 +330,5 @@ footer .footer-inferior ul {
     display: flex;
     gap: 2vw;
 }
+
+/* RESPONSIVIDADE: */
