@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+main p {
+  font-family: "Mada", sans-serif;
+}
+
+a,
+p {
+  font-size: 1.15rem;
+}
+
+main {
+  padding: 2vw;
+}
+
+

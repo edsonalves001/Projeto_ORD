@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+  <!-- FONTS: -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
+  <!-- CSS: -->
+  <link rel="stylesheet" href="../css/auth.css" />
+  <title>Projeto ORD - Login</title>
+</head>
+
+<body>
+<header>
+    <a href="/"><img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca." /></a>
+  </header>
+  <main>
+    <!-- lembrem-se que alt deve ser descritivo assim pra leitores de tela de PCDs-->
+    <div class="card">
+      <img src="../assets/login.webp" alt="Imagem de uma raposa na neve observando o ambiente" />
+
+      <form th:action="@{/login}" method="post">
+        <h1>Bem-vindo de volta</h1>
+        <input type="email" name="email" id="email" placeholder="E-mail" th:value="${logadoEmail}" />
+        <input type="password" name="senha" id="senha" placeholder="Senha" th:value="${logadoSenha}"/>
+        <a href="#">Esqueceu a senha?</a>
+        <input type="submit" value="Login" />
+        <p>
+          Não possui uma conta? Crie
+          <a href="cadastro">aqui!</a>
+        </p>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>©2026 Ord - all rights reserved</p>
+  </footer>
+</body>
+
+</html>

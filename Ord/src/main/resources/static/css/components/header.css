@@ -1,0 +1,37 @@
+main header {
+  position: fixed;
+  left: 25vw;
+  top: 1vw;
+  display: flex;
+  gap: 25vw;
+}
+
+main header .conteudo-pro {
+  font-weight: bolder;
+  padding-inline: 0.35vw;
+  border-radius: 10px;
+  border: 4px solid yellow;
+  background-color: white;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+}
+
+main header .conteudo-pro p {
+  font-size: 2rem;
+  font-family: "Madimi One", sans-serif;
+}
+
+main header .score {
+  display: flex;
+  gap: 0.5vw;
+  align-items: center;
+}
+main header .score img {
+  width: 3vw;
+}
+
+main header .score p {
+  font-size: 1.35rem;
+  font-family: "Madimi One", sans-serif;
+}
