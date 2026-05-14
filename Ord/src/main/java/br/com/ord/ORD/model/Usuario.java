@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,7 +22,7 @@ public class Usuario {
     private String caminhoIconPerfil;
     private String caminhoWallpaper;
     private String senha;
-
+    private List<AtividadesUsuario> atividades;
 
 }
 
