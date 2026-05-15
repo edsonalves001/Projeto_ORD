@@ -2,53 +2,146 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
-  <!-- FONTS: -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
-  <!-- CSS: -->
-  <link rel="stylesheet" th:href="@{../css/auth.css}"/>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon"
+        href="../assets/ico/favicon.ico"
+        type="image/x-icon" />
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"
+        rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet"
+        th:href="@{../css/auth.css}" />
+
   <title>Projeto ORD - Cadastro</title>
+
 </head>
 
 <body>
-  <header>
-    <a href="index"><img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca." /></a>
-  </header>
-  <main>
-    <!-- lembrem-se que alt deve ser descritivo assim pra leitores de tela de PCDs-->
-    <div class="card">
-      <img src="../assets/cadastro.webp" alt="Imagem de uma raposa na neve observando o ambiente" />
 
-      <form th:action="@{/cadastro}" method="post">
-        <h1>Seja Bem-vindo!</h1>
-        <h2 th:text="${erro}"></h2>
-        <h2 th:text="${erroEmail}"></h2>
-        <h2 th:text="${erroN}"></h2>
+<header>
 
-        <input type="text" name="nome" id="nome" placeholder="seu nome" />
-        <input type="number" name="idade" placeholder="coloque sua idade">
-        <input type="email" name="email" id="email" placeholder="E-mail" />
-        <input type="password"  name="senha" id="senha" placeholder="Senha" />
-        <input type="password" name="senha2" id="confirmarSenha" placeholder="Confirmar senha">
-        <input type="submit" value="Cadastrar" />
-        <p>
-          Já possui uma conta? Entre
-          <a href="login">aqui!</a>
-        </p>
-      </form>
-    </div>
-  </main>
-  <footer>
-    <p>©2026 Ord - all rights reserved</p>
-  </footer>
+  <a href="index">
+
+    <img src="../assets/Logotipo-Claro.webp"
+         alt="Logo do Ord, versão branca."/>
+
+  </a>
+
+</header>
+
+<main>
+
+  <div class="card">
+
+    <img src="../assets/cadastro.webp"
+         alt="Imagem de uma raposa na neve observando o ambiente"/>
+
+    <!-- FORMULÁRIO -->
+    <form th:action="@{/cadastro}"
+          method="post">
+
+      <h1>Seja Bem-vindo!</h1>
+
+      <!-- MENSAGENS DE ERRO -->
+      <h2 th:text="${erro}"></h2>
+
+      <h2 th:text="${erroEmail}"></h2>
+
+      <h2 th:text="${erroNome}"></h2>
+
+      <h2 th:text="${erroSenha}"></h2>
+
+      <h2 th:text="${erroTamanho}"></h2>
+
+      <h2 th:text="${erroFormato}"></h2>
+
+      <h2 th:text="${erroSenhasDiferentes}"></h2>
+
+      <h2 th:text="${mensagem}"></h2>
+
+      <!-- NOME -->
+      <input type="text"
+             name="nome"
+             id="nome"
+             placeholder="Seu nome"
+             minlength="3"
+             maxlength="40"
+             required />
+
+      <!-- IDADE -->
+      <input type="number"
+             name="idade"
+             id="idade"
+             placeholder="Sua idade"
+             min="14"
+             max="120"
+             required />
+
+      <!-- EMAIL -->
+      <input type="email"
+             name="email"
+             id="email"
+             placeholder="E-mail"
+             autocomplete="email"
+             required />
+
+      <!-- SENHA -->
+      <input type="password"
+             name="senha"
+             id="senha"
+             placeholder="Senha"
+             minlength="8"
+             autocomplete="new-password"
+             required />
+
+      <!-- CONFIRMAR SENHA -->
+      <input type="password"
+             name="senha2"
+             id="confirmarSenha"
+             placeholder="Confirmar senha"
+             minlength="8"
+             autocomplete="new-password"
+             required />
+
+      <!-- BOTÃO -->
+      <input type="submit"
+             value="Cadastrar" />
+
+      <p>
+        Já possui uma conta?
+        <a href="login">Entre aqui!</a>
+      </p>
+
+    </form>
+
+  </div>
+
+</main>
+
+<footer>
+
+  <p>©2026 Ord - all rights reserved</p>
+
+</footer>
+
+
 </body>
-
 </html>

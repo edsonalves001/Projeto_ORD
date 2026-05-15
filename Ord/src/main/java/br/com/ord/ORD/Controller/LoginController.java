@@ -29,7 +29,7 @@ public class LoginController {
                         HttpSession session,
                         RedirectAttributes ra) {
 
-        Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
+        Usuario usuario = usuarioRepository.findByEmail(email);
 
         if (email.isEmpty() || senha.isEmpty()) {
             ra.addFlashAttribute("erro", "Preencha todos os campos");

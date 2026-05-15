@@ -19,6 +19,8 @@ public class Usuario {
     private Integer idade;
     private String caminhoIconPerfil;
     private String caminhoWallpaper;
+    private boolean status_verificado;
+    private String codigoverificado;
     private String senha;
 
 
