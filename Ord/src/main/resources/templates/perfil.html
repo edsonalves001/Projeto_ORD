@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
     <!-- FONTS: -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,67 +14,71 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
     <!-- CSS: -->
-    <link rel="stylesheet" href="../css/perfil.css" />
+    <link rel="stylesheet" th:href="@{/css/perfil.css}" />
     <!--COMPONENTS: -->
-    <link rel="stylesheet" href="../css/components/footer.css" />
-    <link rel="stylesheet" href="../css/components/header.css" />
-    <link rel="stylesheet" href="../css/components/menu.css" />
+    <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
+    <title>Projeto ORD - Perfil</title>
 </head>
 
 <body>
-    <div class="menu-lateral">
-        <a href="index"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
-        <div class="icone-streak-vida">
-            <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
-        </div>
-        <nav>
-            <ul>
-                <a href="home">
-                    <li>Aprender</li>
-                </a>
-                <a href="placar">
-                    <li>Placar</li>
-                </a>
-
-                <a href="perfil">
-                    <li>Perfil</li>
-                </a>
-
-                <a href="missoes">
-                    <li>Missões</li>
-                </a>
-                    <li>Diária</li>
-            </ul>
-            <div class="inferior-menu">
-
-                <ul>
-                    <a href="#">
-                        <li>Ajuda</li>
-                    </a>
-                    <a href="configs" id="settings">
-                        <img src="../assets/ico/settings.svg" alt="ícone de Configurações">
-                        <li>Configurações</li>
-                    </a>
-                </ul>
-            </div>
-        </nav>
+<div class="menu-lateral">
+    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <div class="icone-streak-vida">
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
+    <nav>
+        <ul>
+            <a th:href="@{/home}">
+                <li>Aprender</li>
+            </a>
+            <a th:href="@{/placar}">
+                <li>Placar</li>
+            </a>
+
+            <a th:href="@{/perfil}">
+                <li>Perfil</li>
+            </a>
+
+            <a th:href="@{/missoes}">
+                <li>Missões</li>
+            </a>
+            <li>Diária</li>
+        </ul>
+        <div class="inferior-menu">
+
+            <ul>
+                <a th:href="@{/faq}">
+                    <li>Ajuda</li>
+                </a>
+                <a th:href="@{/configs}" id="settings">
+                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <li>Configurações</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+</div>
 
     <main>
-        <header>
+        <header class="top-header">
             <div class="conteudo-pro">
-                <p>Aprenda mais rapido com o ORD Pro</p>
+                <p>Aprenda mais rápido com o ORD Pro</p>
             </div>
             <div class="score">
+               <!-- <p th:text="${usuarioLogado.pontuacao != null ? usuarioLogado.pontuacao : 120}">120</p>  comentado até arrumarem as collections -->
                 <p>120</p>
-                <img src="../assets/ico/star.svg" alt="Ícone de streak/score">
+                <img th:src="@{/assets/ico/star.svg}" alt="Ícone de streak/score">
             </div>
         </header>
+
     </main>
 
     <footer>
         <p>©2026 Ord - all rights reserved</p>
     </footer>
+
 </body>
 
 </html>

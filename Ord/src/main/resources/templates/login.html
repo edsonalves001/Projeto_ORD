@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
 
 <body>
 <header>
-    <a href="/"><img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca." /></a>
+    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca." /></a>
   </header>
   <main>
     <!-- lembrem-se que alt deve ser descritivo assim pra leitores de tela de PCDs-->

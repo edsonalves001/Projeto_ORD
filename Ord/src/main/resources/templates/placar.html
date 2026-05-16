@@ -26,25 +26,36 @@
 
 <body>
 <div class="menu-lateral">
-    <a th:href="@{/}">
-        <img th:src="@{/assets/Logotipo-Claro.png}" alt="Logotipo claro do site Ord" />
-    </a>
+    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
-        <img th:src="@{/assets/mewing.jpeg}" alt="Imagem de perfil do usuário" />
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
     <nav>
         <ul>
-            <a th:href="@{/home}"><li>Aprender</li></a>
-            <a th:href="@{/placar}"><li>Placar</li></a>
-            <a th:href="@{/perfil}"><li>Perfil</li></a>
-            <a th:href="@{/missoes}"><li>Missões</li></a>
+            <a th:href="@{/home}">
+                <li>Aprender</li>
+            </a>
+            <a th:href="@{/placar}">
+                <li>Placar</li>
+            </a>
+
+            <a th:href="@{/perfil}">
+                <li>Perfil</li>
+            </a>
+
+            <a th:href="@{/missoes}">
+                <li>Missões</li>
+            </a>
             <li>Diária</li>
         </ul>
         <div class="inferior-menu">
+
             <ul>
-                <a th:href="@{/ajuda}"><li>Ajuda</li></a>
-                <a th:href="@{/configuracoes}" id="settings">
-                    <img th:src="@{/assets/ico/settings.png}" alt="">
+                <a th:href="@{/faq}">
+                    <li>Ajuda</li>
+                </a>
+                <a th:href="@{/configs}" id="settings">
+                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
             </ul>

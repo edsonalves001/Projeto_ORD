@@ -40,18 +40,32 @@ main .hero-section {
 
 main .hero-section .bordao-botoes {
   display: flex;
-  align-items: center;
   flex-direction: column;
+}
+
+main .hero-section .bordao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vw
+}
+
+main .hero-section .bordao p {
+  font-family: "Madimi One", sans-serif;
+  font-size: 2rem;
+  color: white;
 }
 
 main .hero-section h1 {
   font-family: "Madimi One", sans-serif;
   color: white;
   font-size: 5rem;
+  margin-bottom: 0;
 }
 
 main .hero-section .botoes {
   display: flex;
+  flex-direction: column;
   gap: 2vw;
 }
 
@@ -89,161 +103,77 @@ main .hero-section .botoes #criar:hover {
   background-color: #f25107;
 }
 
-main .problemas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2vw;
+.motivos-problemas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-main .problemas .card-problema {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+.motivos-problemas .container-problemas {
+    width: 90%;
+    background: linear-gradient(to bottom, white 50%, #242222 50%);
+    height: 85vw;
+    border-radius: 20px;
+    position: relative;
 }
 
-main .problemas .card-problema .problema {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.motivos-problemas .container-problemas .problema .descricao-problema{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
 }
 
-main .problemas .card-problema .problema .img-problema {
-  background-color: #d45113;
-  padding: 0.5vw;
-  border-radius: 100%;
-  width: 7vw;
-  height: 7vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.motivos-problemas .container-problemas .problema .card-foto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding 2vw;
+    border-radius: 20px;
+    width: 34vw;
+    height: 28vw;
+    }
+
+.motivos-problemas .container-problemas .problema .card-foto img {
+    width: 30vw;
 }
 
-main > .solucao {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding-inline: 5vw;
+.motivos-problemas .container-problemas #card-1.problema {
+    position: absolute;
+    top: 1vw;
+    left: -2vw;
+    }
+.motivos-problemas .container-problemas #card-2.problema {
+    position: absolute;
+    top: 22vw;
+    left: 29vw;
 }
 
-main .solucao .listagem-solucoes .solucoes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  margin-top: 4vw;
+.motivos-problemas .container-problemas #card-3.problema {
+    position: absolute;
+    top: 50vw;
+    right: 0;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-superior {
-  padding: 3vw;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.motivos-problemas .container-problemas #card-2.problema .descricao-problema {
+       justify-self: end;
+        margin-right: 1vw;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-superior img {
-  width: 4vw;
+.motivos-problemas .container-problemas #card-3.problema .descricao-problema  {
+    color: white;
+    justify-self: center;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-inferior img {
-  width: 4vw;
+.motivos-problemas .container-problemas #card-1.problema .card-foto {
+    background-color: #29C4C9;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-inferior {
-  padding: 3vw;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.motivos-problemas .container-problemas #card-2.problema .card-foto {
+    background-color: #A32626;
 }
 
-main .funcionalidades {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-main .funcionalidades .cards-funcionalidades {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-block: 2vw;
-}
-
-main .funcionalidades .cards-funcionalidades .funcionalidade {
-  background-color: #f5e6d3;
-  border-radius: 5px;
-  padding: 1vw;
-  width: 10vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-main .funcionalidades .cards-funcionalidades .funcionalidade img {
-  width: 5vw;
-}
-
-main .planos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 30vw;
-}
-
-main .planos .plano {
-  background-color: #393836;
-  padding: 2vw;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 5vw;
-  box-sizing: border-box;
-}
-
-main .planos .plano .card-plano {
-  background-color: #e56c1b;
-  color: white;
-  width: 20vw;
-  padding: 0.5vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  padding-block: 1vw;
-}
-
-main .planos .plano .card-plano hr {
-  width: 15vw;
-}
-main .planos .plano .card-plano .beneficio-plano {
-  display: flex;
-  gap: 1vw;
-  align-items: center;
-}
-
-main .planos .plano .card-plano .beneficio-plano img {
-  width: 1.5vw;
-  height: 1.5vw;
-}
-
-main .planos .plano .card-plano #title {
-  font-size: 1.5rem;
-}
-
-main .planos .plano .card-plano #valor {
-  font-size: 3rem;
-  margin: 0;
-}
-
-main .planos .plano .card-plano button {
-  color: #e56c1b;
-  background-color: white;
-  width: 10vw;
-  height: 2vw;
-  border-radius: 15px;
-  border: none;
-  cursor: pointer;
+.motivos-problemas .container-problemas #card-3.problema .card-foto {
+    background-color: #D7D744;
 }
 
 footer {
@@ -255,7 +185,7 @@ footer {
   flex-direction: column;
   gap: 2vw;
   position: relative;
-  margin-top: 5vw;
+  margin-top: 35vw;
 }
 
 footer .footer-wave {
@@ -337,40 +267,7 @@ footer .footer-inferior ul {
 
 /* GOLIAS */
 @media (max-width: 1366px) {
-  main .hero-section h1 {
-    font-size: 4rem;
-  }
 
-  main .hero-section .botoes button {
-    width: 27vw;
-    height: 5vw;
-  }
-
-  main .problemas .card-problema .problema .img-problema img {
-    width: 6vw;
-  }
-
-  main .funcionalidades > p {
-    width: 90%;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade {
-    width: 14vw;
-  }
-
-  main .planos .plano .card-plano {
-    width: 30vw;
-  }
-
-  main .planos .plano .card-plano .beneficio-plano img {
-    width: 2.5vw;
-    height: 2.5vw;
-  }
-
-  main .planos .plano .card-plano button {
-    width: 12vw;
-    height: 4vw;
-  }
 }
 
 /* TABLET GRANDE */
@@ -382,126 +279,12 @@ footer .footer-inferior ul {
 
 /* TABLET */
 @media (max-width: 1024px) {
-  main .hero-section {
-    background-size: contain;
-    height: 58vh;
-  }
 
-  main .hero-section h1 {
-    font-size: 3.5rem;
-  }
-
-  main .hero-section .botoes button {
-    width: 40vw;
-    height: 7vw;
-  }
-
-  main .problemas .card-problema .problema .img-problema {
-    width: 10vw;
-    height: 10vw;
-  }
-
-  main .problemas .card-problema .problema .img-problema img {
-    width: 7vw;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade {
-    width: 18vw;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade img {
-    width: 7vw;
-  }
-
-  main .planos .plano {
-    align-items: center;
-  }
-
-  main .planos .plano > img {
-    width: 40vw;
-    height: 40vw;
-  }
-
-  main .planos .plano .card-plano {
-    width: 35vw;
-  }
-
-  footer .footer-superior .superior-esquerdo > img {
-    width: 14vw;
-  }
-
-  footer .footer-superior .superior-esquerdo .redes-sociais img {
-    width: 3vw;
-  }
-
-  main .planos .plano .card-plano button {
-    width: 16vw;
-    height: 5vw;
-  }
-
-  footer .footer-superior .superior-direito {
-    gap: 3vw;
-  }
-
-  footer .footer-superior .superior-direito ul {
-    width: 15vw;
-  }
 }
 
 /* CELULAR GRANDE */
 @media (max-width: 768px) {
-  h2 {
-    font-size: 2.5rem;
-  }
 
-  main .hero-section h1 {
-    font-size: 3rem;
-  }
-
-  main .hero-section .botoes button {
-    font-size: 1.75rem;
-  }
-
-  main .problemas .card-problema {
-    flex-direction: column;
-  }
-
-  main .problemas .card-problema .problema .img-problema {
-    width: 12vw;
-    height: 12vw;
-  }
-
-  main .solucao .listagem-solucoes .solucoes .solucao-superior img {
-    width: 6vw;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade {
-    height: 15vw;
-    justify-content: center;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade p {
-    margin-top: 0;
-  }
-
-  main .planos .plano .card-plano {
-    width: 40vw;
-    padding-block: 2vw;
-  }
-
-  main .planos .plano .card-plano hr {
-    width: 30vw;
-  }
-
-  main .planos .plano .card-plano .beneficio-plano img {
-    width: 3.5vw;
-    height: 3.5vw;
-  }
-
-  main .planos .plano .card-plano button {
-    width: 21vw;
-    height: 6vw;
-  }
 }
 
 /* CELULAR MÉDIO */
