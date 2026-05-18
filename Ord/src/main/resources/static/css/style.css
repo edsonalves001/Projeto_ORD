@@ -3,6 +3,9 @@ body {
   padding: 0;
   margin: 0;
   background-color: #ffeadc;
+  position: relative;
+  height: 100%;
+  overflow-x: hidden; /* impede barra lateral do carrossel*/
 }
 
 header {
@@ -28,8 +31,10 @@ button {
   font-family: "Mada", sans-serif;
 }
 
+/* Primeira sessão */
+
 main .hero-section {
-  background-image: url(../assets/background-landing.webp);
+  background-image: url('../assets/background-landing.webp');
   width: 100%;
   height: 150vh;
   background-repeat: no-repeat;
@@ -103,6 +108,8 @@ main .hero-section .botoes #criar:hover {
   background-color: #f25107;
 }
 
+/*Segunda sessão*/
+
 .motivos-problemas {
     display: flex;
     flex-direction: column;
@@ -110,9 +117,9 @@ main .hero-section .botoes #criar:hover {
 }
 
 .motivos-problemas .container-problemas {
-    width: 90%;
+    width: 75%;
     background: linear-gradient(to bottom, white 50%, #242222 50%);
-    height: 85vw;
+    height: 45vw;
     border-radius: 20px;
     position: relative;
 }
@@ -121,6 +128,16 @@ main .hero-section .botoes #criar:hover {
     display: flex;
     align-items: center;
     gap: 1vw;
+    margin-bottom: 1vw;
+}
+
+.motivos-problemas .container-problemas .problema .descricao-problema p {
+    font-size: 1.25rem;
+    color: black;
+}
+
+.motivos-problemas .container-problemas .problema .descricao-problema > img {
+    width: 2vw;
 }
 
 .motivos-problemas .container-problemas .problema .card-foto{
@@ -129,29 +146,30 @@ main .hero-section .botoes #criar:hover {
     justify-content: center;
     padding 2vw;
     border-radius: 20px;
-    width: 34vw;
-    height: 28vw;
+    width: 27vw;
+    height: 25vw;
     }
 
 .motivos-problemas .container-problemas .problema .card-foto img {
-    width: 30vw;
+    width: 20vw;
 }
 
 .motivos-problemas .container-problemas #card-1.problema {
     position: absolute;
-    top: 1vw;
+    top: -5vw;
     left: -2vw;
     }
 .motivos-problemas .container-problemas #card-2.problema {
     position: absolute;
-    top: 22vw;
-    left: 29vw;
+    top: 10vw;
+    left: 22vw;
+    z-index: 1000;
 }
 
 .motivos-problemas .container-problemas #card-3.problema {
     position: absolute;
-    top: 50vw;
-    right: 0;
+    top: 20vw;
+    right: -1vw;
 }
 
 .motivos-problemas .container-problemas #card-2.problema .descricao-problema {
@@ -175,6 +193,268 @@ main .hero-section .botoes #criar:hover {
 .motivos-problemas .container-problemas #card-3.problema .card-foto {
     background-color: #D7D744;
 }
+
+/*Terceira sessão*/
+
+.carrossel-solucao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 3vw;
+    gap: 2vw;
+    }
+
+.carrossel-solucao .carrossel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+}
+
+.carrossel-solucao .carrossel .swiper {
+    width: 35vw;
+    height: 40vw;
+    border-radius: 20px
+}
+
+.swiper.swiper-cards {
+    overflow: hidden;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-family: "Mada", sans-serif;
+    background-color: #F5E6D3;
+    text-align: justify;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide p {
+    width: 80%;
+    font-size: 1.3rem;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel {
+    width: 2vw;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-2 {
+    align-self: start;
+    margin-left: 4vw
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-3 {
+    align-self: start;
+    margin-left: 4vw;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel{
+    width: 15vw;
+}
+
+
+/*Quarta sessão*/
+
+main .funcionalidades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 4vw;
+    gap: 2vw;
+    width: 100%;
+}
+
+main .funcionalidades .streak{
+    background-image: url('../assets/streakSectionBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 65vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 4vw;
+}
+
+main .funcionalidades .streak .info-streak, .funcionalidades .topicos .info-topicos, main .funcionalidades .competicoes
+.info-competicoes, main .funcionalidades .customizacao .info-customizacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    }
+
+main .funcionalidades .streak .info-streak p, main .funcionalidades .streak .info-streak h3, .funcionalidades .topicos .info-topicos p,
+.funcionalidades .topicos .info-topicos h3, main .funcionalidades .competicoes .info-competicoes h3, main .funcionalidades
+.competicoes .info-competicoes p, {
+    font-family: "Madimi One", sans-serif;
+ }
+
+main .funcionalidades .topicos {
+    background-image: url('../assets/topicosSectionBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 90vw;
+    justify-content: center;
+    align-items: end;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10vw;
+}
+
+.funcionalidades .streak .info-streak h3, .funcionalidades .topicos .info-topicos h3, main .funcionalidades .competicoes .info-competicoes h3,
+main .funcionalidades .customizacao .info-customizacao h3{
+    font-size: 2.5rem;
+}
+
+.funcionalidades .streak .info-streak p, .funcionalidades .topicos .info-topicos p, main .funcionalidades .competicoes .info-competicoes p, main
+.funcionalidades .customizacao .info-customizacao p{
+    font-size: 1.5rem
+}
+
+main .funcionalidades .streak .info-streak img{
+    width: 5vw;
+}
+
+.funcionalidades .topicos .info-topicos img {
+    width: 3vw;
+    }
+
+
+main .funcionalidades .competicoes {
+        background-image: url('../assets/competicoesSectionBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 65vw;
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 10vw;
+}
+
+main .funcionalidades .competicoes .info-competicoes h3, main .funcionalidades .customizacao .info-customizacao h3 {
+    width: 70%;
+    text-align: center;
+    }
+
+main .funcionalidades .customizacao {
+        background-image: url('../assets/customizacaoSectionBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 75vw;
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 16vw;
+}
+
+/*Quinta sessão*/
+
+main .planos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+main .planos  h2 {
+    margin: 0;
+}
+
+main .planos .background-plano {
+        background-image: url('../assets/planoSectionBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 78vw;
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 15vw;
+        gap: 5vw;
+}
+
+main .planos .background-plano > img {
+    width: 20vw;
+}
+
+main .planos .background-plano .card-plano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: .5vw;
+    border-radius: 20px;
+    background-color: #E56C1B;
+    color: white;
+    width: 20vw;
+    padding-block: 2vw;
+}
+
+main .planos .background-plano .card-plano hr {
+    width: 15vw;
+    margin-block: .5vw;
+}
+
+main .planos .background-plano .card-plano ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+    width: 80%
+}
+
+main .planos .background-plano .card-plano ul li {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+main .planos .background-plano .card-plano ul li img {
+    width: 2vw
+}
+
+main .planos .background-plano .card-plano #valor {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+main .planos .background-plano .card-plano button {
+    background-color: white;
+    color: #E56C1B;
+    border-radius: 25px;
+    width: 10vw;
+    padding-block: .5vw;
+    border: none;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main .planos .background-plano .card-plano button:hover {
+    color: white;
+    background-color: #D45113;
+}
+
+/* footer */
 
 footer {
   background-color: #d45113;
