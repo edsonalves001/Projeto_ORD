@@ -1,5 +1,9 @@
 <!doctype html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc7941fd091cc74bc463c2b0098e0188119e28db
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,6 +18,7 @@
 
 <body>
 <header>
+<<<<<<< HEAD
   <a th:href="@{/}">
     <img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca."/>
   </a>
@@ -28,6 +33,14 @@
       <button type="button" onclick="mostrarSenha()">Ver senha</button>
       <a th:href="@{/esqueci-senha}">Esqueceu a senha?</a>
       <input type="submit" value="Login"/>
+=======
+    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca." /></a>
+  </header>
+  <main>
+    <!-- lembrem-se que alt deve ser descritivo assim pra leitores de tela de PCDs-->
+    <div class="card">
+      <img src="../assets/login.webp" alt="Imagem de uma raposa na neve observando o ambiente" />
+>>>>>>> dc7941fd091cc74bc463c2b0098e0188119e28db
 
       <div th:if="${erros}">
         <ul>
