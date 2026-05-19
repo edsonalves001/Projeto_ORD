@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<body>
+<h1>Recuperar senha</h1>
+<form th:action="@{/esqueci-senha}" method="post">
+    <input type="email" name="email" placeholder="Digite seu email">
+    <button type="submit">Enviar</button>
+</form>
+<div th:if="${erro}"><p th:text="${erro}"></p></div>
+</body>
+</html>

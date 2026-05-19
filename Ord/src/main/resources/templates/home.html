@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -14,53 +14,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
     <!-- CSS: -->
-    <link rel="stylesheet" th:href="@{../css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
     <!--COMPONENTS: -->
-    <link rel="stylesheet" href="../css/components/footer.css" />
-    <link rel="stylesheet" th:href="@{../css/components/header.css}" />
-    <link rel="stylesheet" th:href="@{../css/components/menu.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
 
     <title>Projeto ORD - Home</title>
 </head>
 
 <body>
-    <div class="menu-lateral">
-        <a href="../index.html"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
-        <div class="icone-streak-vida">
-            <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
-        </div>
-        <nav>
-            <ul>
-                <a href="home">
-                    <li>Aprender</li>
-                </a>
-                <a href="placar">
-                    <li>Placar</li>
-                </a>
-
-                <a href="perfil">
-                    <li>Perfil</li>
-                </a>
-
-                <a href="missoes">
-                    <li>Missões</li>
-                </a>
-                    <li>Diária</li>
-            </ul>
-            <div class="inferior-menu">
-
-                <ul>
-                    <a href="#">
-                        <li>Ajuda</li>
-                    </a>
-                    <a href="configs" id="settings">
-                        <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
-                        <li>Configurações</li>
-                    </a>
-                </ul>
-            </div>
-        </nav>
+<div class="menu-lateral">
+    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <div class="icone-streak-vida">
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
+    <nav>
+        <ul>
+            <a th:href="@{/home}">
+                <li>Aprender</li>
+            </a>
+            <a th:href="@{/placar}">
+                <li>Placar</li>
+            </a>
+
+            <a th:href="@{/perfil}">
+                <li>Perfil</li>
+            </a>
+
+            <a th:href="@{/missoes}">
+                <li>Missões</li>
+            </a>
+            <li>Diária</li>
+        </ul>
+        <div class="inferior-menu">
+
+            <ul>
+                <a th:href="@{/faq}">
+                    <li>Ajuda</li>
+                </a>
+                <a th:href="@{/configs}" id="settings">
+                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <li>Configurações</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+</div>
 
     <main>
         <header>

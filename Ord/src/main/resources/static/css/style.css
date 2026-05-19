@@ -3,6 +3,9 @@ body {
   padding: 0;
   margin: 0;
   background-color: #ffeadc;
+  position: relative;
+  height: 100%;
+  overflow-x: hidden; /* impede barra lateral do carrossel*/
 }
 
 header {
@@ -28,8 +31,10 @@ button {
   font-family: "Mada", sans-serif;
 }
 
+/* Primeira sessão */
+
 main .hero-section {
-  background-image: url(../assets/background-landing.webp);
+  background-image: url('../assets/background-landing.webp');
   width: 100%;
   height: 150vh;
   background-repeat: no-repeat;
@@ -40,18 +45,32 @@ main .hero-section {
 
 main .hero-section .bordao-botoes {
   display: flex;
-  align-items: center;
   flex-direction: column;
+}
+
+main .hero-section .bordao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vw
+}
+
+main .hero-section .bordao p {
+  font-family: "Madimi One", sans-serif;
+  font-size: 2rem;
+  color: white;
 }
 
 main .hero-section h1 {
   font-family: "Madimi One", sans-serif;
   color: white;
   font-size: 5rem;
+  margin-bottom: 0;
 }
 
 main .hero-section .botoes {
   display: flex;
+  flex-direction: column;
   gap: 2vw;
 }
 
@@ -89,162 +108,353 @@ main .hero-section .botoes #criar:hover {
   background-color: #f25107;
 }
 
-main .problemas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2vw;
+/*Segunda sessão*/
+
+.motivos-problemas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-main .problemas .card-problema {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+.motivos-problemas .container-problemas {
+    width: 75%;
+    background: linear-gradient(to bottom, white 50%, #242222 50%);
+    height: 45vw;
+    border-radius: 20px;
+    position: relative;
 }
 
-main .problemas .card-problema .problema {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.motivos-problemas .container-problemas .problema .descricao-problema{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-bottom: 1vw;
 }
 
-main .problemas .card-problema .problema .img-problema {
-  background-color: #d45113;
-  padding: 0.5vw;
-  border-radius: 100%;
-  width: 7vw;
-  height: 7vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.motivos-problemas .container-problemas .problema .descricao-problema p {
+    font-size: 1.25rem;
+    color: black;
 }
 
-main > .solucao {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding-inline: 5vw;
+.motivos-problemas .container-problemas .problema .descricao-problema > img {
+    width: 2vw;
 }
 
-main .solucao .listagem-solucoes .solucoes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  margin-top: 4vw;
+.motivos-problemas .container-problemas .problema .card-foto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding 2vw;
+    border-radius: 20px;
+    width: 27vw;
+    height: 25vw;
+    }
+
+.motivos-problemas .container-problemas .problema .card-foto img {
+    width: 20vw;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-superior {
-  padding: 3vw;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.motivos-problemas .container-problemas #card-1.problema {
+    position: absolute;
+    top: -5vw;
+    left: -2vw;
+    }
+.motivos-problemas .container-problemas #card-2.problema {
+    position: absolute;
+    top: 10vw;
+    left: 22vw;
+    z-index: 1000;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-superior img {
-  width: 4vw;
+.motivos-problemas .container-problemas #card-3.problema {
+    position: absolute;
+    top: 20vw;
+    right: -1vw;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-inferior img {
-  width: 4vw;
+.motivos-problemas .container-problemas #card-2.problema .descricao-problema {
+       justify-self: end;
+        margin-right: 1vw;
 }
 
-main .solucao .listagem-solucoes .solucoes .solucao-inferior {
-  padding: 3vw;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.motivos-problemas .container-problemas #card-3.problema .descricao-problema  {
+    color: white;
+    justify-self: center;
 }
+
+.motivos-problemas .container-problemas #card-1.problema .card-foto {
+    background-color: #29C4C9;
+}
+
+.motivos-problemas .container-problemas #card-2.problema .card-foto {
+    background-color: #A32626;
+}
+
+.motivos-problemas .container-problemas #card-3.problema .card-foto {
+    background-color: #D7D744;
+}
+
+/*Terceira sessão*/
+
+.carrossel-solucao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 3vw;
+    gap: 2vw;
+    }
+
+.carrossel-solucao .carrossel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+}
+
+.carrossel-solucao .carrossel .swiper {
+    width: 35vw;
+    height: 40vw;
+    border-radius: 20px
+}
+
+.swiper.swiper-cards {
+    overflow: hidden;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-family: "Mada", sans-serif;
+    background-color: #F5E6D3;
+    text-align: justify;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide p {
+    width: 80%;
+    font-size: 1.3rem;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel {
+    width: 2vw;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-2 {
+    align-self: start;
+    margin-left: 4vw
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-3 {
+    align-self: start;
+    margin-left: 4vw;
+}
+
+.carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel{
+    width: 15vw;
+}
+
+
+/*Quarta sessão*/
 
 main .funcionalidades {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 4vw;
+    gap: 2vw;
+    width: 100%;
 }
 
-main .funcionalidades .cards-funcionalidades {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-block: 2vw;
+main .funcionalidades .streak{
+    background-image: url('../assets/streakSectionBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 65vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 4vw;
 }
 
-main .funcionalidades .cards-funcionalidades .funcionalidade {
-  background-color: #f5e6d3;
-  border-radius: 5px;
-  padding: 1vw;
-  width: 10vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+main .funcionalidades .streak .info-streak, .funcionalidades .topicos .info-topicos, main .funcionalidades .competicoes
+.info-competicoes, main .funcionalidades .customizacao .info-customizacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    }
+
+main .funcionalidades .streak .info-streak p, main .funcionalidades .streak .info-streak h3, .funcionalidades .topicos .info-topicos p,
+.funcionalidades .topicos .info-topicos h3, main .funcionalidades .competicoes .info-competicoes h3, main .funcionalidades
+.competicoes .info-competicoes p, {
+    font-family: "Madimi One", sans-serif;
+ }
+
+main .funcionalidades .topicos {
+    background-image: url('../assets/topicosSectionBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 90vw;
+    justify-content: center;
+    align-items: end;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10vw;
 }
 
-main .funcionalidades .cards-funcionalidades .funcionalidade img {
-  width: 5vw;
+.funcionalidades .streak .info-streak h3, .funcionalidades .topicos .info-topicos h3, main .funcionalidades .competicoes .info-competicoes h3,
+main .funcionalidades .customizacao .info-customizacao h3{
+    font-size: 2.5rem;
 }
+
+.funcionalidades .streak .info-streak p, .funcionalidades .topicos .info-topicos p, main .funcionalidades .competicoes .info-competicoes p, main
+.funcionalidades .customizacao .info-customizacao p{
+    font-size: 1.5rem
+}
+
+main .funcionalidades .streak .info-streak img{
+    width: 5vw;
+}
+
+.funcionalidades .topicos .info-topicos img {
+    width: 3vw;
+    }
+
+
+main .funcionalidades .competicoes {
+        background-image: url('../assets/competicoesSectionBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 65vw;
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 10vw;
+}
+
+main .funcionalidades .competicoes .info-competicoes h3, main .funcionalidades .customizacao .info-customizacao h3 {
+    width: 70%;
+    text-align: center;
+    }
+
+main .funcionalidades .customizacao {
+        background-image: url('../assets/customizacaoSectionBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 75vw;
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 16vw;
+}
+
+/*Quinta sessão*/
 
 main .planos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+main .planos  h2 {
+    margin: 0;
 }
 
-main .planos .plano {
-  background-color: #393836;
-  padding: 2vw;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 5vw;
-  box-sizing: border-box;
+main .planos .background-plano {
+        background-image: url('../assets/planoSectionBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 78vw;
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 15vw;
+        gap: 5vw;
 }
 
-main .planos .plano .card-plano {
-  background-color: #e56c1b;
-  color: white;
-  width: 20vw;
-  padding: 0.5vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  padding-block: 1vw;
+main .planos .background-plano > img {
+    width: 20vw;
 }
 
-main .planos .plano .card-plano hr {
-  width: 15vw;
-}
-main .planos .plano .card-plano .beneficio-plano {
-  display: flex;
-  gap: 1vw;
-  align-items: center;
-}
-
-main .planos .plano .card-plano .beneficio-plano img {
-  width: 1.5vw;
-  height: 1.5vw;
+main .planos .background-plano .card-plano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: .5vw;
+    border-radius: 20px;
+    background-color: #E56C1B;
+    color: white;
+    width: 20vw;
+    padding-block: 2vw;
 }
 
-main .planos .plano .card-plano #title {
-  font-size: 1.5rem;
+main .planos .background-plano .card-plano hr {
+    width: 15vw;
+    margin-block: .5vw;
 }
 
-main .planos .plano .card-plano #valor {
-  font-size: 3rem;
-  margin: 0;
+main .planos .background-plano .card-plano ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+    width: 80%
 }
 
-main .planos .plano .card-plano button {
-  color: #e56c1b;
-  background-color: white;
-  width: 10vw;
-  height: 2vw;
-  border-radius: 15px;
-  border: none;
-  cursor: pointer;
+main .planos .background-plano .card-plano ul li {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
 }
+
+main .planos .background-plano .card-plano ul li img {
+    width: 2vw
+}
+
+main .planos .background-plano .card-plano #valor {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+main .planos .background-plano .card-plano button {
+    background-color: white;
+    color: #E56C1B;
+    border-radius: 25px;
+    width: 10vw;
+    padding-block: .5vw;
+    border: none;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main .planos .background-plano .card-plano button:hover {
+    color: white;
+    background-color: #D45113;
+}
+
+/* footer */
 
 footer {
   background-color: #d45113;
@@ -255,7 +465,7 @@ footer {
   flex-direction: column;
   gap: 2vw;
   position: relative;
-  margin-top: 5vw;
+  margin-top: 35vw;
 }
 
 footer .footer-wave {
@@ -337,40 +547,7 @@ footer .footer-inferior ul {
 
 /* GOLIAS */
 @media (max-width: 1366px) {
-  main .hero-section h1 {
-    font-size: 4rem;
-  }
 
-  main .hero-section .botoes button {
-    width: 27vw;
-    height: 5vw;
-  }
-
-  main .problemas .card-problema .problema .img-problema img {
-    width: 6vw;
-  }
-
-  main .funcionalidades > p {
-    width: 90%;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade {
-    width: 14vw;
-  }
-
-  main .planos .plano .card-plano {
-    width: 30vw;
-  }
-
-  main .planos .plano .card-plano .beneficio-plano img {
-    width: 2.5vw;
-    height: 2.5vw;
-  }
-
-  main .planos .plano .card-plano button {
-    width: 12vw;
-    height: 4vw;
-  }
 }
 
 /* TABLET GRANDE */
@@ -382,126 +559,12 @@ footer .footer-inferior ul {
 
 /* TABLET */
 @media (max-width: 1024px) {
-  main .hero-section {
-    background-size: contain;
-    height: 58vh;
-  }
 
-  main .hero-section h1 {
-    font-size: 3.5rem;
-  }
-
-  main .hero-section .botoes button {
-    width: 40vw;
-    height: 7vw;
-  }
-
-  main .problemas .card-problema .problema .img-problema {
-    width: 10vw;
-    height: 10vw;
-  }
-
-  main .problemas .card-problema .problema .img-problema img {
-    width: 7vw;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade {
-    width: 18vw;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade img {
-    width: 7vw;
-  }
-
-  main .planos .plano {
-    align-items: center;
-  }
-
-  main .planos .plano > img {
-    width: 40vw;
-    height: 40vw;
-  }
-
-  main .planos .plano .card-plano {
-    width: 35vw;
-  }
-
-  footer .footer-superior .superior-esquerdo > img {
-    width: 14vw;
-  }
-
-  footer .footer-superior .superior-esquerdo .redes-sociais img {
-    width: 3vw;
-  }
-
-  main .planos .plano .card-plano button {
-    width: 16vw;
-    height: 5vw;
-  }
-
-  footer .footer-superior .superior-direito {
-    gap: 3vw;
-  }
-
-  footer .footer-superior .superior-direito ul {
-    width: 15vw;
-  }
 }
 
 /* CELULAR GRANDE */
 @media (max-width: 768px) {
-  h2 {
-    font-size: 2.5rem;
-  }
 
-  main .hero-section h1 {
-    font-size: 3rem;
-  }
-
-  main .hero-section .botoes button {
-    font-size: 1.75rem;
-  }
-
-  main .problemas .card-problema {
-    flex-direction: column;
-  }
-
-  main .problemas .card-problema .problema .img-problema {
-    width: 12vw;
-    height: 12vw;
-  }
-
-  main .solucao .listagem-solucoes .solucoes .solucao-superior img {
-    width: 6vw;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade {
-    height: 15vw;
-    justify-content: center;
-  }
-
-  main .funcionalidades .cards-funcionalidades .funcionalidade p {
-    margin-top: 0;
-  }
-
-  main .planos .plano .card-plano {
-    width: 40vw;
-    padding-block: 2vw;
-  }
-
-  main .planos .plano .card-plano hr {
-    width: 30vw;
-  }
-
-  main .planos .plano .card-plano .beneficio-plano img {
-    width: 3.5vw;
-    height: 3.5vw;
-  }
-
-  main .planos .plano .card-plano button {
-    width: 21vw;
-    height: 6vw;
-  }
 }
 
 /* CELULAR MÉDIO */

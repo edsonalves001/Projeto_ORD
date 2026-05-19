@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+    <!-- FONTS: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
+    <!-- CSS: -->
+    <link rel="stylesheet" th:href="@{/css/faq.css}" />
+    <!--COMPONENTS: -->
+    <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
+    <title>Projeto Ord - FAQ</title>
+</head>
+<body>
+<div class="menu-lateral">
+    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <div class="icone-streak-vida">
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
+    </div>
+    <nav>
+        <ul>
+            <a th:href="@{/home}">
+                <li>Aprender</li>
+            </a>
+            <a th:href="@{/placar}">
+                <li>Placar</li>
+            </a>
+
+            <a th:href="@{/perfil}">
+                <li>Perfil</li>
+            </a>
+
+            <a th:href="@{/missoes}">
+                <li>Missões</li>
+            </a>
+            <li>Diária</li>
+        </ul>
+        <div class="inferior-menu">
+
+            <ul>
+                <a th:href="@{/faq}">
+                    <li>Ajuda</li>
+                </a>
+                <a th:href="@{/configs}" id="settings">
+                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <li>Configurações</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+    <main>
+        <header>
+            <div class="conteudo-pro">
+                <p>Aprenda mais rapido com o ORD Pro</p>
+            </div>
+            <div class="score">
+                <p>120</p>
+                <img src="../assets/ico/star.svg" alt="Ícone de estrela/score">
+            </div>
+        </header>
+
+        <section class="faq_section">
+            <nav>
+                <ul>
+                    <a href="#score">Score</a>
+                    <a href="#missao">Missão</a>
+                    <a href="#cosmeticos">Cosméticos</a>
+                    <a href="#loja">Loja</a>
+                    <a href="#home">Home</a>
+                </ul>
+            </nav>
+
+            <img th:src="@{/assets/faq.webp}" alt="Imagem da raposa Ordo anontando em uma plaqueta">
+
+            <div id="score">
+                <h1>Score</h1>
+                <div class="container">
+                    <p>O sistema de mérito do ord representa sua pontuação e progresso no aprendizado, representado pela estrela esses pontos podem ser obtidos concluindo atividades e realizando missões, tambem podem ser utilizados para desbloquear cosmeticos</p>
+                    <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+                </div>
+            </div>
+
+            <div id="missao">
+                <h1>Missões</h1>
+                <p>Quando fazendo atividades procuramos incentivar progresso com missões e recompensas, as missões variam de concluir atividades, passar tempo no site, manter streak.</p>
+                <div class="sub-missao"> <!-- ahhaahhahaahahah -->
+                    <img th:src="@{/assets/missoes-faq.webp}" alt="print da tela de missões demonstrando" id="missao-faq">
+                    <p>O usuário pode manter supervizão de suas missões pela tela missões qual mostra as 3 diárias e outras </p>
+                    <p>Concluir as 3 atividades diárias garante um prêmio de um báu com pontuação.</p>
+                    <img th:src="@{/assets/bau-faq.webp}" alt="Bau de recompensas de missão" id="bau-faq">
+                </div>
+            </div>
+
+            <div id="cosmeticos">
+                <h1>Cosméticos</h1>
+                <p>O seu <a href="#score">score</a> é um simbolo do seu progresso e incentivando seu desenvolvimento, ganhar ele desbloquea cosméticos e customizações como o perfil e wallpaper da home.</p>
+                <p>Pelo menu lateral o usuário pode acessar a página da a parte dos cosméticos.</p>
+            </div>
+
+            <div id="loja">
+                <h1>Loja</h1>
+                <p>Pelo menu lateral o usuário pode acessar a página da loja</p>
+                <div class="sub-loja">
+                    <img th:src="@{/assets/loja-faq.webp}" alt="Print da tela de loja de cosméticos">
+                    <p>na loja os cosméticos são divididos por abas e seu <a href="#score">score</a> desbloquea automaticamente cosméticos, aperte o cosmético desejado para equipa-lo.</p>
+                </div>
+            </div>
+
+            <div id="home">
+                <h1>Home</h1>
+                <p>Na página inicial home o usuário tem acesso a todos os tópicos selecionados do seu plano de ensino pelo monitor em miniatura, ao selecionar um tópico por pressiona-lo, os niveis daquele tópico serão acessiveis pelo monitor, selecione o nivel e a atividade para começar a atividade.  </p>
+            </div>
+        </section>
+
+
+        
+    </main>
+    <footer>
+        <p>©2026 Ord - all rights reserved</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<div th:if="${sucesso}">
+    <script>alert("Senha alterada com sucesso.");</script>
+</div>
+<body>
+<h1>Nova senha</h1>
+<form th:action="@{/nova-senha}" method="post">
+    <input type="hidden" name="token" th:value="${token}">
+    <input type="password" name="senha" id="senha" placeholder="Nova senha">
+    <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha">
+    <button type="button" onclick="mostrarSenha()">Ver senha</button>
+    <button type="submit">Alterar senha</button>
+</form>
+<div th:if="${erros}">
+    <ul>
+        <li th:each="erro : ${erros}" th:text="${erro}"></li>
+    </ul>
+</div>
+<script>
+    function mostrarSenha(){
+        const senha = document.getElementById("senha");
+        const senha2 = document.getElementById("senha2");
+        if(senha.type === "password"){
+            senha.type = "text";
+            senha2.type = "text";
+        }else{
+            senha.type = "password";
+            senha2.type = "password";
+        }
+    }
+</script>
+</body>
+</html>

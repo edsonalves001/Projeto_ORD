@@ -2,9 +2,13 @@ package br.com.ord.ORD.repository;
 import br.com.ord.ORD.model.Usuario;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.Optional;
+
 public interface UsuarioRepository extends MongoRepository<Usuario, String> {
-        Usuario findByEmail(String email);
-        Usuario findBycodigoverificado(String codigo);
+    Usuario findByEmail(String email);
+    @Override
+    Optional<Usuario> findById(String id);
+    Usuario findByTokenVerificacao(String tokenVerificacao);
 
 }
 
