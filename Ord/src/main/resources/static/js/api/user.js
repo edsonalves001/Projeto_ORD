@@ -1,0 +1,1 @@
+// usado pra consumir a parte específica da entidade user no sistema, como por exemplo o cadastro.

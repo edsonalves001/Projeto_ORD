@@ -1,9 +1,5 @@
 <!doctype html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-<<<<<<< HEAD
-=======
-
->>>>>>> dc7941fd091cc74bc463c2b0098e0188119e28db
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
@@ -16,7 +12,6 @@
   <title>Projeto ORD - Cadastro</title>
 </head>
 <body>
-<<<<<<< HEAD
 <header>
   <a th:href="@{/}">
     <img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca."/>
@@ -86,37 +81,5 @@
       }, 5000);
   }
 </script>
-=======
-  <header>
-    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca." /></a>
-  </header>
-  <main>
-    <!-- lembrem-se que alt deve ser descritivo assim pra leitores de tela de PCDs-->
-    <div class="card">
-      <img src="../assets/cadastro.webp" alt="Imagem de uma raposa na neve observando o ambiente" />
-
-      <form th:action="@{/cadastro}" method="post">
-        <h1>Seja Bem-vindo!</h1>
-        <h2 th:text="${erro}"></h2>
-        <h2 th:text="${erroEmail}"></h2>
-        <h2 th:text="${erroN}"></h2>
-
-        <input type="text" name="nome" id="nome" placeholder="Seu nome" />
-        <input type="number" name="idade" placeholder="Coloque sua idade">
-        <input type="email" name="email" id="email" placeholder="E-mail" />
-        <input type="password"  name="senha" id="senha" placeholder="Senha" />
-        <input type="password" name="senha2" id="confirmarSenha" placeholder="Confirmar senha">
-        <input type="submit" value="Cadastrar" />
-        <p>
-          Já possui uma conta? Entre
-          <a href="login">aqui!</a>
-        </p>
-      </form>
-    </div>
-  </main>
-  <footer>
-    <p>©2026 Ord - all rights reserved</p>
-  </footer>
->>>>>>> dc7941fd091cc74bc463c2b0098e0188119e28db
 </body>
 </html>

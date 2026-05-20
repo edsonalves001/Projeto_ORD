@@ -22,16 +22,12 @@ public class Usuario {
     private String caminhoIconPerfil;
     private String caminhoWallpaper;
     private String senha;
-<<<<<<< HEAD
     private String emailResponsavel;
     private List<AtividadesUsuario> atividades;
     private Boolean verificado;
     private String tokenVerificacao;
     private int score;
     private int Vidas;
-=======
-    private List<AtividadesUsuario> atividades;
->>>>>>> dc7941fd091cc74bc463c2b0098e0188119e28db
 
 }
 
