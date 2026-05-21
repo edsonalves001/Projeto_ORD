@@ -8,8 +8,24 @@ p {
   font-family: "Mada", sans-serif;
 }
 
+/* remover se continuar aq*/
+
+main .breve {
+    background-color: #F5E6D3;
+    font-size: 3rem;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Madimi One", sans-serif;
+    position: fixed;
+    top: 20vw;
+    right: 27vw;
+}
+
 main {
-box-sizing: border-box;
+    box-sizing: border-box;
     width: 100%;
     justify-content: flex-end;
     display: flex;

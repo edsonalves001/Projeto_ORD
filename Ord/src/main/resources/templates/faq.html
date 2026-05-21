@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="menu-lateral">
-    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
@@ -38,7 +38,9 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-
+            <a th:href="@{/loja}">
+                <li>Loja</li>
+            </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
@@ -51,7 +53,7 @@
                     <li>Ajuda</li>
                 </a>
                 <a th:href="@{/configs}" id="settings">
-                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
             </ul>
@@ -59,18 +61,17 @@
     </nav>
 </div>
 
-    <main>
-        <header>
-            <div class="conteudo-pro">
-                <p>Aprenda mais rapido com o ORD Pro</p>
-            </div>
-            <div class="score">
-                <p>120</p>
-                <img src="../assets/ico/star.svg" alt="Ícone de estrela/score">
-            </div>
-        </header>
+<main>
 
+    <header>
+        <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
+        <div class="score">
+            <p>120</p>
+            <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+        </div>
+    </header>
         <section class="faq_section">
+            <div class="faq">
             <nav>
                 <ul>
                     <a href="#score">Score</a>
@@ -115,11 +116,27 @@
                     <img th:src="@{/assets/loja-faq.webp}" alt="Print da tela de loja de cosméticos">
                     <p>na loja os cosméticos são divididos por abas e seu <a href="#score">score</a> desbloquea automaticamente cosméticos, aperte o cosmético desejado para equipa-lo.</p>
                 </div>
-            </div>
+           </div>
 
-            <div id="home">
-                <h1>Home</h1>
-                <p>Na página inicial home o usuário tem acesso a todos os tópicos selecionados do seu plano de ensino pelo monitor em miniatura, ao selecionar um tópico por pressiona-lo, os niveis daquele tópico serão acessiveis pelo monitor, selecione o nivel e a atividade para começar a atividade.  </p>
+                <div id="home">
+                    <h1>Home</h1>
+                    <p>Na página inicial home o usuário tem acesso a todos os tópicos selecionados do seu plano de ensino pelo monitor em miniatura, ao selecionar um tópico por pressiona-lo, os niveis daquele tópico serão acessiveis pelo monitor, selecione o nivel e a atividade para começar a atividade.  </p>
+                </div>
+
+                <div id="vidas">
+                    <div class="container"><h1>Vidas</h1><img th:src="@{/assets/ico/vida-ativa.png}" alt="Icone de coração"></div>
+                    <p>Ao fazer uma atividade você tem 3 vidas, cada vida representa uma questão que se pode errar, quando estiver sem vidas, atividade é fechada e voc~e perde uma de suas 3 vidas diárias, todo o dia você recebera 3 novas vidas para avançar seus estudos</p>
+                </div>
+
+                <div id="streak">
+                    <div class="container"><h1>Streak</h1><img th:src="@{/assets/ico/fire-streak.svg}" alt="Icone de fogo representando streak"></div>
+                    <p>Por Realizar todos os dias ao minimo uma atividade você mantem uma streak, essa streak aumenta a cada dia que não é quebrada e manter uma streak alta proporciona beneficios</p>
+                    <ul>
+                        <li>Um multiplicador de <a href="#score"><span>Score</span></a> por atividade feita</li>
+                        <li>Conquistas e clasificações</li>
+                        <li><a href="#cosmeticos"><span>Cosméticos</span></a> especiais</li>
+                    </ul>
+                </div>
             </div>
         </section>
 

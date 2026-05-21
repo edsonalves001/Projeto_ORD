@@ -1,0 +1,174 @@
+body {
+  background-color: #ffeadc;
+  font-family: "Madimi One", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 5vw;
+}
+
+main header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+main header h1 {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+main header > p {
+    font-family: "Mada", sans-serif;
+}
+
+main header .progresso-vidas  {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+main header .progresso-vidas .progresso{
+    width: 100%;
+    background-color: white;
+    border-radius: 30px;
+    padding: .5vw;
+    display: flex;
+    justify-content: center;
+}
+
+main header .progresso-vidas .vidas {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    align-self: end;
+    width: 25%;
+}
+
+
+main .aviso-ord {
+    position: relative;
+}
+
+main .aviso-ord .balao-mensagem{
+   position: absolute;
+   left: 15vw;
+   top: 2vw;
+   font-size: 1.5rem;
+   background-image: url('../assets/dialogo.png');
+   background-size: contain;
+   background-repeat: no-repeat;
+   width: 20vw;
+   height: 7vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+main .questao-atividade {
+    border-bottom: 1px solid #80756E;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .questao-atividade  p{
+    font-size: 1.75rem;
+}
+
+main .questao-atividade .opcoes-questao {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vw;
+    border-top: 1px solid #80756E;
+    border-right: 1px solid #80756E;
+    border-left: 1px solid #80756E;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    width: 80%;
+}
+
+
+main .questao-atividade .opcoes-questao .opcao {
+    background-color: #FDF4E8;
+    padding: .25vw;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+    width: 15vw;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+main .questao-atividade .opcoes-questao .opcao p {
+    margin: 0;
+}
+
+main .questao-atividade .opcoes-questao .opcao .selecionar {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100%;
+    background-color: #F5E6D3;
+}
+
+main .opcoes-botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vw;
+}
+
+main .opcoes-botoes button {
+    width: 8vw;
+    height: 2vw;
+    color: white;
+    padding: .25vw;
+    border-radius: 10px;
+    font-size: 1.75rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5vw;
+    cursor: pointer;
+}
+
+main .opcoes-botoes button img {
+    width: 2vw;
+}
+
+main .opcoes-botoes >  a {
+    text-decoration: none;
+}
+
+main .opcoes-botoes >  a button {
+    background-color: red;
+}
+
+main .opcoes-botoes .pular-continuar {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+
+main .opcoes-botoes .pular-continuar #pular {
+    background-color: #E56C1B;
+}
+
+main .opcoes-botoes .pular-continuar #continuar {
+    background-color: #327600
+}

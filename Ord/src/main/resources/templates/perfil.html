@@ -24,7 +24,7 @@
 
 <body>
 <div class="menu-lateral">
-    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
@@ -40,7 +40,9 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-
+            <a th:href="@{/loja}">
+                <li>Loja</li>
+            </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
@@ -53,7 +55,7 @@
                     <li>Ajuda</li>
                 </a>
                 <a th:href="@{/configs}" id="settings">
-                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
             </ul>
@@ -61,17 +63,122 @@
     </nav>
 </div>
 
-    <main>
-        <header class="top-header">
-            <div class="conteudo-pro">
-                <p>Aprenda mais rápido com o ORD Pro</p>
+<main>
+    <header>
+        <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
+        <div class="score">
+            <p>120</p>
+            <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+        </div>
+    </header>
+
+    <div class="perfil-wrapper">
+        <div class="perfil-coluna-esquerda">
+            <div class="card-info-perfil">
+                <div class="perfil-imagens-container">
+                    <div class="escudo-container">
+                        <img th:src="@{/assets/escudo-liga.png}" alt="Emblema de liga" class="escudo-roxo">
+                    </div>
+                    <div class="perfil-imagem-nome">
+                        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil" class="img-perfil-pequena">
+                        <h2>Seu nome</h2>
+                    </div>
+                </div>
+                <div class="info-linha">
+                    <span class="label">Informações do perfil</span>
+                    <a href="#" class="link-mudar-senha">Mudar senha</a>
+                </div>
+                <div class="estatisticas">
+                    <div class="stat-item">
+                        <span class="stat-valor">2</span>
+                        <span class="stat-desc">dias</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-valor">#5</span>
+                        <span class="stat-desc">ranking</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-valor">120</span>
+                        <span class="stat-desc">pontos</span>
+                    </div>
+                </div>
             </div>
-            <div class="score">
-               <!-- <p th:text="${usuarioLogado.pontuacao != null ? usuarioLogado.pontuacao : 120}">120</p>  comentado até arrumarem as collections -->
-                <p>120</p>
-                <img th:src="@{/assets/ico/star.svg}" alt="Ícone de streak/score">
+
+            <div class="card-conquistas">
+                <h3>Conquistas</h3>
+                <div class="lista-conquistas">
+                    <div class="conquista-item">
+                        <img th:src="@{/assets/medalha-ouro.png}" alt="Medalha de Ouro" class="medalha-img">
+                        <span>1000 dias seguidos</span>
+                        <i class="fas fa-check-circle check-verde"></i>
+                    </div>
+                    <div class="conquista-item">
+                        <img th:src="@{/assets/medalha-prata.png}" alt="Medalha de Prata" class="medalha-img">
+                        <span>500 dias seguidos</span>
+                        <i class="fas fa-check-circle check-verde"></i>
+                    </div>
+                    <div class="conquista-item">
+                        <img th:src="@{/assets/medalha-bronze.png}" alt="Medalha de Bronze" class="medalha-img">
+                        <span>100 dias seguidos</span>
+                        <i class="fas fa-check-circle check-verde"></i>
+                    </div>
+                    <div class="conquista-item">
+                        <img th:src="@{/assets/medalha-ouro.png}" alt="Medalha de Ouro" class="medalha-img">
+                        <span>Mestre dos Estudos</span>
+                        <i class="fas fa-check-circle check-verde"></i>
+                    </div>
+                    <div class="conquista-item">
+                        <img th:src="@{/assets/medalha-prata.png}" alt="Medalha de Prata" class="medalha-img">
+                        <span>Sabedoria</span>
+                        <i class="fas fa-lock" style="color: #94a3b8;"></i>
+                    </div>
+                    <div class="conquista-item">
+                        <img th:src="@{/assets/medalha-bronze.png}" alt="Medalha de Bronze" class="medalha-img">
+                        <span>Primeiros Passos</span>
+                        <i class="fas fa-check-circle check-verde"></i>
+                    </div>
+                </div>
             </div>
-        </header>
+        </div>
+
+        <div class="perfil-coluna-direita">
+            <div class="card-amigos">
+                <h3>Seus amigos</h3>
+                <div class="lista-amigos">
+                    <div class="amigo-item">Ronaldo</div>
+                    <div class="amigo-item">Ronaldo</div>
+                    <div class="amigo-item">Ronaldo</div>
+                    <div class="amigo-item">Ronaldo</div>
+                </div>
+            </div>
+
+            <div class="card-busca">
+                <h3>Buscar usuários</h3>
+                <div class="campo-busca">
+                    <input type="text" id="searchUser" placeholder="Usuário...">
+                    <div id="searchResult" class="resultado-busca">
+                        <div class="resultado-linha">
+                            <span>Ronaldo</span>
+                            <button class="btn-adicionar">Adicionar</button>
+                        </div>
+                        <div class="resultado-linha">
+                            <span>Ronaldo</span>
+                            <button class="btn-adicionar">Adicionar</button>
+                        </div>
+                        <div class="resultado-linha">
+                            <span>Ronaldo</span>
+                            <button class="btn-adicionar">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="botoes-acao">
+                    <button class="btn-encontrar"><i class="fas fa-user-plus"></i> Encontrar amigo</button>
+                    <button class="btn-desafiar"><i class="fas fa-gamepad"></i> Desafiar um amigo</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </main>
 

@@ -23,7 +23,7 @@
 
 <body>
 <div class="menu-lateral">
-    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
@@ -39,7 +39,9 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-
+            <a th:href="@{/loja}">
+                <li>Loja</li>
+            </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
@@ -52,7 +54,7 @@
                     <li>Ajuda</li>
                 </a>
                 <a th:href="@{/configs}" id="settings">
-                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
             </ul>
@@ -60,19 +62,24 @@
     </nav>
 </div>
 
-    <main>
-        <header>
-            <div class="conteudo-pro">
-                <p>Aprenda mais rapido com o ORD Pro</p>
-            </div>
-            <div class="score">
-                <p>120</p>
-                <img src="../assets/ico/star.svg" alt="Ícone de estrela/score">
-            </div>
-        </header>
+<main>
+    <header>
+        <div class="conteudo-pro">
+            <p>Aprenda mais rapido com o ORD Pro</p>
+        </div>
+        <div class="score">
+            <p>120</p>
+            <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+        </div>
+    </header>
+
+        <div class="breve">
+            Em breve.....
+        </div>
+
     </main>
 
-    <footer>
+    <footer style="display: none;"> <!-- dps tira... -->
         <p>©2026 Ord - all rights reserved</p>
     </footer>
 </body>

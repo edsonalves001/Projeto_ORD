@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
     <!-- CSS: -->
     <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/track.css}">
+    <link rel="stylesheet" th:href="@{/css/topicos.css}">
     <!--COMPONENTS: -->
     <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
     <link rel="stylesheet" th:href="@{/css/components/header.css}" />
@@ -25,7 +27,7 @@
 
 <body>
 <div class="menu-lateral">
-    <a th:href="@{/}"><img src="../assets/Logotipo-Claro.webp" alt="Logotipo claro do site Ord" /></a>
+    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
     </div>
@@ -41,7 +43,9 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-
+            <a th:href="@{/loja}">
+                <li>Loja</li>
+            </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
@@ -54,7 +58,7 @@
                     <li>Ajuda</li>
                 </a>
                 <a th:href="@{/configs}" id="settings">
-                    <img src="../assets/ico/settings.svg" alt="ìcone de configurações">
+                    <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
             </ul>
@@ -62,20 +66,134 @@
     </nav>
 </div>
 
-    <main>
-        <header>
-            <div class="conteudo-pro">
-                <p>Aprenda mais rapido com o ORD Pro</p>
+<main>
+    <header>
+        <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
+        <div class="score">
+            <p>120</p>
+            <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+        </div>
+    </header>
+
+    <section class="home_section">
+        <img th:src="@{/assets/Ordo.gif}" alt="Raposa Ordo digitando" >
+        <div class="tela">
+            <div class="topicos">
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
+                <div class="top_cont">
+                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                    <div class="topicos_icon"></div>
+                    <div class="bar"><p>Pacote Office</p></div>
+                </div>
             </div>
-            <div class="score">
-                <p>120</p>
-                <img src="../assets/ico/star.svg" alt="Ícone de estrela/score">
+            <div class="container">
+                <button id="exit">Sair</button>
+                <div class="track">
+                    <div class="inner_box">
+                        <div class="nivel nivel_sel">
+                            <h1 class="nivel_text">word</h1>
+                        </div>
+                        <div class="nivel nivel_n_sel">
+                            <h1 class="nivel_text">excel</h1>
+                        </div>
+                    </div>
+
+                    <div class="atv_container">
+                        <div class="map">
+                            <div id="ordo"></div>
+                            <div class="grid middle">
+                                <div class="invisivel"></div>
+                                <div class="tile"><h2>atividade</h2></div>
+                                <div class="invisivel"></div>
+                            </div>
+                            <div class="grid middle">
+                                <div class="invisivel"></div>
+                                <div class="tile"><h2>atividade2</h2></div>
+                                <div class="invisivel"></div>
+                            </div>
+                            <div class="grid left">
+                                <div class="invisivel"></div>
+                                <div class="flag"><h2>atividade3</h2></div>
+                                <div class="invisivel"></div>
+                            </div>
+                            <div class="grid left">
+                                <div class="invisivel"></div>
+                                <div class="tile"><h2>atividade4</h2></div>
+                                <div class="invisivel"></div>
+                            </div>
+                            <div class="grid right">
+                                <div class="invisivel"></div>
+                                <div class="tile"><h2>atividade5</h2></div>
+                                <div class="invisivel"></div>
+                            </div>
+                            <div class="grid right">
+                                <div class="invisivel"></div>
+                                <div class="tile"><h2>atividade6</h2></div>
+                                <div class="invisivel"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </header>
+        </div>
+    </section>
     </main>
     <footer>
         <p>©2026 Ord - all rights reserved</p>
     </footer>
+
+<!-- Script home: -->
+<script th:src="@{/js/home.js}"></script>
 </body>
 
 </html>

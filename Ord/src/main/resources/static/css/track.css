@@ -1,0 +1,257 @@
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container que junta a Raposa e o Monitor no centro da tela */
+.home_section {
+    position: relative; /* Base para o posicionamento da raposa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: -2vw;
+}
+
+/* A Raposa Ordo (Fica por cima do monitor) */
+.home_section img[src*="Ordo.gif"] {
+    position: absolute;
+    bottom: 10%;
+    left: 2%;
+    width: 25vw;
+    height: auto;
+    z-index: 10;
+    pointer-events: none; /* Evita que o GIF bloqueie cliques no monitor */
+}
+
+/* O Monitor */
+.tela {
+    background-image: url("../assets/monitor.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Força a imagem a preencher a div perfeitamente */
+    width: 650px;               /* Tamanho fixo ideal para o monitor não quebrar */
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.container {
+    width: 80%;       /* Ajustado para caber certinho dentro do vidro do monitor */
+    height: 63%;      /* Ajustado para caber certinho dentro do vidro do monitor */
+    margin-top: -35px; /* Sobe um pouco o conteúdo para alinhar com a tela do vidro */
+    overflow-y: scroll; /* Cria a barra de rolagem vertical se o mapa for grande */
+    overflow-x: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Trilha que une Níveis + Atividades */
+.track {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* Blocos de Word e Excel (Lado a Lado) */
+.inner_box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}
+
+.nivel_n_sel {
+    background-color: #8AC457;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 0 rgb(91, 131, 57);
+}
+
+.nivel_sel{
+  background-color: #BDED5B;
+  color: #2D8D5D;
+  text-align: center;
+  box-shadow: 0 4px 0 #9dc74a;
+}
+.nivel_text {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 1.7rem;
+}
+
+.nivel_n_sel:hover{
+    cursor: pointer;
+}
+
+.atv_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.map {
+  position: relative;
+  background-position: top center;
+    background-image: url("../assets/Map.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 100%;
+    min-height: 887px; /* Garante que o mapa apareça mesmo se tiver pouca atividade */
+    border-bottom: solid;
+    border-color: #3CA370;
+    border-width: 2vw;
+
+    /* Centraliza os grids das atividades dentro do mapa */
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vw;
+}
+
+/* Grids das atividades (Alinhamento Perfeito) */
+.grid {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    position: relative; /* ADICIONE ESSA LINHA: Crucial para o cálculo do script */
+}
+
+.left{
+  grid-template-columns: 0.5fr 1fr 1.3fr; /* Divide em 3 colunas iguais */
+}
+.middle{
+  grid-template-columns: 1fr 1fr 1fr; /* Divide em 3 colunas iguais */
+}
+.right{
+  grid-template-columns: 1.3fr 1fr 0.5fr; /* Divide em 3 colunas iguais */}
+
+/* Elementos invisíveis para manter o zigue-zague */
+.invisivel {
+  width: 55px;
+  height: 55px;
+  visibility: hidden;
+}
+
+/* Estilização dos círculos/botões de atividade */
+.flag, .tile {
+    width: 4.5vw;
+    height: 4.5vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* ESSA É A MÁGICA: força a imagem a caber nos 45px */
+}
+
+.flag h2, .tile h2 {
+    margin-top: 4.7vw;       /* Margem de 6px abaixo do círculo */
+    font-size: 1.3rem;    /* Tamanho do texto */
+    text-align: center;
+    white-space: nowrap;   /* Impede que o texto quebre linha */
+}
+
+.flag { background-image: url('../assets/flag.png'); color: #DF7300;}
+.tile{ background-image: url('../assets/Tile.png'); color: #636B91;}
+
+#exit{
+    background-color: #E56C1B;
+    padding: 7px;
+    text-align: center;
+    color: white;
+    width: 3vw;
+    border: none;
+    border-radius: 5px;
+    margin: .4vw;
+    box-shadow: 0 3px 0 #cc5d13;
+    margin-left: auto;
+    margin-right: 2vw;
+}
+
+#exit:hover{
+    cursor: pointer;
+    background-color: #cc5d13;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #ffffff;
+}
+
+#ordo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/pixel_ordo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    z-index: 5;                /* Fica por cima dos botões, mas abaixo do texto se quiser */
+    pointer-events: none;      /* Impede que o boneco bloqueie cliques futuros na atividade */
+
+    /* EFEITO DE MOVIMENTO: Faz ele deslizar suavemente por 0.5 segundos */
+    transition: top 0.7s cubic-bezier(0.25, 1, 0.5, 1), left 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* NOVA CLASSE: Desliga temporariamente a animação de deslizar */
+#ordo.sem-animacao {
+    transition: none !important;
+}
+
+.invisivel{
+  visibility: hidden;
+}
+
+/* 1. Define a largura da barra vertical */
+.container::-webkit-scrollbar {
+    width: 14px; /* Um pouco mais larga para parecer com sistemas antigos */
+}
+
+/* 2. O "Trilho" (Fundo da barra de rolagem) */
+.container::-webkit-scrollbar-track {
+    background-color: #2a2a2a; /* Fundo escuro para contrastar com o monitor */
+    border-left: 2px solid #1a1a1a; /* Linha de divisão pixelada */
+}
+
+/* 3. O "Quadrado" de arrastar (Thumb) */
+.container::-webkit-scrollbar-thumb {
+    background-color: #8AC457; /* Mesma cor verde dos seus níveis padrão */
+
+    /* Efeito de borda ressaltada em pixel art (estilo 3D antigo) */
+    border: 2px solid #ffffff;
+    border-right-color: #5b8339; /* Sombra na direita */
+    border-bottom-color: #5b8339; /* Sombra embaixo */
+    border-top-color: #ffffff;    /* Luz em cima */
+    border-left-color: #ffffff;   /* Luz na esquerda */
+}
+
+/* 4. Efeito quando o usuário passa o mouse por cima */
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #BDED5B; /* Cor verde clara (a mesma do seu nível selecionado) */
+    border-right-color: #9dc74a;
+    border-bottom-color: #9dc74a;
+}
+
+/* 5. Efeito de clique (Botão sendo pressionado) */
+.container::-webkit-scrollbar-thumb:active {
+    /* Inverte as bordas de luz e sombra para parecer que o botão afundou */
+    border-top-color: #5b8339;
+    border-left-color: #5b8339;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}

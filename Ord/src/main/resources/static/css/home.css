@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #FFEADC;
+  align-items: center;
+  position: relative;
 }
 
 a,
@@ -18,4 +21,19 @@ main {
   padding: 2vw;
 }
 
+.home_section{
+    position: relative;
+}
+.home_section img{
+    position: absolute;
+    top: 20vw;
+    left: 30vw;
+}
 
+.tela{
+    background-image: url('../assets/monitor.png');
+    background-repeat: no-repeat;
+    position: relative;
+    width: 40vw;
+    height: 30vw;
+}

@@ -1,0 +1,19 @@
+main {
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+    margin-block: 20vw;
+    padding-right: 30vw;
+}
+
+main .breve {
+    background-color: #F5E6D3;
+    font-size: 3rem;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Madimi One", sans-serif;
+}

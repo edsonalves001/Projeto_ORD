@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+    <!-- FONTS: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
+    <!-- CSS: -->
+    <link rel="stylesheet" th:href="@{/css/atividade.css}" />
+    <title>Projeto Ord - Loja</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Word</h1>
+            <p>Margens</p>
+            <div class="progresso-vidas">
+                <div class="progresso">
+                    2/7
+                </div>
+                <div class="vidas">
+                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida">
+                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida">
+                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida">
+                </div>
+            </div>
+        </header>
+        <div class="aviso-ord">
+            <img th:src="@{/assets/faq.webp}" alt="Apenas Ord anotando suas respostas">
+            <div class="balao-mensagem">
+                <p>Faz a atividade, seu merda!</p>
+            </div>
+        </div>
+        <div class="questao-atividade">
+            <p>1.Quanto é o padrão automático estipulado pelo word da margem em centimetros?</p>
+            <div class="opcoes-questao">
+                <div class="opcao">
+                    <div class="selecionar"></div> <!-- colocar um evento js pra ao clicar mudar a cor disso, pra demonstrar seleção -->
+                  <p>A. 25cm</p>
+                </div>
+                <div class="opcao">
+                    <div class="selecionar"></div>
+                    <p>B. 255cm</p>
+                </div>
+                <div class="opcao">
+                    <div class="selecionar"></div>
+                    <p>C. 2,5cm</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="opcoes-botoes">
+            <a th:href="@{/home}">
+                <button id="sair"><img th:src="@{/assets/ico/sair-ico.svg}" alt="Ícone de sair">Sair</button>
+            </a>
+            <div class="pular-continuar">
+                <button id="pular"><img th:src="@{/assets/ico/pular-ico.svg}" alt="Ícone de pular"> Pular</button>
+                <button id="continuar">Continuar</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
