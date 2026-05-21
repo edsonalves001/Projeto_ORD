@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet"/>
+    <title>Projeto ORD - Admin</title>
+</head>
+<body>
+    <h1>Painel de admin</h1>
+
+    <h2>Nova Atividade</h2>
+    <form th:action="@{/admin/atividade}" method="post">
+
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome"> <br>
+
+        <label for="dificuldade">Dificuldade</label>
+        <select name="dificuldade" id="dificuldade">
+            <option></option>
+            <option value="iniciante">Iniciante</option>
+            <option value="basico">Básico</option>
+            <option value="medio">Médio</option>
+            <option value="avancado">Avançado</option>
+        </select> <br> <br>
+
+        <label for="recompensa">Recompensa</label>
+        <input type="number" min="1" name="recompensa" id="recompensa"> <br>
+
+        <input type="submit" value="atividade">
+    </form>
+
+    <h2>Nova Questao</h2>
+    <form th:action="@{/admin/questao}" method="post">
+
+        <label>Atividade</label>
+        <select name="atv" id="atividade">
+            <option></option>
+            <option name="atv" th:each="atv : ${atividades}" th:value="${atv.id}" th:text="${atv.nome}">atv</option>
+        </select> <br>
+
+        <label for="enunciado">Enunciado</label>
+        <input type="text" name="enunciado" id="enunciado"> <br>
+
+        <label for="tipo">Tipo</label>
+        <select name="tipo" id="tipo" onclick="selectTipo()">
+            <option></option>
+            <option value="alternativas">Alternativas</option>
+            <option value="ordem">Ordem</option>
+        </select> <br> <br>
+
+        <div id="alternativa" style="display: none;">
+            <label for="alternativa1">Alternativa 1</label>
+            <input type="text" name="alternativas" id="alternativa1"> <br>
+
+            <label for="alternativa2">Alternativa 2</label>
+            <input type="text" name="alternativas" id="alternativa2"> <br>
+
+            <label for="alternativa3">Alternativa 3</label>
+            <input type="text" name="alternativas" id="alternativa3"> <br>
+
+            <label for="correta">Alt. Correta</label>
+            <input type="number" min="1" max="3" step="1" name="alternativaCorreta" id="correta"> <br>
+        </div>
+
+        <div id="ordem" style="display: none;">
+            <label for="passo1">Passo 1</label>
+            <input type="text" name="passos" id="passo1"> <br>
+
+            <label for="passo2">Passo 2</label>
+            <input type="text" name="passos" id="passo2"> <br>
+
+            <label for="passo3">Passo 3</label>
+            <input type="text" name="passos" id="passo3"> <br>
+        </div>
+
+        <input type="submit" value="questao">
+    </form>
+
+    <script>
+        function selectTipo() {
+            const tipo = document.getElementById('tipo').value
+            console.log(tipo)
+
+            if (tipo == 'alternativas') {
+                document.getElementById('alternativa').style.display = 'inline'
+                document.getElementById('ordem').style.display = 'none'
+            } else if (tipo == 'ordem') {
+                document.getElementById('alternativa').style.display = 'none'
+                document.getElementById('ordem').style.display = 'inline'
+            }
+        }
+    </script>
+</body>
+</html>

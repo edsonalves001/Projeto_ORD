@@ -15,8 +15,16 @@ import java.util.List;
 public class Atividade {
     @Id
     private String id;
+    private String nome;
     private String dificuldade;
     private int scoreRecompensa;
     private boolean concluidoAtividade;
     private List<Questao> questoes;
+
+    public Atividade(String nome, String dificuldade, int scoreRecompensa, boolean concluidoAtividade) {
+        this.nome = nome;
+        this.dificuldade = dificuldade;
+        this.scoreRecompensa = scoreRecompensa;
+        this.concluidoAtividade = concluidoAtividade;
+    }
 }

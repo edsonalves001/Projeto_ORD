@@ -9,6 +9,6 @@ public interface UsuarioRepository extends MongoRepository<Usuario, String> {
     @Override
     Optional<Usuario> findById(String id);
     Usuario findByTokenVerificacao(String tokenVerificacao);
-
+    Usuario findByNome(String nome);
 }
 
