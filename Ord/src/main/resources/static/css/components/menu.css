@@ -29,9 +29,39 @@
     color: rgb(205, 200, 200);
 }
 
-.menu-lateral .icone-streak-vida img {
+.menu-lateral .icone-streak-vida {
+    position: relative;
+}
+
+.menu-lateral .icone-streak-vida > img {
   border-radius: 100%;
   width: 8vw;
+}
+
+.menu-lateral .icone-streak-vida .streak {
+    position: absolute;
+    display: flex;
+    gap: .5vw;
+    align-items: center;
+    right: 11vw;
+    top: 6vw;
+}
+
+.menu-lateral .icone-streak-vida .streak img {
+    width: 2vw
+}
+
+.menu-lateral .icone-streak-vida .vida {
+    position: absolute;
+    display: flex;
+    gap: .5vw;
+    align-items: center;
+    right: 10vw;
+    top: 4vw;
+}
+
+.menu-lateral .icone-streak-vida .vida img {
+    width: 1.5vw
 }
 
 .menu-lateral nav ul {

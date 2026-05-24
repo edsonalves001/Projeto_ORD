@@ -28,7 +28,9 @@ public class WebConfig implements WebMvcConfigurer {
                         "/js/**",
                         "/img/**",
                         "/admin",
-                        "/admin/**"
+                        "/admin/**",
+                        "/esqueci-senha",
+                        "/nova-senha"
                 );
     }
 }

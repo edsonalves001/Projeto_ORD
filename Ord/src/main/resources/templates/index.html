@@ -21,11 +21,48 @@
 </head>
 
 <body>
-    <header>
+    <header class="menu-desktop">
         <img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo do Ord, mas com cores claras">
+        <nav>
+            <ul>
+                <a href="#hero-section">
+                    <li>Início</li>
+                </a>
+                <a href="#motivos-problemas">
+                    <li>Problemas</li>
+                </a>
+                <a href="#carrossel-solucao">
+                    <li>Solução</li>
+                </a>
+                <a href="#funcionalidades">
+                    <li>Funcionalidades</li>
+                </a>
+                <a href="#planos">
+                    <li>Planos</li>
+                </a>
+            </ul>
+        </nav>
     </header>
+
+    <header class="menu-mobile">
+        <div class="mobile-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <nav>
+           <ul class="nav-list">
+                <li><a href="#hero-section">Início</a></li>
+                <li><a href="#motivos-problemas">Problemas</a></li>
+                <li><a href="#carrossel-solucao">Solução</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#planos">Planos</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <section class="hero-section">
+        <section id="hero-section">
             <div class="bordao-botoes">
                 <div class="bordao">
                     <h1>Aprender e se divertir é a chave!</h1>
@@ -39,7 +76,7 @@
 
         </section>
 
-        <section class="motivos-problemas">
+        <section id="motivos-problemas">
             <h2>Se identificou???</h2>
             <div class="container-problemas">
                 <div class="problema" id="card-1">
@@ -75,7 +112,7 @@
             </div>
         </section>
 
-        <section class="carrossel-solucao">
+        <section id="carrossel-solucao">
             <h2>Pois aqui está sua solução!</h2>
             <!-- Slider main container -->
             <div class="carrossel">
@@ -87,25 +124,22 @@
                             <h3>Aprenda conceitos básicos do uso de um PC</h3>
                             <img th:src="@{/assets/ico/pc.svg}" alt="Apenas um ícone de pc" class="icon-carrossel">
                             <img th:src="@{/assets/Carrossel1.png}" alt="Apenas o Ordo estudando" class="ordo-carrossel">
-                            <p>O que é uma pasta? Como instalar um programa? Para que serve o explorador de arquivos?
-                                Essas e outras perguntas respondidas em linguagem clara, sem jargões técnicos. Você vai
-                                aprender o essencial que ninguém ensina e que faz toda diferença no dia a dia.</p>
+                            <p>Explica, de forma clara e sem jargões, o que são pastas, instalação de programas e explorador
+                                de arquivos – o essencial que ninguém ensina e faz diferença no dia a dia.</p>
                         </div>
                         <div class="swiper-slide">
                             <img th:src="@{/assets/Carrossel2.png}" alt="Ordo versão kwai" class="ordo-carrossel">
                             <img th:src="@{/assets/ico/foguete.svg}" alt="Apenas um ícone de foguete" class="icon-carrossel" id="icon-2">
                             <h3>Otimize seu aprendizado de forma divertida</h3>
-                            <p>Nada de aulas chatas e teóricas. Aqui você aprende jogando, com desafios diários, sistema
-                                de XP, conquistas e ligas. Cada lição é um passo rumo ao domínio do computador, e você
-                                nem percebe que está estudando de tão envolvente que é.</p>
+                            <p>Aprendizado divertido com jogos, desafios diários, XP, conquistas e ligas; cada lição é um passo
+                                envolvente rumo ao domínio do computador.</p>
                         </div>
                         <div class="swiper-slide">
                             <img th:src="@{/assets/Carrossel3.png}" alt="Ordo usando um pc" class="ordo-carrossel">
                             <img th:src="@{/assets/ico/pasta.svg}" alt="Apenas um ícone de uma pasta" class="icon-carrossel" id="icon-3">
-                            <h3>Domine softwares úteis para sua vida profissional e pessoal</h3>
-                            <p>Do pacote Office à navegação na internet, passando por ferramentas de organização,
-                                produtividade e segurança. Você vai sair pronto pra encarar as exigências do mercado de
-                                trabalho e ainda otimizar suas tarefas pessoais, do currículo ao controle financeiro.</p>
+                            <h3>Domine softwares úteis</h3>
+                            <p>Domínio de ferramentas como pacote Office, internet, organização, produtividade e segurança;
+                                prepara para o mercado de trabalho e otimiza tarefas pessoais (currículo, finanças).</p>
                         </div>
                         ...
                     </div>
@@ -120,7 +154,7 @@
             </div>
         </section>
 
-        <section class="funcionalidades">
+        <section id="funcionalidades">
             <h2>Aprenda igual a um jogo!</h2>
             <div class="streak">
                 <div class="info-streak">
@@ -159,7 +193,7 @@
             </div>
         </section>
 
-        <section class="planos">
+        <section id="planos">
             <h2>Planos:</h2>
             <div class="background-plano">
                 <div class="card-plano">
@@ -180,72 +214,99 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-wave">
-            <img src="./assets/footer-wave.webp" alt="Apenas um enfeite do footer, uma onda.">
-        </div>
-        <div class="footer-superior">
-            <div class="superior-esquerdo">
-                <img src="./assets/Logotipo-Claro.webp" alt="Logotipo do Ord">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                <div class="redes-sociais">
-                    <img src="./assets/ico/twitter.svg" alt="Logo Twitter">
-                    <img src="assets/ico/linkedin.svg" alt="Logo LinkedIn">
-                    <img src="assets/ico/youtube.svg" alt="Logo Youtube">
-                    <img src="assets/ico/instagram.svg" alt="Logo Instagram">
+        <footer>
+            <div class="footer-wave">
+                <img th:src="@{/assets/footer-wave.png}" alt="Apenas um enfeite do footer, uma onda.">
+            </div>
+            <div class="footer-superior">
+                <div class="superior-esquerdo">
+                    <img src="./assets/Logotipo-Claro.webp" alt="Logotipo do Ord">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <div class="redes-sociais">
+                        <img src="./assets/ico/twitter.svg" alt="Logo Twitter">
+                        <img src="assets/ico/linkedin.svg" alt="Logo LinkedIn">
+                        <img src="assets/ico/youtube.svg" alt="Logo Youtube">
+                        <img src="assets/ico/instagram.svg" alt="Logo Instagram">
+                    </div>
+                </div>
+
+                <div class="superior-direito">
+                    <ul>
+                        <li class="title">Lorem ipsum</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                    </ul>
+                    <ul>
+                        <li class="title">Lorem ipsum</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                    </ul>
+                    <ul>
+                        <li class="title">Lorem ipsum</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                    </ul>
+                    <ul>
+                        <li class="title">Lorem ipsum</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                    </ul>
+                    <ul>
+                        <li class="title">Lorem ipsum</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                        <li>Fusce egestas</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="superior-direito">
+            <div class="footer-inferior">
+                <p>©2026 Ord - all rights reserved</p>
                 <ul>
-                    <li id="title">Lorem ipsum</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                </ul>
-                <ul>
-                    <li id="title">Lorem ipsum</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                </ul>
-                <ul>
-                    <li id="title">Lorem ipsum</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                </ul>
-                <ul>
-                    <li id="title">Lorem ipsum</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                </ul>
-                <ul>
-                    <li id="title">Lorem ipsum</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
-                    <li>Fusce egestas</li>
+                    <li>Política de Privacidade</li>
+                    <li>Termos</li>
+                    <li>Código de Segurança</li>
                 </ul>
             </div>
-        </div>
-        <div class="footer-inferior">
-            <p>©2026 Ord - all rights reserved</p>
-            <ul>
-                <li>Política de Privacidade</li>
-                <li>Termos</li>
-                <li>Código de Segurança</li>
-            </ul>
-        </div>
-    </footer>
+        </footer>
 
-<!-- SCRIPT SWIPER JS (NÃO APAGAR!!!!!!!!!!) -->
+    <!-- SCRIPT SWIPER JS (NÃO APAGAR!!!!!!!!!!) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script th:src="@{/js/meuSwiper.js}"></script>
+
+    <!-- Script menu-mobile -->
+    <script>
+        const icon = document.querySelector('.mobile-icon');
+        const nav = document.querySelector('.menu-mobile nav');
+
+        icon.addEventListener('click', () => {
+        nav.classList.toggle('ativo');
+        icon.classList.toggle('aberto');
+});
+    </script>
+
+    <!-- Sistema VLibras -->
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- Script import VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <!-- Fim conteúdo VLibras -->
 </body>
 </html>

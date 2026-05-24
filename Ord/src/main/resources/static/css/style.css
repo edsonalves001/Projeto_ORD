@@ -8,14 +8,73 @@ body {
   overflow-x: hidden; /* impede barra lateral do carrossel*/
 }
 
-header {
+.menu-desktop {
   background-color: #e56c1b;
   border-bottom: 1vw solid #d45113;
   padding-block: 0.5vw;
   padding-inline: 1.5vw;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
 }
+.menu-desktop nav ul {
+    display: flex;
+    gap: 1vw;
+}
+
+.menu-desktop nav a {
+    text-decoration: none;
+}
+
+.menu-desktop nav ul li {
+    list-style: none;
+    transition: 1s ease-in-out;
+    color: white;
+}
+
+.menu-desktop nav ul li:hover {
+    text-decoration: underline;
+    color: #D45113
+}
+
+
+.menu-mobile {
+    display: none;
+    color: white;
+    z-index: 1002;
+    position: fixed;
+    padding: 0;
+    top: 0;
+    left: 0;
+}
+
+.menu-mobile nav{
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    z-index: 1003;
+    transition: 2s ease-in-out;
+}
+
+.menu-mobile nav ul {
+    display: flex;
+    gap: 6vw;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+}
+
+.menu-mobile nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.45rem;
+}
+
 
 h2 {
   color: #e56c1b;
@@ -33,7 +92,7 @@ button {
 
 /* Primeira sessão */
 
-main .hero-section {
+main #hero-section {
   background-image: url('../assets/background-landing.webp');
   width: 100%;
   height: 150vh;
@@ -41,40 +100,45 @@ main .hero-section {
   background-size: cover;
   display: flex;
   justify-content: center;
+  margin-top: 3vw
 }
 
-main .hero-section .bordao-botoes {
+main #hero-section .bordao-botoes {
   display: flex;
   flex-direction: column;
 }
 
-main .hero-section .bordao {
+main #hero-section .bordao {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2vw
 }
 
-main .hero-section .bordao p {
+main #hero-section .bordao p {
   font-family: "Madimi One", sans-serif;
   font-size: 2rem;
   color: white;
 }
 
-main .hero-section h1 {
+main #hero-section h1 {
   font-family: "Madimi One", sans-serif;
   color: white;
   font-size: 5rem;
   margin-bottom: 0;
 }
 
-main .hero-section .botoes {
+main #hero-section .botoes {
   display: flex;
   flex-direction: column;
   gap: 2vw;
 }
 
-main .hero-section .botoes button {
+main #hero-section .botoes  a {
+    width: 20vw
+    }
+
+main #hero-section .botoes button {
   font-size: 2rem;
   border-radius: 20px;
   width: 20vw;
@@ -86,37 +150,38 @@ main .hero-section .botoes button {
   transition: 0.5s ease-in-out;
 }
 
-main .hero-section .botoes button:hover {
+main #hero-section .botoes button:hover {
   transform: scale(1.05);
 }
 
-main .hero-section .botoes #login {
+main #hero-section .botoes #login {
   background-color: #327600;
   border: none;
 }
 
-main .hero-section .botoes #login:hover {
+main #hero-section .botoes #login:hover {
   background-color: #255503;
 }
 
-main .hero-section .botoes #criar {
+main #hero-section .botoes #criar {
   background-color: #e56c1b;
   border: none;
 }
 
-main .hero-section .botoes #criar:hover {
+main #hero-section .botoes #criar:hover {
   background-color: #f25107;
 }
 
 /*Segunda sessão*/
 
-.motivos-problemas {
+#motivos-problemas {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5vw;
 }
 
-.motivos-problemas .container-problemas {
+#motivos-problemas .container-problemas {
     width: 75%;
     background: linear-gradient(to bottom, white 50%, #242222 50%);
     height: 45vw;
@@ -124,23 +189,23 @@ main .hero-section .botoes #criar:hover {
     position: relative;
 }
 
-.motivos-problemas .container-problemas .problema .descricao-problema{
+#motivos-problemas .container-problemas .problema .descricao-problema{
     display: flex;
     align-items: center;
     gap: 1vw;
     margin-bottom: 1vw;
 }
 
-.motivos-problemas .container-problemas .problema .descricao-problema p {
+#motivos-problemas .container-problemas .problema .descricao-problema p {
     font-size: 1.25rem;
     color: black;
 }
 
-.motivos-problemas .container-problemas .problema .descricao-problema > img {
+#motivos-problemas .container-problemas .problema .descricao-problema > img {
     width: 2vw;
 }
 
-.motivos-problemas .container-problemas .problema .card-foto{
+#motivos-problemas .container-problemas .problema .card-foto{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,53 +215,53 @@ main .hero-section .botoes #criar:hover {
     height: 25vw;
     }
 
-.motivos-problemas .container-problemas .problema .card-foto img {
+#motivos-problemas .container-problemas .problema .card-foto img {
     width: 20vw;
 }
 
-.motivos-problemas .container-problemas #card-1.problema {
+#motivos-problemas .container-problemas #card-1.problema {
     position: absolute;
     top: -5vw;
     left: -2vw;
     }
-.motivos-problemas .container-problemas #card-2.problema {
+#motivos-problemas .container-problemas #card-2.problema {
     position: absolute;
     top: 10vw;
     left: 22vw;
     z-index: 1000;
 }
 
-.motivos-problemas .container-problemas #card-3.problema {
+#motivos-problemas .container-problemas #card-3.problema {
     position: absolute;
     top: 20vw;
     right: -1vw;
 }
 
-.motivos-problemas .container-problemas #card-2.problema .descricao-problema {
+#motivos-problemas .container-problemas #card-2.problema .descricao-problema {
        justify-self: end;
         margin-right: 1vw;
 }
 
-.motivos-problemas .container-problemas #card-3.problema .descricao-problema  {
+#motivos-problemas .container-problemas #card-3.problema .descricao-problema  {
     color: white;
     justify-self: center;
 }
 
-.motivos-problemas .container-problemas #card-1.problema .card-foto {
+#motivos-problemas .container-problemas #card-1.problema .card-foto {
     background-color: #29C4C9;
 }
 
-.motivos-problemas .container-problemas #card-2.problema .card-foto {
+#motivos-problemas .container-problemas #card-2.problema .card-foto {
     background-color: #A32626;
 }
 
-.motivos-problemas .container-problemas #card-3.problema .card-foto {
+#motivos-problemas .container-problemas #card-3.problema .card-foto {
     background-color: #D7D744;
 }
 
 /*Terceira sessão*/
 
-.carrossel-solucao {
+#carrossel-solucao {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -204,14 +269,14 @@ main .hero-section .botoes #criar:hover {
     gap: 2vw;
     }
 
-.carrossel-solucao .carrossel {
+#carrossel-solucao .carrossel {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
 }
 
-.carrossel-solucao .carrossel .swiper {
+#carrossel-solucao .carrossel .swiper {
     width: 35vw;
     height: 40vw;
     border-radius: 20px
@@ -221,7 +286,7 @@ main .hero-section .botoes #criar:hover {
     overflow: hidden;
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide {
+#carrossel-solucao .carrossel .swiper .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -233,38 +298,38 @@ main .hero-section .botoes #criar:hover {
     text-align: justify;
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide p {
+#carrossel-solucao .carrossel .swiper .swiper-slide p {
     width: 80%;
     font-size: 1.3rem;
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide h3 {
+#carrossel-solucao .carrossel .swiper .swiper-slide h3 {
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel {
+#carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel {
     width: 2vw;
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-2 {
+#carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-2 {
     align-self: start;
     margin-left: 4vw
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-3 {
+#carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel#icon-3 {
     align-self: start;
     margin-left: 4vw;
 }
 
-.carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel{
+#carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel{
     width: 15vw;
 }
 
 
 /*Quarta sessão*/
 
-main .funcionalidades {
+main #funcionalidades {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -273,7 +338,7 @@ main .funcionalidades {
     width: 100%;
 }
 
-main .funcionalidades .streak{
+main #funcionalidades .streak{
     background-image: url('../assets/streakSectionBackground.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -286,8 +351,8 @@ main .funcionalidades .streak{
     gap: 4vw;
 }
 
-main .funcionalidades .streak .info-streak, .funcionalidades .topicos .info-topicos, main .funcionalidades .competicoes
-.info-competicoes, main .funcionalidades .customizacao .info-customizacao {
+main #funcionalidades .streak .info-streak, #funcionalidades .topicos .info-topicos, main #funcionalidades .competicoes
+.info-competicoes, main #funcionalidades .customizacao .info-customizacao {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,13 +360,13 @@ main .funcionalidades .streak .info-streak, .funcionalidades .topicos .info-topi
     font-weight: bolder;
     }
 
-main .funcionalidades .streak .info-streak p, main .funcionalidades .streak .info-streak h3, .funcionalidades .topicos .info-topicos p,
-.funcionalidades .topicos .info-topicos h3, main .funcionalidades .competicoes .info-competicoes h3, main .funcionalidades
+main #funcionalidades .streak .info-streak p, main #funcionalidades .streak .info-streak h3, #funcionalidades .topicos .info-topicos p,
+#funcionalidades .topicos .info-topicos h3, main #funcionalidades .competicoes .info-competicoes h3, main #funcionalidades
 .competicoes .info-competicoes p, {
     font-family: "Madimi One", sans-serif;
  }
 
-main .funcionalidades .topicos {
+main #funcionalidades .topicos {
     background-image: url('../assets/topicosSectionBackground.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -315,26 +380,26 @@ main .funcionalidades .topicos {
     padding: 10vw;
 }
 
-.funcionalidades .streak .info-streak h3, .funcionalidades .topicos .info-topicos h3, main .funcionalidades .competicoes .info-competicoes h3,
-main .funcionalidades .customizacao .info-customizacao h3{
+#funcionalidades .streak .info-streak h3, #funcionalidades .topicos .info-topicos h3, main #funcionalidades .competicoes .info-competicoes h3,
+main #funcionalidades .customizacao .info-customizacao h3{
     font-size: 2.5rem;
 }
 
-.funcionalidades .streak .info-streak p, .funcionalidades .topicos .info-topicos p, main .funcionalidades .competicoes .info-competicoes p, main
-.funcionalidades .customizacao .info-customizacao p{
+#funcionalidades .streak .info-streak p, #funcionalidades .topicos .info-topicos p, main #funcionalidades .competicoes .info-competicoes p, main
+#funcionalidades .customizacao .info-customizacao p{
     font-size: 1.5rem
 }
 
-main .funcionalidades .streak .info-streak img{
+main #funcionalidades .streak .info-streak img{
     width: 5vw;
 }
 
-.funcionalidades .topicos .info-topicos img {
+#funcionalidades .topicos .info-topicos img {
     width: 3vw;
     }
 
 
-main .funcionalidades .competicoes {
+main #funcionalidades .competicoes {
         background-image: url('../assets/competicoesSectionBackground.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -348,12 +413,12 @@ main .funcionalidades .competicoes {
         padding-block: 10vw;
 }
 
-main .funcionalidades .competicoes .info-competicoes h3, main .funcionalidades .customizacao .info-customizacao h3 {
+main #funcionalidades .competicoes .info-competicoes h3, main #funcionalidades .customizacao .info-customizacao h3 {
     width: 70%;
     text-align: center;
     }
 
-main .funcionalidades .customizacao {
+main #funcionalidades .customizacao {
         background-image: url('../assets/customizacaoSectionBackground.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -369,18 +434,18 @@ main .funcionalidades .customizacao {
 
 /*Quinta sessão*/
 
-main .planos {
+main #planos {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     }
 
-main .planos  h2 {
+main #planos  h2 {
     margin: 0;
 }
 
-main .planos .background-plano {
+main #planos .background-plano {
         background-image: url('../assets/planoSectionBackground.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -395,11 +460,11 @@ main .planos .background-plano {
         gap: 5vw;
 }
 
-main .planos .background-plano > img {
+main #planos .background-plano > img {
     width: 20vw;
 }
 
-main .planos .background-plano .card-plano {
+main #planos .background-plano .card-plano {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -411,34 +476,34 @@ main .planos .background-plano .card-plano {
     padding-block: 2vw;
 }
 
-main .planos .background-plano .card-plano hr {
+main #planos .background-plano .card-plano hr {
     width: 15vw;
     margin-block: .5vw;
 }
 
-main .planos .background-plano .card-plano ul {
+main #planos .background-plano .card-plano ul {
     display: flex;
     flex-direction: column;
     gap: .5vw;
     width: 80%
 }
 
-main .planos .background-plano .card-plano ul li {
+main #planos .background-plano .card-plano ul li {
     display: flex;
     gap: 1vw;
     align-items: center;
 }
 
-main .planos .background-plano .card-plano ul li img {
+main #planos .background-plano .card-plano ul li img {
     width: 2vw
 }
 
-main .planos .background-plano .card-plano #valor {
+main #planos .background-plano .card-plano #valor {
     font-size: 2.5rem;
     margin: 0;
 }
 
-main .planos .background-plano .card-plano button {
+main #planos .background-plano .card-plano button {
     background-color: white;
     color: #E56C1B;
     border-radius: 25px;
@@ -449,7 +514,7 @@ main .planos .background-plano .card-plano button {
     cursor: pointer;
 }
 
-main .planos .background-plano .card-plano button:hover {
+main #planos .background-plano .card-plano button:hover {
     color: white;
     background-color: #D45113;
 }
@@ -457,7 +522,7 @@ main .planos .background-plano .card-plano button:hover {
 /* footer */
 
 footer {
-  background-color: #d45113;
+  background-color: #195C00;
   padding-block: 2vw;
   padding-inline: 4vw;
   color: white;
@@ -465,14 +530,14 @@ footer {
   flex-direction: column;
   gap: 2vw;
   position: relative;
-  margin-top: 35vw;
+  margin-top: 40vw;
 }
 
 footer .footer-wave {
   width: 100%;
   position: absolute;
   left: 0;
-  top: -26vw; /*isso aqui salvou vidas.*/
+  top: -42vw; /*isso aqui salvou vidas.*/
 }
 
 footer .footer-wave img {
@@ -483,6 +548,7 @@ footer .footer-superior {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2vw;
+  margin-top: 5vw;
 }
 
 footer .footer-superior .superior-esquerdo {
@@ -547,7 +613,73 @@ footer .footer-inferior ul {
 
 /* GOLIAS */
 @media (max-width: 1366px) {
+    html, body { /* se o devtools tiveer bugado, apelar pra isso*/
+      overflow-x: hidden;
+      max-width: 100%;
+    }
 
+    main #hero-section h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    #motivos-problemas .container-problemas #card-1.problema {
+        top: -8vw;
+    }
+
+    #motivos-problemas .container-problemas #card-3.problema {
+        top: 16vw
+    }
+
+    main #hero-section .botoes button {
+        width: 25vw;
+        height: 4vw;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel {
+        width: 12vw;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel {
+        width: 3vw;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide h3 {
+        font-size: 1.3rem;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide p {
+        font-size: 1.1rem
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide {
+        padding: 2vw;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide h3 {
+        font-size: 1.2rem;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide p {
+        font-size: 1rem;
+    }
+
+    main #funcionalidades .streak {
+        padding-top: 5vw;
+    }
+
+    main #funcionalidades .streak > img, #funcionalidades .topicos > img, main #funcionalidades .competicoes
+    > img, main #funcionalidades .customizacao > img {
+        width: 30vw;
+    }
+
+    #funcionalidades .streak .info-streak h3, #funcionalidades .topicos .info-topicos h3, main #funcionalidades .competicoes
+    .info-competicoes h3, main #funcionalidades .customizacao .info-customizacao h3  {
+        font-size: 2rem;
+    }
 }
 
 /* TABLET GRANDE */
@@ -560,10 +692,279 @@ footer .footer-inferior ul {
 /* TABLET */
 @media (max-width: 1024px) {
 
+    .menu-desktop img {
+        width: 20vw;
+    }
+
+    .menu-desktop nav ul {
+        gap: 3vw;
+    }
+
+    main #hero-section {
+        background-size: contain;
+        height: 45vh;
+    }
+
+    main #hero-section h1 {
+        margin-top: 16vw;
+    }
+
+    main #hero-section .bordao p {
+        font-size: 1.8rem;
+    }
+    main #hero-section h1 {
+        font-size: 3rem;
+    }
+
+
+    main #hero-section .botoes button {
+        font-size: 1.5rem;
+        width: 30vw;
+        height: 5vw;
+        border-radius: 20px;
+    }
+
+    #motivos-problemas .container-problemas {
+        width: 85%;
+        height: 54vw
+    }
+
+    #motivos-problemas .container-problemas #card-1.problema {
+        top: -10vw;
+    }
+
+#motivos-problemas .container-problemas .problema .descricao-problema p {
+font-size: 1rem
+}
+
+    #motivos-problemas .container-problemas .problema .descricao-problema {
+        margin-left: 4vw;
+    }
+
+    #motivos-problemas .container-problemas .problema .descricao-problema > img {
+        width: 3.5vw;
+    }
+
+    #motivos-problemas .container-problemas .problema .card-foto {
+        width: 32vw;
+        height: 30vw
+    }
+
+    #motivos-problemas .container-problemas .problema .card-foto img {
+        width: 25vw;
+    }
+
+     #carrossel-solucao .carrossel .swiper {
+            width: 45vw;
+            height: 60vw;
+         }
+
+      #carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel {
+        width: 18vw
+      }
+
+      #carrossel-solucao .carrossel .swiper .swiper-slide p {
+        font-size: 1.2rem;
+      }
+
+    #funcionalidades .streak .info-streak h3, #funcionalidades .topicos .info-topicos h3, main #funcionalidades .competicoes
+     .info-competicoes h3, main #funcionalidades .customizacao .info-customizacao h3 {
+        font-size: 1.7rem;
+     }
+
+     #funcionalidades .streak .info-streak img #funcionalidades .topicos .info-topicos img, main #funcionalidades .competicoes
+     .info-competicoes img, main #funcionalidades .customizacao .info-customizacao img {
+        width: 5vw;
+     }
+
+    footer .footer-wave {
+        display: none;
+    }
+
+    footer .footer-superior {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .footer-superior .superior-esquerdo > img {
+        width: 20vw
+    }
+
+    footer .footer-superior .superior-esquerdo .redes-sociais img {
+        width: 4vw
+    }
+
+    footer .footer-inferior ul {
+        display: none;
+    }
 }
 
 /* CELULAR GRANDE */
 @media (max-width: 768px) {
+li, p, h3, button {
+    font-size: 1.25rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+   main #hero-section h1 {
+    font-size: 2rem;
+   }
+
+    main #hero-section .bordao p {
+        font-size: 1.3rem
+       }
+
+    #motivos-problemas .container-problemas {
+        height: 66vw;
+    }
+
+    #motivos-problemas .container-problemas #card-3.problema {
+        top: 32vw;
+        right: -7vw;
+    }
+
+    .menu-desktop {
+        justify-content: center;
+    }
+
+    .menu-desktop img {
+        width: 20vw;
+    }
+
+    .menu-desktop nav {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: flex;
+        height: 100%;
+        width: 50vw;
+        flex-direction: column;
+        pointer-events: none;
+    }
+
+    .menu-mobile nav.ativo {
+        background-color: #e56c1b;
+        display: flex;
+        width: 50vw;
+        height: 100%;
+        padding-block: 2vw;
+        padding-inline: 1vw;
+        padding-left: 3vw;
+        padding-top: 15vw;
+    }
+
+    .menu-mobile .mobile-icon {
+        pointer-events: auto;
+        margin-bottom: 4vw;
+        position: fixed;
+        top: 2vw;
+        left: 2vw;
+        z-index: 1005;
+    }
+
+      .menu-mobile .mobile-icon.aberto .line1{
+        transform: rotate(-45deg) translate(-0.5vw, 2vw);
+      }
+
+      .menu-mobile .mobile-icon.aberto .line2{
+        opacity: 0;
+      }
+
+       .menu-mobile .mobile-icon.aberto .line3{
+        transform: rotate(45deg) translate(-1.5vw, -2vw)
+      }
+
+    .menu-mobile .mobile-icon div{
+        width: 8vw;
+        height: .75vw;
+        background: #fff;
+        margin: 1.5vw;
+    }
+
+    .menu-mobile nav {
+        padding-left: 2vw;
+    }
+
+    .menu-mobile nav ul {
+        gap: 12vw;
+    }
+
+    main #hero-section {
+        background-size: cover;
+        height: 55vh;
+        margin-top: -4vw;
+    }
+
+    main #hero-section .botoes button {
+        width: 36vw;
+        height: 5vw;
+        font-size: 1.3rem;
+    }
+
+    #carrossel-solucao .carrossel .swiper {
+        width: 58vw;
+        height: 80vw
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide p {
+        font-size: 1rem;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide h3 {
+        font-size: 1.1rem;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide .icon-carrossel {
+        width: 7vw;
+    }
+
+    #carrossel-solucao .carrossel .swiper .swiper-slide .ordo-carrossel {
+        width: 25vw;
+    }
+
+main #funcionalidades .streak .info-streak img, main #funcionalidades .topicos .info-topicos img, main #funcionalidades .competicoes
+.info-competicoes img, main #funcionalidades .customizacao .info-customizacao img {
+    width: 6vw;
+}
+
+main #planos .background-plano .card-plano {
+    width: 35vw;
+}
+
+main #planos .background-plano .card-plano ul li img {
+ width: 4vw;
+ }
+
+ main #planos .background-plano {
+    margin-block: 12vw;
+    height: 95vw;
+ }
+
+main #planos .background-plano > img {
+    width: 35vw;
+}
+
+main #funcionalidades .streak {
+    height: 80vw
+}
+
+#funcionalidades .streak .info-streak h3, #funcionalidades .topicos .info-topicos h3, main #funcionalidades .competicoes
+.info-competicoes h3, main #funcionalidades .customizacao .info-customizacao h3 {
+    font-size: 1.5rem;
+}
+
+main #funcionalidades .topicos {
+    height: 120vw;
+}
+
+main #funcionalidades .competicoes {
+    height: 90vw;
+}
+
 
 }
 

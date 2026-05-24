@@ -25,7 +25,7 @@
       <h1>Bem-vindo de volta</h1>
       <input type="email" name="email" id="email" placeholder="E-mail" th:value="${emailExistente != null ? emailExistente : (email != null ? email : logadoEmail)}"/>
       <input type="password" name="senha" id="senha" placeholder="Senha" th:value="${logadoSenha}"/>
-      <button type="button" onclick="mostrarSenha()">Ver senha</button>
+      <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
       <a th:href="@{/esqueci-senha}">Esqueceu a senha?</a>
       <input type="submit" value="Login"/>
 
@@ -53,5 +53,21 @@
       }
   }
 </script>
+
+<!-- Sistema VLibras -->
+
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+
+<!-- Script import VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim conteúdo VLibras -->
 </body>
 </html>

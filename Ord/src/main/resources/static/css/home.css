@@ -18,16 +18,36 @@ p {
 }
 
 main {
-  padding: 2vw;
-}
-
-.home_section{
+    flex-grow: 1;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding-right: 6vw;
+    flex-direction: column;
+    margin-block: 2vw;
+    padding-right: 6vw;
+    align-items: end;
     position: relative;
 }
-.home_section img{
+
+.home_wrapper_section {
     position: absolute;
-    top: 20vw;
-    left: 30vw;
+    top: 10vw;
+    right: 20vw;
+}
+
+.home{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin-top: -2vw;
+    position: relative
+}
+.home img{
+    position: absolute;
+    bottom: -16vw;
 }
 
 .tela{
@@ -36,4 +56,10 @@ main {
     position: relative;
     width: 40vw;
     height: 30vw;
+}
+
+footer { /* nessa page em específico, é necessário*/
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }

@@ -1,13 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Mada', sans-serif;
     color: #eef2ff;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 main {
@@ -28,7 +25,6 @@ main {
     margin-top: 6rem;
     margin-bottom: 2rem;
     width: 100%;
-    margin-right: 5vw;
     flex: 1;
     padding: 0 2rem;
 }

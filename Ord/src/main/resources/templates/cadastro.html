@@ -27,7 +27,7 @@
       <input type="email" name="email" id="email" placeholder="Digite aqui seu Email" th:value="${email}"/>
       <input type="password" name="senha" id="senha" placeholder="Senha" th:value="${senha}"/>
       <input type="password" name="senha2" id="confirmarSenha" placeholder="Confirmar senha" th:value="${senha2}"/>
-      <button type="button" onclick="mostrarSenha()">Ver senha</button>
+      <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
       <div id="modalResponsavel" hidden>
         <h2>Email do Responsável</h2>
         <input type="email" name="emailResponsavel" placeholder="Digite o email do responsável" th:value="${emailResponsavel}">
@@ -40,7 +40,7 @@
         </ul>
       </div>
       <div th:if="${mensagem}" id="popupEmail" class="alerta-email"><p th:text="${mensagem}"></p></div>
-      <p>Já possui uma conta?<a href="login">Entre aqui!</a></p>
+      <p>Já possui uma conta? <a href="login">Entre aqui!</a></p>
     </form>
   </div>
 </main>
@@ -81,5 +81,21 @@
       }, 5000);
   }
 </script>
+
+<!-- Sistema VLibras -->
+
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+
+<!-- Script import VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim conteúdo VLibras -->
 </body>
 </html>

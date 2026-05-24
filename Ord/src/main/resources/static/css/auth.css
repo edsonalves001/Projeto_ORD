@@ -17,7 +17,7 @@ main {
 
 a,
 p,
-input {
+input, button {
   font-size: 1.15rem;
   font-family: "Mada", sans-serif;
 }
@@ -100,6 +100,22 @@ main img {
   transition: 0.5s ease-in-out;
 }
 
+.card form #ver-senha {
+  width: 10vw;
+  height: 2vw;
+  border-radius: 10px;
+  border: none;
+  align-self: center;
+  color: white;
+  background-color: #d45113;
+  cursor: pointer;
+  transition: .5s ease-in-out;
+}
+
+.card form #ver-senha:hover {
+    background-color: #f2ae81;
+}
+
 .card form input[type="submit"]:hover {
   background-color: #4eb0ff;
 }
@@ -115,9 +131,10 @@ footer {
 
   a,
   p,
-  input {
+  input, button {
     font-size: 1.45rem;
   }
+
   body header {
     border-bottom: 2vw solid #d45113;
   }
@@ -161,7 +178,7 @@ footer {
 
   a,
   p,
-  input {
+  input, button {
     font-size: 1.2rem;
   }
 
@@ -183,9 +200,15 @@ footer {
 @media (max-width: 768px) {
   a,
   p,
-  input {
-    font-size: 1rem;
+  input, button {
+    font-size: 1.25rem;
   }
+
+  .card form #ver-senha {
+    width: 20vw;
+    height: 4vw;
+  }
+
 
   .card form h1 {
     font-size: 1.5rem;
@@ -208,7 +231,7 @@ footer {
 @media (max-width: 480px) {
   a,
   p,
-  input {
+  input, button {
     font-size: 0.8rem;
   }
   .card {

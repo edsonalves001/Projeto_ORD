@@ -24,7 +24,15 @@
 <div class="menu-lateral">
     <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
-        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
+        <div class="streak">
+            <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
+            <p>2</p>
+        </div>
+        <div class="vida">
+            <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
+            <p>3</p>
+        </div>
     </div>
     <nav>
         <ul>
@@ -39,7 +47,7 @@
                 <li>Perfil</li>
             </a>
             <a th:href="@{/loja}">
-              <li>Loja</li>
+                <li>Loja</li>
             </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
@@ -178,5 +186,21 @@
 
 <!-- script da Milena: -->
 <script th:src="@{/js/home.js}"></script>
+
+<!-- Sistema VLibras -->
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<!-- Script import VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim conteúdo VLibras -->
 </body>
 </html>

@@ -27,9 +27,17 @@
 
 <body>
 <div class="menu-lateral">
-    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
+    <a th:href="@{/}" style="cursor: pointer;"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
-        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário" />
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
+        <div class="streak">
+            <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
+            <p>2</p>
+        </div>
+        <div class="vida">
+            <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
+            <p>3</p>
+        </div>
     </div>
     <nav>
         <ul>
@@ -75,118 +83,121 @@
         </div>
     </header>
 
-    <section class="home_section">
-        <img th:src="@{/assets/Ordo.gif}" alt="Raposa Ordo digitando" >
-        <div class="tela">
-            <div class="topicos">
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-                <div class="top_cont">
-                    <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                    <div class="topicos_icon"></div>
-                    <div class="bar"><p>Pacote Office</p></div>
-                </div>
-            </div>
-            <div class="container">
-                <button id="exit">Sair</button>
-                <div class="track">
-                    <div class="inner_box">
-                        <div class="nivel nivel_sel">
-                            <h1 class="nivel_text">word</h1>
-                        </div>
-                        <div class="nivel nivel_n_sel">
-                            <h1 class="nivel_text">excel</h1>
-                        </div>
+    <section class="home_wrapper_section">
+        <div class="home">
+            <img th:src="@{/assets/Ordo.gif}" alt="Raposa Ordo digitando" >
+            <div class="tela">
+                <div class="topicos">
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
                     </div>
-
-                    <div class="atv_container">
-                        <div class="map">
-                            <div id="ordo"></div>
-                            <div class="grid middle">
-                                <div class="invisivel"></div>
-                                <div class="tile"><h2>atividade</h2></div>
-                                <div class="invisivel"></div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                    <div class="top_cont">
+                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
+                        <div class="topicos_icon"></div>
+                        <div class="bar"><p>Pacote Office</p></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <button id="exit">Sair</button>
+                    <div class="track">
+                        <div class="inner_box">
+                            <div class="nivel nivel_sel">
+                                <h1 class="nivel_text">word</h1>
                             </div>
-                            <div class="grid middle">
-                                <div class="invisivel"></div>
-                                <div class="tile"><h2>atividade2</h2></div>
-                                <div class="invisivel"></div>
-                            </div>
-                            <div class="grid left">
-                                <div class="invisivel"></div>
-                                <div class="flag"><h2>atividade3</h2></div>
-                                <div class="invisivel"></div>
-                            </div>
-                            <div class="grid left">
-                                <div class="invisivel"></div>
-                                <div class="tile"><h2>atividade4</h2></div>
-                                <div class="invisivel"></div>
-                            </div>
-                            <div class="grid right">
-                                <div class="invisivel"></div>
-                                <div class="tile"><h2>atividade5</h2></div>
-                                <div class="invisivel"></div>
-                            </div>
-                            <div class="grid right">
-                                <div class="invisivel"></div>
-                                <div class="tile"><h2>atividade6</h2></div>
-                                <div class="invisivel"></div>
+                            <div class="nivel nivel_n_sel">
+                                <h1 class="nivel_text">excel</h1>
                             </div>
                         </div>
-                    </div>
 
+                        <div class="atv_container">
+                            <div class="map">
+                                <div id="ordo"></div>
+                                <div class="grid middle">
+                                    <div class="invisivel"></div>
+                                    <div class="tile"><h2>atividade</h2></div>
+                                    <div class="invisivel"></div>
+                                </div>
+                                <div class="grid middle">
+                                    <div class="invisivel"></div>
+                                    <div class="tile"><h2>atividade2</h2></div>
+                                    <div class="invisivel"></div>
+                                </div>
+                                <div class="grid left">
+                                    <div class="invisivel"></div>
+                                    <div class="flag"><h2>atividade3</h2></div>
+                                    <div class="invisivel"></div>
+                                </div>
+                                <div class="grid left">
+                                    <div class="invisivel"></div>
+                                    <div class="tile"><h2>atividade4</h2></div>
+                                    <div class="invisivel"></div>
+                                </div>
+                                <div class="grid right">
+                                    <div class="invisivel"></div>
+                                    <div class="tile"><h2>atividade5</h2></div>
+                                    <div class="invisivel"></div>
+                                </div>
+                                <div class="grid right">
+                                    <div class="invisivel"></div>
+                                    <div class="tile"><h2>atividade6</h2></div>
+                                    <div class="invisivel"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     </main>
     <footer>
         <p>©2026 Ord - all rights reserved</p>
@@ -194,6 +205,22 @@
 
 <!-- Script home: -->
 <script th:src="@{/js/home.js}"></script>
+
+<!-- Sistema VLibras -->
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<!-- Script import VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim conteúdo VLibras -->
 </body>
 
 </html>
