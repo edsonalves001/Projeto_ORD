@@ -91,6 +91,7 @@
             <div class="tela">
                 <div class="topicos" id="topicos-container">
                     <form th:class="top_cont" th:action="@{/home}" method="post" th:each="topico : ${topicos}">
+                        <!--<div th:class="bar_prog"><div th:class="bar_2"><p>1/3</p></div></div>-->
                         <input th:type="submit" th:class="topicos_icon" th:name="topico" th:value="${topico.id}">
                         <div th:class="bar" th:text="${topico.nome}"><p>topico</p></div>
                     </form>
@@ -108,38 +109,16 @@
                         <div class="atv_container">
                             <div class="map">
                                 <div id="ordo"></div>
-                                <div class="grid middle">
+                                <form class="grid middle" th:each="atividade : ${atividades}" th:action="@{/atividade}" th:method="get">
                                     <div class="invisivel"></div>
-                                    <div class="tile"><h2>atividade</h2></div>
+                                    <label for="${atividade.nome}" class="tile"><h2 th:text="${atividade.nome}" th:data-nivel="${atividade.nivel}">atividade</h2></label>
+                                    <input type="submit" id="${atividade.nome}" th:value="${atividade.id}" style="display: none">
                                     <div class="invisivel"></div>
-                                </div>
-                                <div class="grid middle">
-                                    <div class="invisivel"></div>
-                                    <div class="tile"><h2>atividade2</h2></div>
-                                    <div class="invisivel"></div>
-                                </div>
-                                <div class="grid left">
-                                    <div class="invisivel"></div>
-                                    <div class="flag"><h2>atividade3</h2></div>
-                                    <div class="invisivel"></div>
-                                </div>
-                                <div class="grid left">
-                                    <div class="invisivel"></div>
-                                    <div class="tile"><h2>atividade4</h2></div>
-                                    <div class="invisivel"></div>
-                                </div>
-                                <div class="grid right">
-                                    <div class="invisivel"></div>
-                                    <div class="tile"><h2>atividade5</h2></div>
-                                    <div class="invisivel"></div>
-                                </div>
-                                <div class="grid right">
-                                    <div class="invisivel"></div>
-                                    <div class="tile"><h2>atividade6</h2></div>
-                                    <div class="invisivel"></div>
-                                </div>
+                                </form>
                             </div>
                         </div>
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -130,6 +130,10 @@
     font-weight: bold;
     cursor: pointer;
 
+    background-color: transparent;
+    color: transparent;
+    border: none;
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; /* ESSA É A MÁGICA: força a imagem a caber nos 45px */

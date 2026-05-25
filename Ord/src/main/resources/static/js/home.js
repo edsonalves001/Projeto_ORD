@@ -5,6 +5,9 @@ const tr = document.getElementById("track-container");
 const tps = document.getElementById("topicos-container");
 const topicos = document.querySelectorAll(".topicos_icon");
 const niveis = document.querySelectorAll(".nivel");
+const ordo = document.getElementById("ordo");
+const mapa = document.querySelector(".map");
+const atividades = document.querySelectorAll(".flag, .tile");
 
 function exit() {
     tps.classList.remove("invisivel");
@@ -16,9 +19,8 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
 
     tps.classList.add("invisivel");
     tr.classList.remove("invisivel");
-    iniciarPosicaoOrdo();
 
-    document.querySelectorAll(".nivel_n_sel").item(0).classList.replace("nivel_n_sel","nivel_sel")
+    niveis.item(0).classList.replace("nivel_n_sel","nivel_sel")
     niveis.forEach(nivel => {
         nivel.addEventListener("click", () => {
             if(!nivel.classList.contains("nivel_sel")){
@@ -30,13 +32,9 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
             }
         });
     });
-
-    const ordo = document.getElementById("ordo");
-    const mapa = document.querySelector(".map");
-    const atividades = document.querySelectorAll(".flag, .tile");
+    iniciarPosicaoOrdo();
 
     function moverOrdoPara(elemento) {
-        if (!elemento || !mapa) return;
 
         // Encontra o grid que envelopa essa atividade específica
         const gridPai = elemento.closest('.grid');
@@ -57,7 +55,21 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
         // Guarda qual é a atividade atual para o evento de resize usar depois
         ordo.dataset.atividadeAtualId = elemento.getAttribute('data-fase') || '0';
     }
+
     function iniciarPosicaoOrdo() {
+        let atividadesGuardadas
+
+        atividades.forEach(atividade => {
+            const atividadeNivel = atividade.firstElementChild.dataset.nivel
+            const nivelAtual = document.querySelector(".nivel_sel").innerText
+
+            if(atividadeNivel !== nivelAtual) {
+                atividade.parentElement.style.display = "none"
+            } else {
+                atividade.parentElement.style.display = "block"
+            }
+        })
+
         // Seleciona apenas as atividades que possuem a classe 'concluido'
         const concluidas = document.querySelectorAll(".flag");
 
@@ -66,19 +78,22 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
         if (concluidas.length > 0) {
             // Se existirem atividades concluídas, pega a ÚLTIMA do array [tamanho - 1]
             atividadeInicial = concluidas[concluidas.length - 1];
-        } else if (atividades.length > 0) {
+        } else {
             // Se não houver nenhuma concluída (usuário novo), começa na primeiríssima
-            atividadeInicial = atividades[0];
+            atividadeInicial = null
+
+            for (const atividade of atividades) {
+                if (atividade.parentElement.style.display !== 'none') {
+                    atividadeInicial = atividade
+                    break
+                }
+            }
         }
 
-        if (atividadeInicial) {
-            // Timeout de 200ms para garantir que o layout do monitor renderizou 100%
-            setTimeout(() => moverOrdoPara(atividadeInicial), 200);
-        }
+        console.log(atividadeInicial)
+        moverOrdoPara(atividadeInicial)
     }
 
-    // Executa a busca assim que a página carrega
-    iniciarPosicaoOrdo();
 
     // Adiciona o evento de clique em cada atividade do mapa
     atividades.forEach(atividade => {
@@ -101,7 +116,7 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
 
     atividades.forEach(atividade => {
         atividade.addEventListener("dblclick", () => {
-            window.location.replace("/atividade"); //redireciona(agora só redirecionar para a tela de atividades)
+            window.location.replace("faq.html"); //redireciona(agora só redirecionar para a tela de atividades)
         });
     });
 }
