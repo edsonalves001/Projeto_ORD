@@ -13,25 +13,36 @@
 <body>
     <h1>Painel de admin</h1>
 
-    <h2>Nova Atividade</h2>
-    <form th:action="@{/admin/atividade}" method="post">
+    <h2>Novo Tópico</h2>
+    <form th:action="@{/admin/topico}" method="post">
+        <label for="nomeTopico">Nome</label>
+        <input type="text" name="nome" id="nomeTopico"> <br>
 
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome"> <br>
+        <!-- ../assets/pacote_office.png !-->
+        <label for="icone">Caminho do icone</label>
+        <input type="text" name="icone" id="icone"> <br>
 
-        <label for="dificuldade">Dificuldade</label>
-        <select name="dificuldade" id="dificuldade">
+        <label for="descricaoTopico">Descrição</label>
+        <textarea name="descricao" id="descricaoTopico" cols="30" rows="10"></textarea> <br>
+
+        <input type="submit" value="topico">
+    </form>
+
+    <h2>Novo Nível</h2>
+    <form th:action="@{/admin/nivel}" method="post">
+        <label>Tópico</label>
+        <select name="topico" id="topico">
             <option></option>
-            <option value="iniciante">Iniciante</option>
-            <option value="basico">Básico</option>
-            <option value="medio">Médio</option>
-            <option value="avancado">Avançado</option>
-        </select> <br> <br>
+            <option name="topico" th:each="topico : ${topicos}" th:value="${topico.id}" th:text="${topico.nome}">topico</option>
+        </select> <br>
 
-        <label for="recompensa">Recompensa</label>
-        <input type="number" min="1" name="recompensa" id="recompensa"> <br>
+        <label for="nomeNivel">Descrição</label>
+        <input type="text" name="nome" id="nomeNivel"> <br>
 
-        <input type="submit" value="atividade">
+        <label for="descricaoNivel">Nome</label>
+        <textarea name="descricao" id="descricaoNivel" cols="30" rows="10"></textarea> <br>
+
+        <input type="submit" value="nivel">
     </form>
 
     <h2>Nova Questao</h2>
@@ -79,6 +90,32 @@
         </div>
 
         <input type="submit" value="questao">
+    </form>
+
+    <h2>Nova Atividade</h2>
+    <form th:action="@{/admin/atividade}" method="post">
+        <label>Nível</label>
+        <select name="nvl" id="nivel">
+            <option></option>
+            <option name="nvl" th:each="nvl : ${niveis}" th:value="${nvl.nome}" th:text="${nvl.nome}">nvl</option>
+        </select> <br>
+
+        <label for="nomeAtividade">Nome</label>
+        <input type="text" name="nome" id="nomeAtividade"> <br>
+
+        <label for="dificuldade">Dificuldade</label>
+        <select name="dificuldade" id="dificuldade">
+            <option></option>
+            <option value="iniciante">Iniciante</option>
+            <option value="basico">Básico</option>
+            <option value="medio">Médio</option>
+            <option value="avancado">Avançado</option>
+        </select> <br> <br>
+
+        <label for="recompensa">Recompensa</label>
+        <input type="number" min="1" name="recompensa" id="recompensa"> <br>
+
+        <input type="submit" value="atividade">
     </form>
 
     <script>

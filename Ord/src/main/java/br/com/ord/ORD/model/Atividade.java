@@ -20,11 +20,13 @@ public class Atividade {
     private int scoreRecompensa;
     private boolean concluidoAtividade;
     private List<Questao> questoes;
+    private String nivel;
 
-    public Atividade(String nome, String dificuldade, int scoreRecompensa, boolean concluidoAtividade) {
+    public Atividade(String nome, String dificuldade, int scoreRecompensa, boolean concluidoAtividade, String nivel) {
         this.nome = nome;
         this.dificuldade = dificuldade;
         this.scoreRecompensa = scoreRecompensa;
         this.concluidoAtividade = concluidoAtividade;
+        this.nivel = nivel;
     }
 }

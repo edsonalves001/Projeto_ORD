@@ -19,4 +19,10 @@ public class Topico {
     private String caminhoIcone;
     private String descricao;
     private List<Nivel> niveis;
+
+    public Topico(String nome, String caminhoIcone, String descricao) {
+        this.nome = nome;
+        this.caminhoIcone = caminhoIcone;
+        this.descricao = descricao;
+    }
 }

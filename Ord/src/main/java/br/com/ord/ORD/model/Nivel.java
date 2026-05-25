@@ -12,5 +12,5 @@ import java.util.List;
 public class Nivel {
     private String nome;
     private String descricao;
-    private List<AtividadesNivel> atividades;
+    //private List<AtividadesNivel> atividades;
 }

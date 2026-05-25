@@ -1,10 +1,8 @@
 package br.com.ord.ORD.Controller;
 
-import br.com.ord.ORD.model.Alternativa;
-import br.com.ord.ORD.model.Atividade;
-import br.com.ord.ORD.model.Questao;
-import br.com.ord.ORD.model.Usuario;
+import br.com.ord.ORD.model.*;
 import br.com.ord.ORD.repository.AtividadeRepository;
+import br.com.ord.ORD.repository.TopicoRepository;
 import br.com.ord.ORD.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +27,8 @@ public class AdminController {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private AtividadeRepository atividadeRepository;
+    @Autowired
+    private TopicoRepository topicoRepository;
 
     @PostMapping("/admin")
     public String adminLogin(@RequestParam String nome, @RequestParam String senha) {
@@ -48,16 +48,45 @@ public class AdminController {
     @GetMapping("/admin/dashboard")
     public String adminDashboard(Model model) {
         model.addAttribute("atividades", atividadeRepository.findAll());
+        List<Topico> topicos = topicoRepository.findAll();
+        model.addAttribute("topicos", topicos);
+
+        List<Nivel> niveis = new ArrayList<>();
+        for (int i = 0; i < topicos.size(); i++) {
+            niveis.addAll(topicos.get(i).getNiveis());
+        }
+
+        model.addAttribute("niveis",niveis);
 
         return "admin";
     }
 
+    @PostMapping("/admin/topico")
+    public String adminTopico(@RequestParam String nome, @RequestParam String icone, @RequestParam String descricao) {
+        Topico topico = new Topico(nome, icone, descricao);
+        topicoRepository.save(topico);
+
+        return "redirect:/admin/dashboard";
+    }
+
+    @PostMapping("/admin/nivel")
+    public String adminNivel(@RequestParam String topico, @RequestParam String nome, @RequestParam String descricao) {
+        Nivel nivel = new Nivel(nome, descricao);
+        topicoRepository.findAndPushNivelById(topico, nivel);
+
+        return "redirect:/admin/dashboard";
+    }
+
     @PostMapping("/admin/atividade")
-    public String adminAtividade(@RequestParam String nome, @RequestParam String dificuldade, @RequestParam int recompensa) {
-        Atividade atividade = new Atividade(nome, dificuldade, recompensa, false);
+    public String adminAtividade(@RequestParam String nvl, @RequestParam String nome, @RequestParam String dificuldade, @RequestParam int recompensa) {
+        Atividade atividade = new Atividade(nome, dificuldade, recompensa, false, nvl);
         atividadeRepository.save(atividade);
 
-        return "redirect:/admin";
+        //AtividadesNivel atividadeId = new AtividadesNivel(atividade.getId());
+
+        //topicoRepository.updateAllByNome(nvl, atividadeId.getIdAtividade());
+
+        return "redirect:/admin/dashboard";
     }
 
     @PostMapping("/admin/questao")
@@ -73,7 +102,7 @@ public class AdminController {
         }
 
         Questao questao = new Questao(enunciado,tipo,false,alternativasList);
-        atividadeRepository.findAndPsuhQuestoesById(atv,questao);
+        atividadeRepository.findAndPushQuestoesById(atv,questao);
 
         return "redirect:/admin/dashboard";
     }

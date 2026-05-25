@@ -11,7 +11,6 @@ import java.util.List;
 public interface AtividadeRepository extends MongoRepository<Atividade,String> {
     List<Atividade> findByDificuldade(String dificuldade);
 
-
     @Update("{ '$push': { 'questoes' : ?1 } }")
-    long findAndPsuhQuestoesById(String id, Questao questao);
+    long findAndPushQuestoesById(String id, Questao questao);
 }
