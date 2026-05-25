@@ -57,9 +57,12 @@
 
 .topicos_icon{
     background-image: url('../assets/pacote_office.png');
+    background-color: rgba(0,0,0,0);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    border: none;
+    color: transparent;
     height: 80px;
     width: 80px;
 }

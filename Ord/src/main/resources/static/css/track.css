@@ -142,7 +142,7 @@
     white-space: nowrap;   /* Impede que o texto quebre linha */
 }
 
-.flag { background-image: url('../assets/flag.png'); color: #DF7300;}
+.flag { background-image: url('../assets/Flag.png'); color: #DF7300;}
 .tile{ background-image: url('../assets/Tile.png'); color: #636B91;}
 
 #exit{

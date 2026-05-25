@@ -25,7 +25,7 @@
     <title>Projeto ORD - Home</title>
 </head>
 
-<body>
+<body th:data-topico="${topicoNome}">
 <div class="menu-lateral">
     <a th:href="@{/}" style="cursor: pointer;"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
     <div class="icone-streak-vida">
@@ -87,72 +87,20 @@
         <div class="home">
             <img th:src="@{/assets/Ordo.gif}" alt="Raposa Ordo digitando" >
             <div class="tela">
-                <div class="topicos">
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
-                    <div class="top_cont">
-                        <div class="bar_prog"><div class="bar_2"><p>1/3</p></div></div>
-                        <div class="topicos_icon"></div>
-                        <div class="bar"><p>Pacote Office</p></div>
-                    </div>
+                <div class="topicos" id="topicos-container">
+                    <form th:class="top_cont" th:action="@{/home}" method="post" th:each="topico : ${topicos}">
+                        <div th:class="bar_prog"><div th:class="bar_2"><p>1/3</p></div></div>
+                        <input th:type="submit" th:class="topicos_icon" th:name="topico" th:value="${topico.id}">
+                        <div th:class="bar" th:text="${topico.nome}"><p>topico</p></div>
+                    </form>
                 </div>
-                <div class="container">
-                    <button id="exit">Sair</button>
+
+                <div class="container invisivel" id="track-container">
+                    <button id="exit" onclick="exit()">Sair</button>
                     <div class="track">
                         <div class="inner_box">
-                            <div class="nivel nivel_sel">
-                                <h1 class="nivel_text">word</h1>
-                            </div>
-                            <div class="nivel nivel_n_sel">
-                                <h1 class="nivel_text">excel</h1>
+                            <div class="nivel nivel_n_sel" th:each="nivel: ${niveis}">
+                                <h1 class="nivel_text" th:text="${nivel.nome}">nivel</h1>
                             </div>
                         </div>
 
@@ -203,24 +151,24 @@
         <p>©2026 Ord - all rights reserved</p>
     </footer>
 
-<!-- Script home: -->
-<script th:src="@{/js/home.js}"></script>
+    <!-- Script home: -->
+    <script th:src="@{/js/home.js}"></script>
 
-<!-- Sistema VLibras -->
+    <!-- Sistema VLibras -->
 
-<div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-</div>
 
-<!-- Script import VLibras -->
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-<!-- Fim conteúdo VLibras -->
-</body>
+    <!-- Script import VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <!-- Fim conteúdo VLibras -->
+    </body>
 
 </html>
