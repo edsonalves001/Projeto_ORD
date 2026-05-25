@@ -120,6 +120,9 @@ public class CadastroController {
         usu.setAtividades(lista);
         usu.setCaminhoWallpaper("../assets/PerfilWallpapers/Wallpaper_Default_Ord.webp");
         usu.setVidas(3);
+        List<String> amigos = new ArrayList<>();
+        usu.setAmigosUsuario(amigos);
+        usu.setStreak(0);
         usuarioRepository.save(usu);
         String destinoEmail = menorDeIdade ? emailResponsavel : email;
         String link = "http://localhost:8080/verificar?token=" + token;

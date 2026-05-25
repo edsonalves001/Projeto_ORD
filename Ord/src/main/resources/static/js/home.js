@@ -1,5 +1,6 @@
 /* add as magias da Home que o Francisco fez */
 // Cara era real magia negra que o Francisco fez
+// O Francisco foi longe demais por esse projeto...
 const tr = document.getElementById("track-container");
 const tps = document.getElementById("topicos-container");
 const topicos = document.querySelectorAll(".topicos_icon");
@@ -100,7 +101,7 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
 
     atividades.forEach(atividade => {
         atividade.addEventListener("dblclick", () => {
-            window.location.replace("faq.html"); //redireciona(agora só redirecionar para a tela de atividades)
+            window.location.replace("/atividade"); //redireciona(agora só redirecionar para a tela de atividades)
         });
     });
 }

@@ -27,7 +27,7 @@ public class Usuario {
     private Boolean verificado;
     private String tokenVerificacao;
     private int score;
+    private int streak;
+    private List<String> AmigosUsuario;
     private int Vidas;
-
 }
-

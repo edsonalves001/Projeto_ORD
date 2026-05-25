@@ -32,11 +32,11 @@
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
         <div class="streak">
             <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
-            <p>2</p>
+            <p>[[${usuarioLogado.streak}]]</p>
         </div>
         <div class="vida">
             <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
-            <p>3</p>
+            <p>[[${usuarioLogado.Vidas}]]</p>
         </div>
     </div>
     <nav>
@@ -51,13 +51,12 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-            <a th:href="@{/loja}">
-                <li>Loja</li>
+            <a th:href="@{/customizacao}">
+                <li>Customização</li>
             </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
-            <li>Diária</li>
         </ul>
         <div class="inferior-menu">
 
@@ -69,6 +68,9 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
+                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
+                    <button type="submit">Sair</button>
+                </form>
             </ul>
         </div>
     </nav>
@@ -78,7 +80,7 @@
     <header>
         <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
         <div class="score">
-            <p>120</p>
+            <p>[[${usuarioLogado.score}]]</p>
             <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
         </div>
     </header>
@@ -89,7 +91,6 @@
             <div class="tela">
                 <div class="topicos" id="topicos-container">
                     <form th:class="top_cont" th:action="@{/home}" method="post" th:each="topico : ${topicos}">
-                        <div th:class="bar_prog"><div th:class="bar_2"><p>1/3</p></div></div>
                         <input th:type="submit" th:class="topicos_icon" th:name="topico" th:value="${topico.id}">
                         <div th:class="bar" th:text="${topico.nome}"><p>topico</p></div>
                     </form>
@@ -139,8 +140,6 @@
                                 </div>
                             </div>
                         </div>
-
-                    </div>
                 </div>
             </div>
         </div>

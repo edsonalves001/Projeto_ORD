@@ -29,11 +29,11 @@
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
         <div class="streak">
             <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
-            <p>2</p>
+            <p>[[${usuarioLogado.streak}]]</p>
         </div>
         <div class="vida">
             <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
-            <p>3</p>
+            <p>[[${usuarioLogado.Vidas}]]</p>
         </div>
     </div>
     <nav>
@@ -48,13 +48,12 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-            <a th:href="@{/loja}">
-                <li>Loja</li>
+            <a th:href="@{/customizacao}">
+                <li>Customização</li>
             </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
-            <li>Diária</li>
         </ul>
         <div class="inferior-menu">
 
@@ -66,6 +65,9 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
+                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
+                    <button type="submit">Sair</button>
+                </form>
             </ul>
         </div>
     </nav>
@@ -75,7 +77,7 @@
     <header>
         <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
         <div class="score">
-            <p>120</p>
+            <p>[[${usuarioLogado.score}]]</p>
             <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
         </div>
     </header>
@@ -89,16 +91,17 @@
                     </div>
                     <div class="perfil-imagem-nome">
                         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil" class="img-perfil-pequena">
-                        <h2>Seu nome</h2>
+                        <h2>[[${usuarioLogado.nome}]]</h2>
                     </div>
                 </div>
                 <div class="info-linha">
                     <span class="label">Informações do perfil</span>
-                    <a href="#" class="link-mudar-senha">Mudar senha</a>
+                    <a th:href="@{/nova-senha(token=${usuarioLogado.tokenVerificacao})}" alt="Mudar senha" class="link-mudar-senha">Mudar senha</a><
                 </div>
+                <h3 style="color:black">Email: [[${usuarioLogado.email}]]</h3>
                 <div class="estatisticas">
                     <div class="stat-item">
-                        <span class="stat-valor">2</span>
+                        <span class="stat-valor">[[${usuarioLogado.streak}]]</span>
                         <span class="stat-desc">dias</span>
                     </div>
                     <div class="stat-item">
@@ -106,8 +109,8 @@
                         <span class="stat-desc">ranking</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-valor">120</span>
-                        <span class="stat-desc">pontos</span>
+                        <span class="stat-valor">[[${usuarioLogado.score}]]</span>
+                        <span class="stat-desc">score</span>
                     </div>
                 </div>
             </div>
@@ -153,37 +156,34 @@
             <div class="card-amigos">
                 <h3>Seus amigos</h3>
                 <div class="lista-amigos">
-                    <div class="amigo-item">Ronaldo</div>
-                    <div class="amigo-item">Ronaldo</div>
-                    <div class="amigo-item">Ronaldo</div>
-                    <div class="amigo-item">Ronaldo</div>
-                </div>
-            </div>
-
-            <div class="card-busca">
-                <h3>Buscar usuários</h3>
-                <div class="campo-busca">
-                    <input type="text" id="searchUser" placeholder="Usuário...">
-                    <div id="searchResult" class="resultado-busca">
-                        <div class="resultado-linha">
-                            <span>Ronaldo</span>
-                            <button class="btn-adicionar">Adicionar</button>
-                        </div>
-                        <div class="resultado-linha">
-                            <span>Ronaldo</span>
-                            <button class="btn-adicionar">Adicionar</button>
-                        </div>
-                        <div class="resultado-linha">
-                            <span>Ronaldo</span>
-                            <button class="btn-adicionar">Adicionar</button>
-                        </div>
+                    <div th:if="${#lists.isEmpty(amigos)}">
+                        <p style="color:red">Nenhum amigo adicionado...</p>
                     </div>
-                </div>
+                    <div th:each="amigo : ${amigos}">
+                        <p style="color:red" th:text="${amigo.nome + ' - Score: ' + amigo.score}"></p>
+                        <button th:attr="onclick=|removerAmigo('${amigo.id}')|">Remover amigo</button>
+                    </div>
 
+                </div>
                 <div class="botoes-acao">
                     <button class="btn-encontrar"><i class="fas fa-user-plus"></i> Encontrar amigo</button>
                     <button class="btn-desafiar"><i class="fas fa-gamepad"></i> Desafiar um amigo</button>
                 </div>
+            </div>
+
+            <div class="card-busca">
+
+                <h3>Buscar usuários</h3>
+
+                <div class="campo-busca">
+                    <input type="text"
+                           id="searchUser"
+                           placeholder="Usuário...">
+                    <div id="searchResult"
+                         class="resultado-busca">
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -209,6 +209,50 @@
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 <!-- Fim conteúdo VLibras -->
-</body>
 
+</body>
+<script>
+
+    const input = document.getElementById("searchUser");
+    const resultado = document.getElementById("searchResult")
+    const usuarioLogadoId = "[[${usuarioLogado.id}]]";
+    input.addEventListener("input", async () => {const texto = input.value;
+    if(texto.length < 1){
+         resultado.innerHTML = "";
+         return;
+        }
+    const response =await fetch(`/usuarios/busca?nome=${texto}`);
+    const usuarios = await response.json();
+    resultado.innerHTML = "";
+    usuarios.forEach(usuario => {
+      if(usuario.id === usuarioLogadoId){
+        return;
+        }
+      resultado.innerHTML +=
+      `<div class="resultado-linha">
+          <span>${usuario.nome}</span>
+                <button class="btn-adicionar" onclick="adicionarAmigo('${usuario.id}')"> Adicionar</button>
+
+        </div>`;});});
+    async function adicionarAmigo(amigoId){
+        await fetch(`/adicionar-amigo/${amigoId}`, {
+            method: "POST"
+        });
+
+        alert("Amigo adicionado!");
+        location.reload();
+    }
+    async function removerAmigo(amigoId){
+
+        const response = await fetch(
+            `/remover-amigo/${amigoId}`,
+            {
+                method: "POST"
+            }
+        );
+        const mensagem = await response.text();
+        alert(mensagem);
+        location.reload();
+    }
+</script>
 </html>

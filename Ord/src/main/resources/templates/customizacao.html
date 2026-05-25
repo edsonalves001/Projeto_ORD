@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+    <!-- FONTS: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
+    <!-- CSS: -->
+    <link rel="stylesheet" th:href="@{/css/loja.css}" />
+    <!--COMPONENTS: -->
+    <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
+    <title>Projeto Ord - Loja</title>
+</head>
+<body>
+<div class="menu-lateral">
+    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
+    <div class="icone-streak-vida">
+        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
+        <div class="streak">
+            <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
+            <p>[[${usuarioLogado.streak}]]</p>
+        </div>
+        <div class="vida">
+            <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
+            <p>[[${usuarioLogado.Vidas}]]</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <a th:href="@{/home}">
+                <li>Aprender</li>
+            </a>
+            <a th:href="@{/placar}">
+                <li>Placar</li>
+            </a>
+
+            <a th:href="@{/perfil}">
+                <li>Perfil</li>
+            </a>
+            <a th:href="@{/customizacao}">
+                <li>Customização</li>
+            </a>
+            <a th:href="@{/missoes}">
+                <li>Missões</li>
+            </a>
+        </ul>
+        <div class="inferior-menu">
+
+            <ul>
+                <a th:href="@{/faq}">
+                    <li>Ajuda</li>
+                </a>
+                <a th:href="@{/configs}" id="settings">
+                    <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
+                    <li>Configurações</li>
+                </a>
+                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
+                    <button type="submit">Sair</button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<main>
+
+    <section class="loja_section">
+        <header> <!-- diferente pq a estrutura é diferente nas outras pages -->
+            <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
+            <div class="score">
+                <p>[[${usuarioLogado.score}]]</p>
+                <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+            </div>
+        </header>
+
+        <div class="loja">
+            <div class="balcao-loja">
+                <div class="vendedor-balcao">
+                    <img th:src="@{/assets/Shopkeeper.png}" alt="Raposa Ordo lojista apoiada em um balcão">
+                    <div class="dialogo-vendedor">
+                        <p>Desbloqueie itens e se customize do seu jeitinho com nossos produtos!</p>
+                    </div>
+                </div>
+                <img th:src="@{/assets/balcao.png}">
+            </div>
+
+            <div class="itens-loja">
+
+                <div class="menu-loja">
+                    <div class="botao-perfil">
+                        <img th:src="@{/assets/perfis.png}" alt="Botão de selecionar ícones de perfil">
+                    </div>
+                    <div class="botao-wallpaper">
+                        <img th:src="@{/assets/wallpapers.png}" alt="botão de selecionar wallpapers pro fundo do pc do site">
+                    </div>
+                </div>
+
+                <div class="conteudo-loja">
+
+                    <div class="header-placa-loja">
+                        <img th:src="@{/assets/placa-perfil.png}"
+                             alt="Apenas uma placa sinalizando que são os itens de tal categoria">
+                    </div>
+
+                    <div class="listagem-itens">
+
+                        <div class="item-loja">
+                            <div class="superior-card-item">
+                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
+                            </div>
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Ordo Feliz</p>
+                                <p id="posse-item">Possui</p>
+                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
+                            </div>
+                        </div>
+                        <div class="item-loja">
+                            <div class="superior-card-item">
+                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
+                            </div>
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Ordo Feliz</p>
+                                <p id="posse-item">Possui</p>
+                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
+                            </div>
+                        </div>
+                        <div class="item-loja">
+                            <div class="superior-card-item">
+                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
+                            </div>
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Ordo Feliz</p>
+                                <p id="posse-item">Possui</p>
+                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
+                            </div>
+                        </div>
+                        <div class="item-loja">
+                            <div class="superior-card-item">
+                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
+                            </div>
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Ordo Feliz</p>
+                                <p id="posse-item">Possui</p>
+                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
+                            </div>
+                        </div>
+                        <div class="item-loja">
+                            <div class="superior-card-item">
+                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
+                            </div>
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Ordo Feliz</p>
+                                <p id="posse-item">Possui</p>
+                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
+                            </div>
+                        </div>
+                        <div class="item-loja">
+                            <div class="superior-card-item">
+                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
+                            </div>
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Ordo Feliz</p>
+                                <p id="posse-item">Possui</p>
+                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>©2026 Ord - all rights reserved</p>
+</footer>
+
+<!-- script da Milena: -->
+<script th:src="@{/js/home.js}"></script>
+
+<!-- Sistema VLibras -->
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<!-- Script import VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim conteúdo VLibras -->
+</body>
+</html>

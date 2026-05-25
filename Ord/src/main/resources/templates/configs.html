@@ -29,11 +29,11 @@
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
         <div class="streak">
             <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
-            <p>2</p>
+            <p>[[${usuarioLogado.streak}]]</p>
         </div>
         <div class="vida">
             <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
-            <p>3</p>
+            <p>[[${usuarioLogado.Vidas}]]</p>
         </div>
     </div>
     <nav>
@@ -48,13 +48,12 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-            <a th:href="@{/loja}">
-                <li>Loja</li>
+            <a th:href="@{/customizacao}">
+                <li>Customização</li>
             </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
-            <li>Diária</li>
         </ul>
         <div class="inferior-menu">
 
@@ -66,22 +65,15 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
+                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
+                    <button type="submit">Sair</button>
+                </form>
             </ul>
         </div>
     </nav>
 </div>
 
 <main>
-    <header>
-        <div class="conteudo-pro">
-            <p>Aprenda mais rapido com o ORD Pro</p>
-        </div>
-        <div class="score">
-            <p>120</p>
-            <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
-        </div>
-    </header>
-
     <div class="breve">
         Em breve...
     </div>
