@@ -101,7 +101,7 @@ public class AdminController {
             }
         }
 
-        Questao questao = new Questao(enunciado,tipo,false,alternativasList);
+        Questao questao = new Questao("ensino",enunciado,tipo,false,alternativasList);
         atividadeRepository.findAndPushQuestoesById(atv,questao);
 
         return "redirect:/admin/dashboard";

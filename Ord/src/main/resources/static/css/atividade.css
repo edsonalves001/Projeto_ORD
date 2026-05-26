@@ -63,7 +63,7 @@ main .aviso-ord .balao-mensagem{
    position: absolute;
    left: 15vw;
    top: 2vw;
-   font-size: 1.5rem;
+   /*font-size: 1.5rem; tava muito grande pro balão*/
    background-image: url('../assets/dialogo.png');
    background-size: contain;
    background-repeat: no-repeat;
@@ -131,7 +131,7 @@ main .opcoes-botoes {
     padding: 1vw;
 }
 
-main .opcoes-botoes button {
+main .opcoes-botoes button, .btn{
     width: 8vw;
     height: 2vw;
     color: white;
@@ -166,7 +166,7 @@ main .opcoes-botoes .pular-continuar {
 
 
 main .opcoes-botoes .pular-continuar #pular {
-    background-color: #E56C1B;
+    background: no-repeat left #E56C1B url('../assets/ico/pular-ico.svg');
 }
 
 main .opcoes-botoes .pular-continuar #continuar {

@@ -109,10 +109,10 @@
                         <div class="atv_container">
                             <div class="map">
                                 <div id="ordo"></div>
-                                <form class="grid middle" th:each="atividade : ${atividades}" th:action="@{/atividade}" th:method="get">
+                                <form class="grid middle" th:each="atividade : ${atividades}" th:action="@{/atividade}" th:method="post">
                                     <div class="invisivel"></div>
-                                    <label for="${atividade.nome}" class="tile"><h2 th:text="${atividade.nome}" th:data-nivel="${atividade.nivel}">atividade</h2></label>
-                                    <input type="submit" id="${atividade.nome}" th:value="${atividade.id}" style="display: none">
+                                    <label th:for="${atividade.nome}" class="tile"><h2 th:text="${atividade.nome}" th:data-nivel="${atividade.nivel}">atividade</h2></label>
+                                    <input type="submit" th:id="${atividade.nome}" name="atividadeNome" th:value="${atividade.nome}" style="display: none">
                                     <div class="invisivel"></div>
                                 </form>
                             </div>

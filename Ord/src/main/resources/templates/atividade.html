@@ -19,39 +19,29 @@
 <body>
     <main>
         <header>
-            <h1>Word</h1>
-            <p>Margens</p>
+            <h1 th:text="${atividade.nivel}">nivel</h1>
+            <p th:text="${atividade.nome}">atividade nome</p>
             <div class="progresso-vidas">
                 <div class="progresso">
-                    2/7
+                    <span th:text="${questaoAtual}+'/'+${questoesTotal}">0/0</span>
                 </div>
                 <div class="vidas">
-                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida">
-                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida">
-                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida">
+                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida" th:each="vida : ${vidas}">
                 </div>
             </div>
         </header>
         <div class="aviso-ord">
             <img th:src="@{/assets/faq.webp}" alt="Apenas Ord anotando suas respostas">
             <div class="balao-mensagem">
-                <p>Faz a atividade, seu merda!</p>
+                <p th:text="${balaoMsg}">ensino</p>
             </div>
         </div>
         <div class="questao-atividade">
-            <p>1.Quanto é o padrão automático estipulado pelo word da margem em centimetros?</p>
-            <div class="opcoes-questao">
-                <div class="opcao">
-                    <div class="selecionar"></div> <!-- colocar um evento js pra ao clicar mudar a cor disso, pra demonstrar seleção -->
-                  <p>A. 25cm</p>
-                </div>
-                <div class="opcao">
-                    <div class="selecionar"></div>
-                    <p>B. 255cm</p>
-                </div>
-                <div class="opcao">
-                    <div class="selecionar"></div>
-                    <p>C. 2,5cm</p>
+            <p th:text="${questoes.get(questaoAtual-1).getEnunciado()}" th:style="${feedback} ? 'opacity: 0.2;' : ''">enunciado</p>
+            <div class="opcoes-questao" th:style="${feedback} ? 'pointer-events: none; opacity: 0.2;' : ''">
+                <div th:each="alternativa : ${questoes.get(questaoAtual-1).getAlternativas()}" class="opcao">
+                    <div class="selecionar" onclick="select(this.parentElement)"></div> <!-- colocar um evento js pra ao clicar mudar a cor disso, pra demonstrar seleção. colocado -->
+                    <p th:text="${alternativa.getTexto()}">alternativa</p>
                 </div>
             </div>
         </div>
@@ -60,12 +50,36 @@
             <a th:href="@{/home}">
                 <button id="sair"><img th:src="@{/assets/ico/sair-ico.svg}" alt="Ícone de sair">Sair</button>
             </a>
-            <div class="pular-continuar">
-                <button id="pular"><img th:src="@{/assets/ico/pular-ico.svg}" alt="Ícone de pular"> Pular</button>
-                <button id="continuar">Continuar</button>
-            </div>
+            <form class="pular-continuar" th:action="@{/atividade}" method="post">
+                <input type="hidden" name="atividadeNome" th:value="${atividade.nome}">
+                <input type="hidden" name="questaoAtual" th:value="${questaoAtual}">
+                <input type="hidden" id="alternativaSelecionada" name="alternativaTexto" value="">
+
+                <input type="hidden" name="fase" th:value="${feedback} ? 'avancar' : 'validar'">
+
+                <button type="submit" value="pular" id="pular" name="acao" class="btn">Pular</button>
+                <button type="submit" id="continuar" name="acao" value="continuar" class="btn">Continuar</button>
+            </form>
         </div>
     </main>
+
+    <script>
+        const alternativaSel = document.querySelector('#alternativaSelecionada')
+        const continuar = document.querySelector('#continuar')
+        let alternativaAnterior
+
+        function select(alternativa) {
+            alternativaSel.value = alternativa.lastElementChild.textContent;
+            continuar.removeAttribute("disabled")
+            alternativa.firstElementChild.style.backgroundColor = "rgb(229,108,27)"
+
+            if(alternativaAnterior) {
+                alternativaAnterior.style.backgroundColor = "#F5E6D3"
+            }
+
+            alternativaAnterior = alternativa.firstElementChild
+        }
+    </script>
 
     <!-- Sistema VLibras -->
 

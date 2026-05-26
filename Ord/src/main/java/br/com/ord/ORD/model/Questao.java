@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 public class Questao {
     private String enunciado;
+    private String ensino;
     private String tipo;
     private boolean concluido;
     private List<Alternativa> alternativas;
