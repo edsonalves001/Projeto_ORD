@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+    <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
     <!-- FONTS: -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +19,7 @@
     <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
     <link rel="stylesheet" th:href="@{/css/components/header.css}" />
     <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
+    <title>Ord - Missões</title>
 </head>
 
 <body>
@@ -47,13 +48,12 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
-            <a th:href="@{/loja}">
-                <li>Loja</li>
+            <a th:href="@{/customizacao}">
+                <li>Customização</li>
             </a>
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
-            <li>Diária</li>
         </ul>
         <div class="inferior-menu">
 
@@ -65,21 +65,15 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
+                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
+                    <button type="submit">Sair</button>
+                </form>
             </ul>
         </div>
     </nav>
 </div>
 
 <main>
-    <header>
-        <div class="conteudo-pro">
-            <p>Aprenda mais rapido com o ORD Pro</p>
-        </div>
-        <div class="score">
-            <p>120</p>
-            <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
-        </div>
-    </header>
 
         <div class="breve">
             Em breve.....

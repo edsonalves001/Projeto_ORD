@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="../css/auth.css"/>
+
+    <title>ORD - Recuperar Senha</title>
+</head>
+
 <body>
-<h1>Recuperar senha</h1>
-<form th:action="@{/esqueci-senha}" method="post">
-    <input type="email" name="email" placeholder="Digite seu email">
-    <button type="submit">Enviar</button>
-</form>
-<div th:if="${erro}"><p th:text="${erro}"></p></div>
+
+<header>
+    <a th:href="@{/}">
+        <img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca."/>
+    </a>
+</header>
+
+<main>
+
+    <div class="card">
+
+        <img src="../assets/EsqueciSenhaImg.jpg" alt="Imagem de uma raposa em duvida"/>
+
+        <form th:action="@{/esqueci-senha}" method="post">
+
+            <h1>Recuperar senha</h1>
+
+            <h1>Email:</h1>
+            <input type="email" name="email" placeholder="Digite seu email">
+
+            <input type="submit" value="Enviar"/>
+
+            <div th:if="${erro}">
+                <p th:text="${erro}"></p>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>©2026 Ord - all rights reserved</p>
+</footer>
 
 <!-- Sistema VLibras -->
 
 <div vw class="enabled">
     <div vw-access-button class="active"></div>
+
     <div vw-plugin-wrapper>
         <div class="vw-plugin-top-wrapper"></div>
     </div>
@@ -19,9 +66,12 @@
 
 <!-- Script import VLibras -->
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
 <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
+
 <!-- Fim conteúdo VLibras -->
+
 </body>
 </html>

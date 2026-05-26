@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+    <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
+
     <!-- FONTS: -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,33 +13,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
+
     <!-- CSS: -->
     <link rel="stylesheet" th:href="@{/css/loja.css}" />
+
     <!--COMPONENTS: -->
     <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
     <link rel="stylesheet" th:href="@{/css/components/header.css}" />
     <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
-    <title>Projeto Ord - Loja</title>
+    <link rel="stylesheet" th:href="@{/css/components/dialogo.css}" />
+
+    <title>Ord - Customização</title>
 </head>
+
 <body>
-<div class="menu-lateral">
-    <a th:href="@{/}"><img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" /></a>
+
+<div class="menu-lateral invisivel">
+
+    <a th:href="@{/}">
+        <img th:src="@{/assets/Logotipo-Claro.webp}" alt="Logotipo claro do site Ord" />
+    </a>
+
     <div class="icone-streak-vida">
-        <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
+
+        <img id="foto-perfil" th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
+
         <div class="streak">
             <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
             <p>[[${usuarioLogado.streak}]]</p>
         </div>
+
         <div class="vida">
             <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
             <p>[[${usuarioLogado.Vidas}]]</p>
         </div>
+
     </div>
+
     <nav>
+
         <ul>
+
             <a th:href="@{/home}">
                 <li>Aprender</li>
             </a>
+
             <a th:href="@{/placar}">
                 <li>Placar</li>
             </a>
@@ -46,140 +65,220 @@
             <a th:href="@{/perfil}">
                 <li>Perfil</li>
             </a>
+
             <a th:href="@{/customizacao}">
                 <li>Customização</li>
             </a>
+
             <a th:href="@{/missoes}">
                 <li>Missões</li>
             </a>
+
+            <li>Diária</li>
+
         </ul>
+
         <div class="inferior-menu">
 
             <ul>
+
                 <a th:href="@{/faq}">
                     <li>Ajuda</li>
                 </a>
+
                 <a th:href="@{/configs}" id="settings">
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
+
                 <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
                     <button type="submit">Sair</button>
                 </form>
+
             </ul>
+
         </div>
+
     </nav>
+
 </div>
 
 <main>
 
     <section class="loja_section">
-        <header> <!-- diferente pq a estrutura é diferente nas outras pages -->
+
+        <header>
+
             <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
+
             <div class="score">
                 <p>[[${usuarioLogado.score}]]</p>
                 <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
             </div>
+
         </header>
 
         <div class="loja">
+
             <div class="balcao-loja">
+
                 <div class="vendedor-balcao">
+
                     <img th:src="@{/assets/Shopkeeper.png}" alt="Raposa Ordo lojista apoiada em um balcão">
-                    <div class="dialogo-vendedor">
+
+                    <div class="balao hidden">
                         <p>Desbloqueie itens e se customize do seu jeitinho com nossos produtos!</p>
                     </div>
+
                 </div>
+
                 <img th:src="@{/assets/balcao.png}">
+
             </div>
 
             <div class="itens-loja">
 
                 <div class="menu-loja">
-                    <div class="botao-perfil">
+
+                    <div class="botao botao-perfil">
                         <img th:src="@{/assets/perfis.png}" alt="Botão de selecionar ícones de perfil">
                     </div>
-                    <div class="botao-wallpaper">
+
+                    <div class="botao botao-wallpaper">
                         <img th:src="@{/assets/wallpapers.png}" alt="botão de selecionar wallpapers pro fundo do pc do site">
                     </div>
+
                 </div>
 
                 <div class="conteudo-loja">
 
                     <div class="header-placa-loja">
+
                         <img th:src="@{/assets/placa-perfil.png}"
                              alt="Apenas uma placa sinalizando que são os itens de tal categoria">
-                    </div>
-
-                    <div class="listagem-itens">
-
-                        <div class="item-loja">
-                            <div class="superior-card-item">
-                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
-                            </div>
-                            <div class="inferior-descricao-item">
-                                <p id="nome-produto">Ordo Feliz</p>
-                                <p id="posse-item">Possui</p>
-                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
-                            </div>
-                        </div>
-                        <div class="item-loja">
-                            <div class="superior-card-item">
-                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
-                            </div>
-                            <div class="inferior-descricao-item">
-                                <p id="nome-produto">Ordo Feliz</p>
-                                <p id="posse-item">Possui</p>
-                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
-                            </div>
-                        </div>
-                        <div class="item-loja">
-                            <div class="superior-card-item">
-                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
-                            </div>
-                            <div class="inferior-descricao-item">
-                                <p id="nome-produto">Ordo Feliz</p>
-                                <p id="posse-item">Possui</p>
-                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
-                            </div>
-                        </div>
-                        <div class="item-loja">
-                            <div class="superior-card-item">
-                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
-                            </div>
-                            <div class="inferior-descricao-item">
-                                <p id="nome-produto">Ordo Feliz</p>
-                                <p id="posse-item">Possui</p>
-                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
-                            </div>
-                        </div>
-                        <div class="item-loja">
-                            <div class="superior-card-item">
-                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
-                            </div>
-                            <div class="inferior-descricao-item">
-                                <p id="nome-produto">Ordo Feliz</p>
-                                <p id="posse-item">Possui</p>
-                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
-                            </div>
-                        </div>
-                        <div class="item-loja">
-                            <div class="superior-card-item">
-                                <img th:src="@{/assets/perfil-basico.png}" alt="Perfil do usuário">
-                            </div>
-                            <div class="inferior-descricao-item">
-                                <p id="nome-produto">Ordo Feliz</p>
-                                <p id="posse-item">Possui</p>
-                                <!-- pode ter esse parágrafo ou o de valor, se ele não tiver posse-->
-                            </div>
-                        </div>
 
                     </div>
+                        <div class="listagem-itens">
+
+                            <!-- ITEM SEM BLOQUEIO -->
+
+                            <div class="item-loja item-desbloqueado"
+                                 data-img="/assets/perfil-basico.png">
+
+                                <div class="superior-card-item">
+
+                                    <img th:src="@{/assets/perfil-basico.png}"
+                                         alt="Perfil do usuário">
+
+                                </div>
+
+                                <div class="inferior-descricao-item">
+                                    <p id="nome-produto">Ordo Feliz</p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- ITEM BLOQUEADO -->
+
+                            <div class="item-loja"
+                                 th:if="${usuarioLogado.score < 50}">
+
+                                <div class="superior-card-item item-bloqueado">
+
+                                    <p class="interrogacao">?</p>
+
+                                </div>
+
+                                <div class="inferior-descricao-item">
+                                    <p id="nome-produto">50 Score</p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- ITEM DESBLOQUEADO COM 50 SCORE -->
+
+                            <div class="item-loja item-desbloqueado"
+                                 th:if="${usuarioLogado.score >= 50}"
+                                 data-img="/assets/perfilMascotes/Foto_BotoCordeMewing.webp">
+
+                                <div class="superior-card-item">
+
+                                    <img th:src="@{/assets/perfilMascotes/Foto_BotoCordeMewing.webp}"
+                                         alt="Perfil raro">
+
+                                </div>
+
+                                <div class="inferior-descricao-item">
+                                    <p id="nome-produto">Ordo Raro</p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- OUTRO ITEM -->
+
+                            <div class="item-loja item-desbloqueado"
+                                 data-img="/assets/perfil-azul.png">
+
+                                <div class="superior-card-item">
+
+                                    <img th:src="@{/assets/perfil-azul.png}"
+                                         alt="Perfil azul">
+
+                                </div>
+
+                                <div class="inferior-descricao-item">
+                                    <p id="nome-produto">Ordo Azul</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <style>
+
+                        .item-bloqueado{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: #777;
+                            border-radius: 10px;
+                            min-height: 120px;
+                        }
+
+                        .interrogacao{
+                            font-size: 50px;
+                            color: white;
+                            font-weight: bold;
+                        }
+
+                        .item-desbloqueado{
+                            cursor: pointer;
+                            transition: 0.2s;
+                        }
+
+                        .item-selecionado{
+                            border: 4px solid yellow;
+                            border-radius: 10px;
+                        }
+
+                    </style>
+
+
+
                 </div>
 
             </div>
+
         </div>
+
     </section>
+
 </main>
 
 <footer>
@@ -189,10 +288,14 @@
 <!-- script da Milena: -->
 <script th:src="@{/js/home.js}"></script>
 
+<!-- codigo de fala do ordo -->
+<script th:src="@{/js/dialogo.js}"></script>
+
 <!-- Sistema VLibras -->
 
 <div vw class="enabled">
     <div vw-access-button class="active"></div>
+
     <div vw-plugin-wrapper>
         <div class="vw-plugin-top-wrapper"></div>
     </div>
@@ -200,9 +303,209 @@
 
 <!-- Script import VLibras -->
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
 <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
+
 <!-- Fim conteúdo VLibras -->
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", async () => {
+
+        const frases = [
+            "Não aceitamos devolução!",
+            "Tá achando caro? mas vale o preço",
+            "Tenho algumas coisas raras à venda, estranho!",
+            "Nem pense em pagar fiado"
+        ];
+
+        await ordofalar("customize o site do seu jeitinho",0);
+
+        for(;;){
+
+            const random = Math.floor(Math.random() * frases.length);
+
+            await ordofalar(frases[random], 0);
+
+        }
+
+    });
+
+</script>
+
+<script>
+
+    const botoes = document.querySelectorAll(".botao");
+
+    const conteudo_loja =
+        document.getElementsByClassName("conteudo-loja");
+
+    const border = conteudo_loja[0];
+
+    const listagemItens =
+        document.querySelector(".listagem-itens");
+
+
+
+    // CONTEÚDO PERFIS
+    const conteudoPerfis = `
+
+        <div class="item-loja item-desbloqueado"
+             data-img="/assets/perfil-basico.png">
+
+            <div class="superior-card-item">
+                <img src="/assets/perfil-basico.png">
+            </div>
+
+            <div class="inferior-descricao-item">
+                <p id="nome-produto">Ordo Feliz</p>
+            </div>
+
+        </div>
+
+
+        <div class="item-loja item-desbloqueado"
+             data-img="/assets/perfilMascotes/Foto_BotoCordeMewing.webp">
+
+            <div class="superior-card-item">
+                <img src="/assets/perfilMascotes/Foto_BotoCordeMewing.webp">
+            </div>
+
+            <div class="inferior-descricao-item">
+                <p id="nome-produto">Ordo Raro</p>
+            </div>
+
+        </div>
+
+    `;
+
+
+
+    // CONTEÚDO WALLPAPERS
+    const conteudoWallpapers = `
+
+        <div class="item-loja wallpaper-item"
+             data-wallpaper="/assets/PerfilWallpapers/Wallpaper_Default_Ord.webp">
+
+            <div class="superior-card-item">
+                <img src="/assets/PerfilWallpapers/Wallpaper_Default_Ord.webp">
+            </div>
+
+            <div class="inferior-descricao-item">
+                <p id="nome-produto">Wallpaper Padrão</p>
+            </div>
+
+        </div>
+
+
+                <div class="item-loja wallpaper-item"
+             data-wallpaper="/assets/PerfilWallpapers/Wallpaper_2_Ord.webp">
+
+            <div class="superior-card-item">
+                <img src="/assets/PerfilWallpapers/Wallpaper_2_Ord.webp">
+            </div>
+
+            <div class="inferior-descricao-item">
+                <p id="nome-produto">Wallpaper raro</p>
+            </div>
+
+        </div>
+
+    `;
+
+
+
+    botoes.forEach(botao => {
+
+        botao.addEventListener("click", () => {
+
+            // WALLPAPER
+            if(botao.classList.contains("botao-wallpaper")){
+
+                border.style.borderColor = "#c9baff";
+
+                listagemItens.innerHTML =
+                    conteudoWallpapers;
+
+            }
+
+            // PERFIL
+            else if(botao.classList.contains("botao-perfil")){
+
+                border.style.borderColor = "#55a8d2";
+
+                listagemItens.innerHTML =
+                    conteudoPerfis;
+
+            }
+
+        });
+
+    });
+
+</script>
+<script>
+
+    // PEGA TODOS OS ITENS CLICÁVEIS
+    const itensPerfil = document.querySelectorAll(".item-desbloqueado");
+
+    // FOTO ATUAL DO USUÁRIO
+    const fotoPerfil = document.getElementById("foto-perfil");
+
+    // PARA CADA ITEM DA LOJA
+    itensPerfil.forEach(item => {
+
+        item.addEventListener("click", async () => {
+
+            // REMOVE BORDA DOS OUTROS ITENS
+            document.querySelectorAll(".item-loja")
+                .forEach(card => {
+
+                    card.classList.remove("item-selecionado");
+
+                });
+
+            // ADICIONA BORDA AMARELA
+            item.classList.add("item-selecionado");
+
+            // PEGA O CAMINHO DA IMAGEM
+            const caminhoImagem = item.dataset.img;
+
+            // ALTERA A FOTO NA TELA
+            fotoPerfil.src = caminhoImagem;
+
+            try {
+
+                // ENVIA PARA O BACKEND
+                const resposta = await fetch("/usuario/trocar-foto", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        caminho: caminhoImagem
+                    })
+
+                });
+
+                // DEBUG
+                console.log(await resposta.text());
+
+            } catch(error){
+
+                console.log(error);
+
+            }
+
+        });
+
+    });
+
+</script>
 </body>
 </html>

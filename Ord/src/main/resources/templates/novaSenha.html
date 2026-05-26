@@ -1,26 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="../css/auth.css"/>
+
+    <title>ORD - Nova Senha</title>
+</head>
+
 <div th:if="${sucesso}">
     <script>alert("Senha alterada com sucesso.");</script>
 </div>
+
 <body>
-<h1>Nova senha</h1>
-<form th:action="@{/nova-senha}" method="post">
-    <input type="hidden" name="token" th:value="${token}">
-    <input type="password" name="senha" id="senha" placeholder="Nova senha">
-    <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha">
-    <button type="button" onclick="mostrarSenha()">Ver senha</button>
-    <button type="submit">Alterar senha</button>
-</form>
-<div th:if="${erros}">
-    <ul>
-        <li th:each="erro : ${erros}" th:text="${erro}"></li>
-    </ul>
-</div>
+
+<header>
+    <a th:href="@{/}">
+        <img src="../assets/Logotipo-Claro.webp" alt="Logo do Ord, mas na versão toda branca."/>
+    </a>
+</header>
+
+<main>
+
+    <div class="card">
+
+        <img src="../assets/NovaSenhaImg.jpg" alt="Imagem de uma raposa na neve observando o ambiente"/>
+
+        <form th:action="@{/nova-senha}" method="post">
+
+            <h1>Nova senha</h1>
+
+            <input type="hidden" name="token" th:value="${token}">
+
+            <h2>Senha</h2>
+            <input type="password" name="senha" id="senha" placeholder="Nova senha">
+            <b><label style="color:red">A senha tem que ter Letras Maisculas e Minusculas</label></b>
+            <b><label style="color:red">A senha tem que ter Numeros</label></b>
+            <b><label style="color:red">A senha tem que ter Caracteres especiais @!#$%.</label></b>
+            <h2>Confirmar Senha</h2>
+            <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha">
+            <b><label style="color:red">A confirmação de senha tem que ser igual a senha</label></b>
+
+            <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
+
+            <input type="submit" value="Alterar senha"/>
+
+            <div th:if="${erros}">
+                <ul>
+                    <li th:each="erro : ${erros}" th:text="${erro}"></li>
+                </ul>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>©2026 Ord - all rights reserved</p>
+</footer>
+
 <script>
     function mostrarSenha(){
         const senha = document.getElementById("senha");
         const senha2 = document.getElementById("senha2");
+
         if(senha.type === "password"){
             senha.type = "text";
             senha2.type = "text";
@@ -42,9 +96,13 @@
 
 <!-- Script import VLibras -->
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
 <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
+
 <!-- Fim conteúdo VLibras -->
+
 </body>
 </html>
+

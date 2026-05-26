@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon"/>
+  <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" th:href="@{../css/auth.css}"/>
-  <title>Projeto ORD - Cadastro</title>
+  <title>ORD - Cadastro</title>
 </head>
 <body>
 <header>
@@ -22,11 +22,20 @@
     <img src="../assets/cadastro.webp" alt="Imagem de uma raposa na neve observando o ambiente"/>
     <form th:action="@{/cadastro}" method="post">
       <h1>Seja Bem-vindo!</h1>
+      <label>Nome:</label>
       <input type="text" name="nome" id="nome" placeholder="Digite aqui seu nome" th:value="${nome}"/>
+      <label>Idade:</label>
       <input type="number" name="idade" placeholder="Digite aqui sua idade" th:value="${idade}"/>
+      <label>Email:</label>
       <input type="email" name="email" id="email" placeholder="Digite aqui seu Email" th:value="${email}"/>
+      <label>Senha:</label>
       <input type="password" name="senha" id="senha" placeholder="Senha" th:value="${senha}"/>
+      <b><label style="color:red">A senha tem que ter Letras Maisculas e Minusculas</label></b>
+      <b><label style="color:red">A senha tem que ter Numeros</label></b>
+      <b><label style="color:red">A senha tem que ter Caracteres especiais @!#$%.</label></b>
+      <label>Confirmar Senha:</label>
       <input type="password" name="senha2" id="confirmarSenha" placeholder="Confirmar senha" th:value="${senha2}"/>
+      <b><label style="color:red">A confirmação de senha tem que ser igual a senha</label></b>
       <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
       <div id="modalResponsavel" hidden>
         <h2>Email do Responsável</h2>
