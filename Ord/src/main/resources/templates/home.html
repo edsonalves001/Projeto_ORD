@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
     <!-- FONTS: -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" th:href="@{/css/components/header.css}" />
     <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
 
-    <title>ORD - Inicio</title>
+    <title>Projeto ORD - Home</title>
 </head>
 
 <body th:data-topico="${topicoNome}">
@@ -124,29 +124,29 @@
         </div>
     </section>
 
-    </main>
-    <footer>
-        <p>©2026 Ord - all rights reserved</p>
-    </footer>
+</main>
+<footer>
+    <p>©2026 Ord - all rights reserved</p>
+</footer>
 
-    <!-- Script home: -->
-    <script th:src="@{/js/home.js}"></script>
+<!-- Script home: -->
+<script th:src="@{/js/home.js}"></script>
 
-    <!-- Sistema VLibras -->
+<!-- Sistema VLibras -->
 
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
     </div>
+</div>
 
-    <!-- Script import VLibras -->
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-    <!-- Fim conteúdo VLibras -->
-    </body>
+<!-- Script import VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim conteúdo VLibras -->
+</body>
 
 </html>
