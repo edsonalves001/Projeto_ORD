@@ -1,6 +1,5 @@
 package br.com.ord.ORD.Controller;
 
-import br.com.ord.ORD.model.AtividadesUsuario;
 import br.com.ord.ORD.model.Usuario;
 import br.com.ord.ORD.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,7 +115,7 @@ public class CadastroController {
         usu.setScore(0);
         usu.setEmailResponsavel(emailResponsavel);
         usu.setVerificado(false);
-        List<AtividadesUsuario> lista = new ArrayList<>();
+        List<String> lista = new ArrayList<>();
         usu.setAtividades(lista);
         usu.setCaminhoWallpaper("../assets/PerfilWallpapers/Wallpaper_Default_Ord.webp");
         usu.setVidas(3);

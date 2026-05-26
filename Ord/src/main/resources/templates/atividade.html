@@ -26,13 +26,13 @@
                     <span th:text="${questaoAtual}+'/'+${questoesTotal}">0/0</span>
                 </div>
                 <div class="vidas">
-                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida" th:each="vida : ${vidas}">
+                    <img th:src="@{/assets/ico/vida-ativa.png}" alt="Ícone de vida" th:each="i : ${#numbers.sequence(1, usuarioLogado.Vidas)}">>
                 </div>
             </div>
         </header>
         <div class="aviso-ord">
             <img th:src="@{/assets/faq.webp}" alt="Apenas Ord anotando suas respostas">
-            <div class="balao-mensagem">
+            <div class="balao-mensagem balao hidden">
                 <p th:text="${balaoMsg}">ensino</p>
             </div>
         </div>

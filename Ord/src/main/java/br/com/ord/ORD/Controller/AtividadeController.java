@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +46,19 @@ public class AtividadeController {
         if ("pular".equals(acao) || "avancar".equals(fase)) {
             questaoAtual++;
             if (questaoAtual > questoes.size()) {
+                List<String> concluidas = usuarioLogado.getAtividades();
+                if (concluidas == null) {
+                    concluidas = new ArrayList<>();
+                }
+
+                if (!concluidas.contains(atividade.getNome())) {
+                    concluidas.add(atividade.getNome());
+                    usuarioLogado.setAtividades(concluidas);
+                    usuarioLogado.setScore(usuarioLogado.getScore() + atividade.getScoreRecompensa());
+
+                    usuarioRepository.save(usuarioLogado);
+                }
+
                 return "redirect:/home";
             }
 

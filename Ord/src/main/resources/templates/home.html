@@ -111,7 +111,7 @@
                                 <div id="ordo"></div>
                                 <form class="grid middle" th:each="atividade : ${atividades}" th:action="@{/atividade}" th:method="post">
                                     <div class="invisivel"></div>
-                                    <label th:for="${atividade.nome}" class="tile"><h2 th:text="${atividade.nome}" th:data-nivel="${atividade.nivel}">atividade</h2></label>
+                                    <label th:for="${atividade.nome}" th:classappend="${#lists.contains(usuarioLogado.atividades, atividade.nome)} ? 'flag' : 'tile'"><h2 th:text="${atividade.nome}" th:data-nivel="${atividade.nivel}">atividade</h2></label>
                                     <input type="submit" th:id="${atividade.nome}" name="atividadeNome" th:value="${atividade.nome}" style="display: none">
                                     <div class="invisivel"></div>
                                 </form>

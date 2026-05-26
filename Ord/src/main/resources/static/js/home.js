@@ -53,7 +53,7 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
         ordo.style.left = `${esquerdaCalculada}px`;
 
         // Guarda qual é a atividade atual para o evento de resize usar depois
-        ordo.dataset.atividadeAtualId = elemento.getAttribute('data-fase') || '0';
+        ordo.dataset.atividadeAtualId = elemento.getAttribute('for') || '';
     }
 
     function iniciarPosicaoOrdo() {
@@ -71,7 +71,9 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
         })
 
         // Seleciona apenas as atividades que possuem a classe 'concluido'
-        const concluidas = document.querySelectorAll(".flag");
+        const concluidas = Array.from(document.querySelectorAll(".flag")).filter(flag => {
+            return flag.parentElement.style.display !== 'none';
+        });
 
         let atividadeInicial;
 
@@ -105,7 +107,7 @@ if(document.body.dataset.topico !== null && document.body.dataset.topico !== "ne
     // Reajusta o boneco se a tela mudar de tamanho (evita que ele fique flutuando fora do lugar)
     window.addEventListener("resize", () => {
         const idAtual = ordo.dataset.atividadeAtualId;
-        let elementoAlvo = document.querySelector(`[data-fase="${idAtual}"]`);
+        let elementoAlvo = document.querySelector(`[for="${idAtual}"]`);
 
         if (!elementoAlvo && atividades.length > 0) {
             elementoAlvo = atividades[0];

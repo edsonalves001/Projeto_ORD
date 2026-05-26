@@ -23,7 +23,7 @@ public class Usuario {
     private String caminhoWallpaper;
     private String senha;
     private String emailResponsavel;
-    private List<AtividadesUsuario> atividades;
+    private List<String> atividades;
     private Boolean verificado;
     private String tokenVerificacao;
     private int score;
