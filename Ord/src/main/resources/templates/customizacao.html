@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link th:href="@{/assets/ico/logoOrd.jpeg}" rel="icon" type="image/jpeg" />
 
-    <!-- FONTS: -->
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet" />
 
-    <!-- CSS: -->
+    <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/loja.css}" />
-
-    <!--COMPONENTS: -->
     <link rel="stylesheet" th:href="@{/css/components/footer.css}" />
     <link rel="stylesheet" th:href="@{/css/components/header.css}" />
     <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
     <link rel="stylesheet" th:href="@{/css/components/dialogo.css}" />
 
     <title>Ord - Customização</title>
+
+    <style>
+
+        .item-bloqueado{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #777;
+            border-radius: 10px;
+            min-height: 120px;
+        }
+
+        .interrogacao{
+            font-size: 50px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .item-desbloqueado{
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .item-desbloqueado:hover{
+            transform: scale(1.03);
+        }
+
+        .item-selecionado{
+            border: 4px solid yellow;
+            border-radius: 10px;
+        }
+
+        .form-item{
+            width: 100%;
+        }
+
+        .botao-item{
+            border: none;
+            background: transparent;
+            width: 100%;
+            cursor: pointer;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -36,7 +76,9 @@
 
     <div class="icone-streak-vida">
 
-        <img id="foto-perfil" th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
+        <img id="foto-perfil"
+             th:src="@{${usuarioLogado.caminhoIconPerfil}}"
+             alt="Imagem de perfil do usuário"/>
 
         <div class="streak">
             <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
@@ -87,7 +129,7 @@
                 </a>
 
                 <a th:href="@{/configs}" id="settings">
-                    <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
+                    <img th:src="@{/assets/ico/settings.svg}" alt="Ícone de configurações">
                     <li>Configurações</li>
                 </a>
 
@@ -109,11 +151,11 @@
 
         <header>
 
-            <img th:src="@{/assets/premium-ord.png}" alt="Banner de convite ao premium do Ord">
+            <img th:src="@{/assets/premium-ord.png}" alt="Banner premium">
 
             <div class="score">
                 <p>[[${usuarioLogado.score}]]</p>
-                <img th:src="@{/assets/ico/star.svg}" alt="Ícone de estrela/score">
+                <img th:src="@{/assets/ico/star.svg}" alt="Ícone score">
             </div>
 
         </header>
@@ -124,10 +166,14 @@
 
                 <div class="vendedor-balcao">
 
-                    <img th:src="@{/assets/Shopkeeper.png}" alt="Raposa Ordo lojista apoiada em um balcão">
+                    <img th:src="@{/assets/Shopkeeper.png}"
+                         alt="Raposa Ordo lojista">
 
                     <div class="balao hidden">
-                        <p>Desbloqueie itens e se customize do seu jeitinho com nossos produtos!</p>
+                        <p>
+                            Desbloqueie itens e se customize
+                            do seu jeitinho com nossos produtos!
+                        </p>
                     </div>
 
                 </div>
@@ -141,11 +187,8 @@
                 <div class="menu-loja">
 
                     <div class="botao botao-perfil">
-                        <img th:src="@{/assets/perfis.png}" alt="Botão de selecionar ícones de perfil">
-                    </div>
-
-                    <div class="botao botao-wallpaper">
-                        <img th:src="@{/assets/wallpapers.png}" alt="botão de selecionar wallpapers pro fundo do pc do site">
+                        <img th:src="@{/assets/perfis.png}"
+                             alt="Botão perfis">
                     </div>
 
                 </div>
@@ -155,121 +198,134 @@
                     <div class="header-placa-loja">
 
                         <img th:src="@{/assets/placa-perfil.png}"
-                             alt="Apenas uma placa sinalizando que são os itens de tal categoria">
+                             alt="Placa de categoria">
 
                     </div>
-                        <div class="listagem-itens">
 
-                            <!-- ITEM SEM BLOQUEIO -->
+                    <div class="listagem-itens">
 
-                            <div class="item-loja item-desbloqueado"
-                                 data-img="/assets/perfil-basico.png">
+                        <!-- ITEM 1 -->
+                        <div class="item-loja item-desbloqueado">
 
-                                <div class="superior-card-item">
+                            <form class="form-item"
+                                  th:action="@{/usuario/trocar-foto}"
+                                  method="post">
 
-                                    <img th:src="@{/assets/perfil-basico.png}"
-                                         alt="Perfil do usuário">
+                                <input type="hidden"
+                                       name="caminho"
+                                       value="/assets/perfil-basico.png">
 
-                                </div>
+                                <button type="submit"
+                                        class="botao-item">
 
-                                <div class="inferior-descricao-item">
-                                    <p id="nome-produto">Ordo Feliz</p>
-                                </div>
+                                    <div class="superior-card-item">
 
-                            </div>
+                                        <img th:src="@{/assets/perfil-basico.png}"
+                                             alt="Perfil básico">
 
+                                    </div>
 
-                            <!-- ITEM BLOQUEADO -->
+                                    <div class="inferior-descricao-item">
+                                        <p id="nome-produto">
+                                            Ordo Feliz
+                                        </p>
+                                    </div>
 
-                            <div class="item-loja"
-                                 th:if="${usuarioLogado.score < 50}">
+                                </button>
 
-                                <div class="superior-card-item item-bloqueado">
+                            </form>
 
-                                    <p class="interrogacao">?</p>
-
-                                </div>
-
-                                <div class="inferior-descricao-item">
-                                    <p id="nome-produto">50 Score</p>
-                                </div>
-
-                            </div>
+                        </div>
 
 
-                            <!-- ITEM DESBLOQUEADO COM 50 SCORE -->
+                        <!-- ITEM BLOQUEADO -->
+                        <div class="item-loja"
+                             th:if="${usuarioLogado.score < 50}">
 
-                            <div class="item-loja item-desbloqueado"
-                                 th:if="${usuarioLogado.score >= 50}"
-                                 data-img="/assets/perfilMascotes/Foto_BotoCordeMewing.webp">
+                            <div class="superior-card-item item-bloqueado">
 
-                                <div class="superior-card-item">
-
-                                    <img th:src="@{/assets/perfilMascotes/Foto_BotoCordeMewing.webp}"
-                                         alt="Perfil raro">
-
-                                </div>
-
-                                <div class="inferior-descricao-item">
-                                    <p id="nome-produto">Ordo Raro</p>
-                                </div>
+                                <p class="interrogacao">?</p>
 
                             </div>
 
-
-                            <!-- OUTRO ITEM -->
-
-                            <div class="item-loja item-desbloqueado"
-                                 data-img="/assets/perfil-azul.png">
-
-                                <div class="superior-card-item">
-
-                                    <img th:src="@{/assets/perfil-azul.png}"
-                                         alt="Perfil azul">
-
-                                </div>
-
-                                <div class="inferior-descricao-item">
-                                    <p id="nome-produto">Ordo Azul</p>
-                                </div>
-
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">
+                                    Desbloqueia com 50 score
+                                </p>
                             </div>
 
                         </div>
 
+
+                        <!-- ITEM DESBLOQUEADO -->
+                        <div class="item-loja item-desbloqueado"
+                             th:if="${usuarioLogado.score >= 50}">
+
+                            <form class="form-item"
+                                  th:action="@{/usuario/trocar-foto}"
+                                  method="post">
+
+                                <input type="hidden"
+                                       name="caminho"
+                                       value="/assets/perfil-raro.png">
+
+                                <button type="submit"
+                                        class="botao-item">
+
+                                    <div class="superior-card-item">
+
+                                        <img th:src="@{/assets/perfil-raro.png}"
+                                             alt="Perfil raro">
+
+                                    </div>
+
+                                    <div class="inferior-descricao-item">
+                                        <p id="nome-produto">
+                                            Ordo Raro
+                                        </p>
+                                    </div>
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+
+                        <!-- ITEM 3 -->
+                        <div class="item-loja item-desbloqueado">
+
+                            <form class="form-item"
+                                  th:action="@{/usuario/trocar-foto}"
+                                  method="post">
+
+                                <input type="hidden"
+                                       name="caminho"
+                                       value="/assets/perfil-azul.png">
+
+                                <button type="submit"
+                                        class="botao-item">
+
+                                    <div class="superior-card-item">
+
+                                        <img th:src="@{/assets/perfil-azul.png}"
+                                             alt="Perfil azul">
+
+                                    </div>
+
+                                    <div class="inferior-descricao-item">
+                                        <p id="nome-produto">
+                                            Ordo Azul
+                                        </p>
+                                    </div>
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
                     </div>
-
-
-                    <style>
-
-                        .item-bloqueado{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            background-color: #777;
-                            border-radius: 10px;
-                            min-height: 120px;
-                        }
-
-                        .interrogacao{
-                            font-size: 50px;
-                            color: white;
-                            font-weight: bold;
-                        }
-
-                        .item-desbloqueado{
-                            cursor: pointer;
-                            transition: 0.2s;
-                        }
-
-                        .item-selecionado{
-                            border: 4px solid yellow;
-                            border-radius: 10px;
-                        }
-
-                    </style>
-
-
 
                 </div>
 
@@ -285,14 +341,11 @@
     <p>©2026 Ord - all rights reserved</p>
 </footer>
 
-<!-- script da Milena: -->
+<!-- Scripts -->
 <script th:src="@{/js/home.js}"></script>
-
-<!-- codigo de fala do ordo -->
 <script th:src="@{/js/dialogo.js}"></script>
 
-<!-- Sistema VLibras -->
-
+<!-- VLibras -->
 <div vw class="enabled">
     <div vw-access-button class="active"></div>
 
@@ -301,211 +354,50 @@
     </div>
 </div>
 
-<!-- Script import VLibras -->
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
 <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    new window.VLibras.Widget(
+        'https://vlibras.gov.br/app'
+    );
 </script>
-
-<!-- Fim conteúdo VLibras -->
 
 <script>
 
-    document.addEventListener("DOMContentLoaded", async () => {
+    document.addEventListener(
+        "DOMContentLoaded",
+        async () => {
 
-        const frases = [
-            "Não aceitamos devolução!",
-            "Tá achando caro? mas vale o preço",
-            "Tenho algumas coisas raras à venda, estranho!",
-            "Nem pense em pagar fiado"
-        ];
+            const frases = [
+                "Não aceitamos devolução!",
+                "Tá achando caro? mas vale o preço",
+                "Tenho algumas coisas raras à venda!",
+                "Nem pense em pagar fiado"
+            ];
 
-        await ordofalar("customize o site do seu jeitinho",0);
+            await ordofalar(
+                "customize o site do seu jeitinho",
+                0
+            );
 
-        for(;;){
+            for(;;){
 
-            const random = Math.floor(Math.random() * frases.length);
+                const random =
+                    Math.floor(
+                        Math.random() * frases.length
+                    );
 
-            await ordofalar(frases[random], 0);
+                await ordofalar(
+                    frases[random],
+                    0
+                );
+
+            }
 
         }
-
-    });
-
-</script>
-
-<script>
-
-    const botoes = document.querySelectorAll(".botao");
-
-    const conteudo_loja =
-        document.getElementsByClassName("conteudo-loja");
-
-    const border = conteudo_loja[0];
-
-    const listagemItens =
-        document.querySelector(".listagem-itens");
-
-
-
-    // CONTEÚDO PERFIS
-    const conteudoPerfis = `
-
-        <div class="item-loja item-desbloqueado"
-             data-img="/assets/perfil-basico.png">
-
-            <div class="superior-card-item">
-                <img src="/assets/perfil-basico.png">
-            </div>
-
-            <div class="inferior-descricao-item">
-                <p id="nome-produto">Ordo Feliz</p>
-            </div>
-
-        </div>
-
-
-        <div class="item-loja item-desbloqueado"
-             data-img="/assets/perfilMascotes/Foto_BotoCordeMewing.webp">
-
-            <div class="superior-card-item">
-                <img src="/assets/perfilMascotes/Foto_BotoCordeMewing.webp">
-            </div>
-
-            <div class="inferior-descricao-item">
-                <p id="nome-produto">Ordo Raro</p>
-            </div>
-
-        </div>
-
-    `;
-
-
-
-    // CONTEÚDO WALLPAPERS
-    const conteudoWallpapers = `
-
-        <div class="item-loja wallpaper-item"
-             data-wallpaper="/assets/PerfilWallpapers/Wallpaper_Default_Ord.webp">
-
-            <div class="superior-card-item">
-                <img src="/assets/PerfilWallpapers/Wallpaper_Default_Ord.webp">
-            </div>
-
-            <div class="inferior-descricao-item">
-                <p id="nome-produto">Wallpaper Padrão</p>
-            </div>
-
-        </div>
-
-
-                <div class="item-loja wallpaper-item"
-             data-wallpaper="/assets/PerfilWallpapers/Wallpaper_2_Ord.webp">
-
-            <div class="superior-card-item">
-                <img src="/assets/PerfilWallpapers/Wallpaper_2_Ord.webp">
-            </div>
-
-            <div class="inferior-descricao-item">
-                <p id="nome-produto">Wallpaper raro</p>
-            </div>
-
-        </div>
-
-    `;
-
-
-
-    botoes.forEach(botao => {
-
-        botao.addEventListener("click", () => {
-
-            // WALLPAPER
-            if(botao.classList.contains("botao-wallpaper")){
-
-                border.style.borderColor = "#c9baff";
-
-                listagemItens.innerHTML =
-                    conteudoWallpapers;
-
-            }
-
-            // PERFIL
-            else if(botao.classList.contains("botao-perfil")){
-
-                border.style.borderColor = "#55a8d2";
-
-                listagemItens.innerHTML =
-                    conteudoPerfis;
-
-            }
-
-        });
-
-    });
+    );
 
 </script>
-<script>
 
-    // PEGA TODOS OS ITENS CLICÁVEIS
-    const itensPerfil = document.querySelectorAll(".item-desbloqueado");
-
-    // FOTO ATUAL DO USUÁRIO
-    const fotoPerfil = document.getElementById("foto-perfil");
-
-    // PARA CADA ITEM DA LOJA
-    itensPerfil.forEach(item => {
-
-        item.addEventListener("click", async () => {
-
-            // REMOVE BORDA DOS OUTROS ITENS
-            document.querySelectorAll(".item-loja")
-                .forEach(card => {
-
-                    card.classList.remove("item-selecionado");
-
-                });
-
-            // ADICIONA BORDA AMARELA
-            item.classList.add("item-selecionado");
-
-            // PEGA O CAMINHO DA IMAGEM
-            const caminhoImagem = item.dataset.img;
-
-            // ALTERA A FOTO NA TELA
-            fotoPerfil.src = caminhoImagem;
-
-            try {
-
-                // ENVIA PARA O BACKEND
-                const resposta = await fetch("/usuario/trocar-foto", {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        caminho: caminhoImagem
-                    })
-
-                });
-
-                // DEBUG
-                console.log(await resposta.text());
-
-            } catch(error){
-
-                console.log(error);
-
-            }
-
-        });
-
-    });
-
-</script>
 </body>
 </html>
