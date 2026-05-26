@@ -1,0 +1,40 @@
+.hidden{
+  visibility: hidden;
+}
+
+.balao-fala {
+  position: relative;
+  background: #ffffff;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  max-width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: flutuar 2s ease-in-out infinite;
+  z-index: 100;
+}
+
+/* Rabinho do balão */
+.balao-fala::after {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  left: -15px;
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  rotate: 90deg;
+  width: 0;
+}
+
+/* Animação de flutuação */
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
