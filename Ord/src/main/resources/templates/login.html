@@ -21,21 +21,16 @@
 <main>
   <div class="card">
     <img src="../assets/login.webp" alt="Imagem de uma raposa na neve observando o ambiente"/>
-    <form th:action="@{/login}" method="post">
+    <form id="loginForm" method="post">
       <h1>Bem-vindo de volta</h1>
-      <h3>Emai:</h3>
+      <h3>Email:</h3>
       <input type="email" name="email" id="email" placeholder="E-mail" th:value="${emailExistente != null ? emailExistente : (email != null ? email : logadoEmail)}"/>
       <h3>Senha:</h3>
       <input type="password" name="senha" id="senha" placeholder="Senha" th:value="${logadoSenha}"/>
       <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
       <a th:href="@{/esqueci-senha}">Esqueceu a senha?</a>
       <input type="submit" value="Login"/>
-
-      <div th:if="${erros}">
-        <ul>
-          <li th:each="erro : ${erros}" th:text="${erro}"></li>
-        </ul>
-      </div>
+      <div id="listaErros"></div>
       <div th:if="${sucesso}"><p th:text="${sucesso}"></p></div>
       <div th:if="${mensagem}"><p th:text="${mensagem}"></p></div>
       <p>Não possui uma conta? Crie <a href="cadastro">aqui!</a></p>
@@ -71,5 +66,36 @@
   new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 <!-- Fim conteúdo VLibras -->
+
+<!--SCRIPT QUE CONECTA ESSA PAGINA COM A API DE LOGIN-->
+<script>
+  document.getElementById("loginForm").addEventListener("submit",async function(e){e.preventDefault();
+      const dados = {
+          email:document.querySelector("input[name='email']").value,
+          senha:document.querySelector("input[name='senha']").value
+      };
+      const response =await fetch("/api/login",{
+              method: "POST",
+              headers: {
+                  "Content-Type":
+                      "application/json"
+              },
+              body:
+                  JSON.stringify(dados)
+          }
+      );
+      const json = await response.json();
+      const lista =document.getElementById("listaErros");
+      lista.innerHTML = "";
+      if(!json.sucesso){
+          json.erros.forEach(erro => {
+              lista.innerHTML +=`<p style="color:red">${erro}</p>`;
+          });
+          return;
+      }
+
+      window.location.href = json.redirect;
+  });
+</script>
 </body>
 </html>

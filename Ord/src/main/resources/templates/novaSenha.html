@@ -33,9 +33,9 @@
 
     <div class="card">
 
-        <img src="../assets/NovaSenhaImg.jpg" alt="Imagem de uma raposa na neve observando o ambiente"/>
+        <img src="../assets/novaSenha.png" alt="Imagem de uma raposa na neve observando o ambiente"/>
 
-        <form th:action="@{/nova-senha}" method="post">
+        <form id="novaSenhaForm" method="post">
 
             <h1>Nova senha</h1>
 
@@ -43,22 +43,14 @@
 
             <h2>Senha</h2>
             <input type="password" name="senha" id="senha" placeholder="Nova senha">
-            <b><label style="color:red">A senha tem que ter Letras Maisculas e Minusculas</label></b>
-            <b><label style="color:red">A senha tem que ter Numeros</label></b>
-            <b><label style="color:red">A senha tem que ter Caracteres especiais @!#$%.</label></b>
             <h2>Confirmar Senha</h2>
             <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha">
-            <b><label style="color:red">A confirmação de senha tem que ser igual a senha</label></b>
 
             <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
 
             <input type="submit" value="Alterar senha"/>
 
-            <div th:if="${erros}">
-                <ul>
-                    <li th:each="erro : ${erros}" th:text="${erro}"></li>
-                </ul>
-            </div>
+            <div id="listaErros"></div>
 
         </form>
 
@@ -104,5 +96,41 @@
 <!-- Fim conteúdo VLibras -->
 
 </body>
+
+<!--SCRIPT QUE CONECTA ESSA PAGINA COM A API DE ESQUECI SENHA-->
+<script>
+    document.getElementById("novaSenhaForm").addEventListener("submit",async function(e){
+        e.preventDefault();
+        const dados = {
+            token:document.querySelector("input[name='token']").value,
+            senha:document.getElementById("senha").value,
+            senha2:document.getElementById("senha2").value
+        };
+        const response =
+        await fetch(
+            "/api/nova-senha",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+                body:
+                    JSON.stringify(dados)
+            }
+        );
+        const json = await response.json();
+        const lista = document.getElementById("listaErros");
+        lista.innerHTML = "";
+        if(!json.sucesso){
+            json.erros.forEach(erro => {
+                lista.innerHTML += `<p style="color:red">${erro}</p>`;});
+            return;
+        }
+        alert(json.mensagem);
+        window.location.href = json.redirect;
+    }
+);
+</script>
 </html>
 

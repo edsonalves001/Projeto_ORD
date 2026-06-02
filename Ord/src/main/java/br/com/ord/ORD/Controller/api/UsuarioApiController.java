@@ -1,4 +1,4 @@
-package br.com.ord.ORD.api;
+package br.com.ord.ORD.Controller.api;
 
 import br.com.ord.ORD.model.Usuario;
 import br.com.ord.ORD.repository.UsuarioRepository;

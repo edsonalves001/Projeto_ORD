@@ -29,11 +29,11 @@
         <img th:src="@{${usuarioLogado.caminhoIconPerfil}}" alt="Imagem de perfil do usuário"/>
         <div class="streak">
             <img th:src="@{/assets/ico/streak-pessoal.svg}" alt="Ícone de streak">
-            <p>2</p>
+            <p>[[${usuarioLogado.streak}]]</p>
         </div>
         <div class="vida">
             <img th:src="@{/assets/ico/vidas.svg}" alt="Ícone de vidas">
-            <p>3</p>
+            <p>[[${usuarioLogado.Vidas}]]</p>
         </div>
     </div>
     <nav>
@@ -65,9 +65,7 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
-                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
-                    <button type="submit">Sair</button>
-                </form>
+                <button type="button" onclick="logout()">Desconectar</button>
             </ul>
         </div>
     </nav>
@@ -100,6 +98,21 @@
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 <!-- Fim conteúdo VLibras -->
-</body>
 
+<!--SCRIPT DO LOGOUT-->
+<script>
+    async function logout(){
+        try{
+            const response = await fetch("/api/logout",{method: "POST"});
+            const json = await response.json();
+            if(json.sucesso){
+                window.location.href = json.redirect;
+            }
+        }catch(error){
+            console.error(error);
+            alert("Erro ao realizar logout");
+        }
+    }
+</script>
+</body>
 </html>

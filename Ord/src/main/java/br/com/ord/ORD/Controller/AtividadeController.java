@@ -56,6 +56,7 @@ public class AtividadeController {
                     usuarioLogado.setAtividades(concluidas);
                     usuarioLogado.setScore(usuarioLogado.getScore() + atividade.getScoreRecompensa());
 
+
                     usuarioRepository.save(usuarioLogado);
                 }
 

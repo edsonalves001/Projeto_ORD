@@ -116,8 +116,6 @@
                 <li>Missões</li>
             </a>
 
-            <li>Diária</li>
-
         </ul>
 
         <div class="inferior-menu">
@@ -133,9 +131,7 @@
                     <li>Configurações</li>
                 </a>
 
-                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
-                    <button type="submit">Sair</button>
-                </form>
+                <button type="button" onclick="logout()">Desconectar</button>
 
             </ul>
 
@@ -206,29 +202,14 @@
 
                         <!-- ITEM 1 -->
                         <div class="item-loja item-desbloqueado">
-
-                            <form class="form-item"
-                                  th:action="@{/usuario/trocar-foto}"
-                                  method="post">
-
-                                <input type="hidden"
-                                       name="caminho"
-                                       value="/assets/perfil-basico.png">
-
-                                <button type="submit"
-                                        class="botao-item">
-
+                            <form class="form-item" th:action="@{/usuario/trocar-foto}" method="post">
+                                <input type="hidden" name="caminho" value="/assets/perfil-basico.png">
+                                <button type="submit" class="botao-item">
                                     <div class="superior-card-item">
-
-                                        <img th:src="@{/assets/perfil-basico.png}"
-                                             alt="Perfil básico">
-
+                                        <img th:src="@{/assets/perfil-basico.png}" alt="Perfil básico">
                                     </div>
-
                                     <div class="inferior-descricao-item">
-                                        <p id="nome-produto">
-                                            Ordo Feliz
-                                        </p>
+                                        <p id="nome-produto">Ordo Feliz</p>
                                     </div>
 
                                 </button>
@@ -239,86 +220,88 @@
 
 
                         <!-- ITEM BLOQUEADO -->
-                        <div class="item-loja"
-                             th:if="${usuarioLogado.score < 50}">
-
+                        <div class="item-loja" th:if="${usuarioLogado.score < 50}">
                             <div class="superior-card-item item-bloqueado">
-
                                 <p class="interrogacao">?</p>
-
                             </div>
 
                             <div class="inferior-descricao-item">
-                                <p id="nome-produto">
-                                    Desbloqueia com 50 score
-                                </p>
+                                <p id="nome-produto">Desbloqueia com 50 score</p>
                             </div>
 
                         </div>
 
 
                         <!-- ITEM DESBLOQUEADO -->
-                        <div class="item-loja item-desbloqueado"
-                             th:if="${usuarioLogado.score >= 50}">
-
-                            <form class="form-item"
-                                  th:action="@{/usuario/trocar-foto}"
-                                  method="post">
-
-                                <input type="hidden"
-                                       name="caminho"
-                                       value="/assets/perfil-raro.png">
-
-                                <button type="submit"
-                                        class="botao-item">
-
-                                    <div class="superior-card-item">
-
-                                        <img th:src="@{/assets/perfil-raro.png}"
-                                             alt="Perfil raro">
-
+                        <div class="item-loja item-desbloqueado" th:if="${usuarioLogado.score >= 50}">
+                            <form class="form-item" th:action="@{/usuario/trocar-foto}" method="post"  style="height:100px, width:100px">
+                                <input type="hidden" name="caminho" value="/assets/PerfilMascotes/Micoperfil.webp">
+                                <button type="submit" class="botao-item">
+                                    <div class="superior-card-item" >
+                                        <img  th:src="@{/assets/PerfilMascotes/Micoperfil.webp}" alt="Foto de perfil mico">
                                     </div>
-
                                     <div class="inferior-descricao-item">
-                                        <p id="nome-produto">
-                                            Ordo Raro
-                                        </p>
+                                        <p id="nome-produto">Mico Camarada</p>
                                     </div>
+                                </button>
 
+                            </form>
+
+                        </div>
+                        <!-- ITEM BLOQUEADO -->
+                        <div class="item-loja" th:if="${usuarioLogado.score < 100}">
+                            <div class="superior-card-item item-bloqueado">
+                                <p class="interrogacao">?</p>
+                            </div>
+
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Desbloqueia com 100 score</p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ITEM DESBLOQUEADO -->
+                        <div class="item-loja item-desbloqueado" th:if="${usuarioLogado.score >= 50}" >
+                            <form class="form-item" th:action="@{/usuario/trocar-foto}" method="post">
+                                <input type="hidden" name="caminho" value="/assets/PerfilMascotes/Bluperfil.webp">
+                                <button type="submit" class="botao-item">
+                                    <div class="superior-card-item">
+                                        <img th:src="@{/assets/PerfilMascotes/Bluperfil.webp}" alt="Foto de perfil Arara Azul Feliz">
+                                    </div>
+                                    <div class="inferior-descricao-item">
+                                        <p id="nome-produto">Arara Feliz</p>
+                                    </div>
                                 </button>
 
                             </form>
 
                         </div>
 
+                        <!-- ITEM BLOQUEADO -->
+                        <div class="item-loja" th:if="${usuarioLogado.score < 1000}">
+                            <div class="superior-card-item item-bloqueado">
+                                <p class="interrogacao">?</p>
+                            </div>
 
-                        <!-- ITEM 3 -->
-                        <div class="item-loja item-desbloqueado">
+                            <div class="inferior-descricao-item">
+                                <p id="nome-produto">Desbloqueia com 1000 score</p>
+                            </div>
 
-                            <form class="form-item"
-                                  th:action="@{/usuario/trocar-foto}"
-                                  method="post">
+                        </div>
 
-                                <input type="hidden"
-                                       name="caminho"
-                                       value="/assets/perfil-azul.png">
 
-                                <button type="submit"
-                                        class="botao-item">
-
+                        <!-- ITEM DESBLOQUEADO -->
+                        <div class="item-loja item-desbloqueado" th:if="${usuarioLogado.score >= 50}">
+                            <form class="form-item" th:action="@{/usuario/trocar-foto}" method="post">
+                                <input type="hidden" name="caminho" value="/assets/PerfilMascotes/Botoperfil.webp">
+                                <button type="submit" class="botao-item">
                                     <div class="superior-card-item">
-
-                                        <img th:src="@{/assets/perfil-azul.png}"
-                                             alt="Perfil azul">
-
+                                        <img th:src="@{/assets/PerfilMascotes/Botoperfil.webp}" alt="Foto de perfil do Boto cor de rosa">
                                     </div>
-
                                     <div class="inferior-descricao-item">
-                                        <p id="nome-produto">
-                                            Ordo Azul
-                                        </p>
+                                        <p id="nome-produto">Boto cor de Mewing</p>
                                     </div>
-
                                 </button>
 
                             </form>
@@ -363,30 +346,23 @@
 </script>
 
 <script>
-
-    document.addEventListener(
-        "DOMContentLoaded",
+    document.addEventListener("DOMContentLoaded",
         async () => {
-
             const frases = [
                 "Não aceitamos devolução!",
                 "Tá achando caro? mas vale o preço",
                 "Tenho algumas coisas raras à venda!",
                 "Nem pense em pagar fiado"
             ];
-
             await ordofalar(
                 "customize o site do seu jeitinho",
                 0
             );
-
             for(;;){
-
                 const random =
                     Math.floor(
                         Math.random() * frases.length
                     );
-
                 await ordofalar(
                     frases[random],
                     0
@@ -398,6 +374,20 @@
     );
 
 </script>
-
+<!--SCRIPT DO LOGOUT-->
+<script>
+    async function logout(){
+        try{
+            const response = await fetch("/api/logout",{method: "POST"});
+            const json = await response.json();
+            if(json.sucesso){
+                window.location.href = json.redirect;
+            }
+        }catch(error){
+            console.error(error);
+            alert("Erro ao realizar logout");
+        }
+    }
+</script>
 </body>
 </html>

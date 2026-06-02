@@ -20,7 +20,7 @@
 <main>
   <div class="card">
     <img src="../assets/cadastro.webp" alt="Imagem de uma raposa na neve observando o ambiente"/>
-    <form th:action="@{/cadastro}" method="post">
+    <form id="formCadastro" method="post">
       <h1>Seja Bem-vindo!</h1>
       <label>Nome:</label>
       <input type="text" name="nome" id="nome" placeholder="Digite aqui seu nome" th:value="${nome}"/>
@@ -30,24 +30,16 @@
       <input type="email" name="email" id="email" placeholder="Digite aqui seu Email" th:value="${email}"/>
       <label>Senha:</label>
       <input type="password" name="senha" id="senha" placeholder="Senha" th:value="${senha}"/>
-      <b><label style="color:red">A senha tem que ter Letras Maisculas e Minusculas</label></b>
-      <b><label style="color:red">A senha tem que ter Numeros</label></b>
-      <b><label style="color:red">A senha tem que ter Caracteres especiais @!#$%.</label></b>
       <label>Confirmar Senha:</label>
       <input type="password" name="senha2" id="confirmarSenha" placeholder="Confirmar senha" th:value="${senha2}"/>
-      <b><label style="color:red">A confirmação de senha tem que ser igual a senha</label></b>
       <button type="button" onclick="mostrarSenha()" id="ver-senha">Ver senha</button>
       <div id="modalResponsavel" hidden>
         <h2>Email do Responsável</h2>
         <input type="email" name="emailResponsavel" placeholder="Digite o email do responsável" th:value="${emailResponsavel}">
         <button type="button" onclick="fecharModal()">Fechar</button>
       </div>
+      <div id="listaErros"></div>
       <input type="submit" value="Cadastrar"/>
-      <div th:if="${erros}">
-        <ul>
-          <li th:each="erro : ${erros}" th:text="${erro}"></li>
-        </ul>
-      </div>
       <div th:if="${mensagem}" id="popupEmail" class="alerta-email"><p th:text="${mensagem}"></p></div>
       <p>Já possui uma conta? <a href="login">Entre aqui!</a></p>
     </form>
@@ -82,8 +74,7 @@
   let mensagem =/*[[${mensagem}]]*/ null;
   if(mensagem){
       setTimeout(() => {
-          let popup =
-            document.getElementById("popupEmail");
+          let popup = document.getElementById("popupEmail");
           if(popup){
               popup.hidden = true;
           }
@@ -92,7 +83,6 @@
 </script>
 
 <!-- Sistema VLibras -->
-
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>
@@ -106,5 +96,43 @@
   new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 <!-- Fim conteúdo VLibras -->
+
+<!--SCRIPT DO CADASTRO QUE O CONECTA COM A API CADASTRO-->
+<script>
+  document.getElementById("formCadastro").addEventListener("submit",async function(e){
+  e.preventDefault();
+      const dados = {
+          nome:document.getElementById("nome").value,
+          idade:document.querySelector("input[name='idade']").value,
+          email:document.getElementById("email").value,
+          senha:document.getElementById("senha").value,
+          senha2:document.getElementById("confirmarSenha").value,
+          emailResponsavel:document.querySelector("input[name='emailResponsavel']")?.value
+      };
+      const response = await fetch( "/api/cadastro",{method: "POST",headers: {"Content-Type":"application/json"},
+      body:
+            JSON.stringify(dados)
+              }
+          );
+
+      let json;
+      try{
+          json = await response.json();
+      }catch(e){
+          console.error("Resposta inválida:");
+          console.error(await response.text());
+          return;
+      }
+      const lista =document.getElementById("listaErros");
+      lista.innerHTML = "";
+      if(!json.sucesso){
+          abrirModal();
+          json.erros.forEach(erro => {lista.innerHTML +=`<p style="color:red">${erro}</p>`;});
+          return;
+      }
+      alert(json.mensagem);
+      window.location.href ="/login";
+  });
+</script>
 </body>
 </html>

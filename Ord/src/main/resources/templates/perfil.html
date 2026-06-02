@@ -65,9 +65,7 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
-                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
-                    <button type="submit">Sair</button>
-                </form>
+                <button type="button" onclick="logout()">Desconectar</button>
             </ul>
         </div>
     </nav>
@@ -96,7 +94,10 @@
                 </div>
                 <div class="info-linha">
                     <span class="label">Informações do perfil</span>
-                    <a th:href="@{/nova-senha(token=${usuarioLogado.tokenVerificacao})}" alt="Mudar senha" class="link-mudar-senha">Mudar senha</a><
+                    <a th:href="@{/nova-senha(token=${usuarioLogado.tokenVerificacao})}"
+                       class="link-mudar-senha">
+                        Mudar senha
+                    </a>
                 </div>
                 <h3 style="color:black">Email: [[${usuarioLogado.email}]]</h3>
                 <div class="estatisticas">
@@ -172,16 +173,10 @@
             </div>
 
             <div class="card-busca">
-
                 <h3>Buscar usuários</h3>
-
                 <div class="campo-busca">
-                    <input type="text"
-                           id="searchUser"
-                           placeholder="Usuário...">
-                    <div id="searchResult"
-                         class="resultado-busca">
-                    </div>
+                    <input type="text" id="searchUser" placeholder="Usuário...">
+                    <div id="searchResult" class="resultado-busca"></div>
                 </div>
             </div>
             </div>
@@ -210,49 +205,90 @@
 </script>
 <!-- Fim conteúdo VLibras -->
 
-</body>
+<!--SCRIPT QUE CONECTA ESSA PAGINA COM A API DE AMIGOS-->
 <script>
-
     const input = document.getElementById("searchUser");
-    const resultado = document.getElementById("searchResult")
+    const resultado = document.getElementById("searchResult");
     const usuarioLogadoId = "[[${usuarioLogado.id}]]";
-    input.addEventListener("input", async () => {const texto = input.value;
-    if(texto.length < 1){
-         resultado.innerHTML = "";
-         return;
+    input.addEventListener("input", async () => {
+        const texto = input.value;
+        if(texto.length < 1){
+            resultado.innerHTML = "";
+            return;
         }
-    const response =await fetch(`/usuarios/busca?nome=${texto}`);
-    const usuarios = await response.json();
-    resultado.innerHTML = "";
-    usuarios.forEach(usuario => {
-      if(usuario.id === usuarioLogadoId){
-        return;
+        try {
+            const response = await fetch(`/usuarios/busca?nome=${encodeURIComponent(texto)}`);
+            if(!response.ok){
+                console.error("Erro ao buscar usuários");
+                return;
+            }
+            const usuarios = await response.json();
+            resultado.innerHTML = "";
+            usuarios.forEach(usuario => {
+                if(usuario.id === usuarioLogadoId){
+                    return;
+                }
+                resultado.innerHTML += `
+                    <div class="resultado-linha">
+                        <span>${usuario.nome}</span>
+                        <button class="btn-adicionar"onclick="adicionarAmigo('${usuario.id}')">Adicionar</button>
+                    </div>
+                `;
+            });
+        } catch(error){
+            console.error(error);
         }
-      resultado.innerHTML +=
-      `<div class="resultado-linha">
-          <span>${usuario.nome}</span>
-                <button class="btn-adicionar" onclick="adicionarAmigo('${usuario.id}')"> Adicionar</button>
-
-        </div>`;});});
+    });
     async function adicionarAmigo(amigoId){
-        await fetch(`/adicionar-amigo/${amigoId}`, {
-            method: "POST"
-        });
-
-        alert("Amigo adicionado!");
-        location.reload();
+        try {
+            const response = await fetch(`/api/amigos/${amigoId}`,{
+              method: "POST"
+                }
+            );
+            const json = await response.json();
+            alert(json.mensagem);
+            if(json.sucesso){
+                location.reload();
+            }
+        } catch(error){
+            console.error(error);
+            alert("Erro ao adicionar amigo");
+        }
     }
     async function removerAmigo(amigoId){
-
-        const response = await fetch(
-            `/remover-amigo/${amigoId}`,
-            {
-                method: "POST"
+        try {
+            const response = await fetch(
+                `/api/amigos/${amigoId}`,
+                {
+                    method: "DELETE"
+                }
+            );
+            const json = await response.json();
+            alert(json.mensagem);
+            if(json.sucesso){
+                location.reload();
             }
-        );
-        const mensagem = await response.text();
-        alert(mensagem);
-        location.reload();
+        } catch(error){
+            console.error(error);
+            alert("Erro ao remover amigo");
+        }
     }
 </script>
+
+<!--SCRIPT DO LOGOUT-->
+<script>
+    async function logout(){
+        try{
+            const response = await fetch("/api/logout",{method: "POST"});
+            const json = await response.json();
+            if(json.sucesso){
+                window.location.href = json.redirect;
+            }
+        }catch(error){
+            console.error(error);
+            alert("Erro ao realizar logout");
+        }
+    }
+</script>
+</body>
 </html>

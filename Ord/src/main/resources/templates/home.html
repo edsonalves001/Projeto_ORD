@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/assets/ico/logoOrd.jpeg" type="image/jpeg">
     <!-- FONTS: -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" th:href="@{/css/components/header.css}" />
     <link rel="stylesheet" th:href="@{/css/components/menu.css}" />
 
-    <title>Projeto ORD - Home</title>
+    <title>ORD - Home</title>
 </head>
 
 <body th:data-topico="${topicoNome}">
@@ -68,9 +68,7 @@
                     <img th:src="@{/assets/ico/settings.svg}" alt="ìcone de configurações">
                     <li>Configurações</li>
                 </a>
-                <form th:action="@{/usuario/logout/{id}(id=${usuarioLogado.id})}" method="post">
-                    <button type="submit">Sair</button>
-                </form>
+                <button type="button" onclick="logout()">Desconectar</button>
             </ul>
         </div>
     </nav>
@@ -147,6 +145,21 @@
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 <!-- Fim conteúdo VLibras -->
-</body>
 
+<!--SCRIPT DO LOGOUT-->
+<script>
+    async function logout(){
+        try{
+            const response = await fetch("/api/logout",{method: "POST"});
+            const json = await response.json();
+            if(json.sucesso){
+                window.location.href = json.redirect;
+            }
+        }catch(error){
+            console.error(error);
+            alert("Erro ao realizar logout");
+        }
+    }
+</script>
+</body>
 </html>
